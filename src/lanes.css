@@ -1,0 +1,20 @@
+.searchresult header {
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.searchresult header strong {
+  font-size: 150%;
+}
+
+.searchresult.green header {
+  background-color: #35B33D;
+}
+
+.searchresult.yellow header {
+  background-color: #FCFF4C;
+}
+
+.searchresult.red header {
+  background-color: #FF3E3E;
+}

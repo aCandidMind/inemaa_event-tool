@@ -10,7 +10,7 @@ module.exports = {
   entry: path.join(__dirname, 'app.js'),
 
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: '/',
     filename: '[name]-[chunkhash].js',
     publicPath: '/',
   },
@@ -65,6 +65,10 @@ module.exports = {
           `css?modules!postcss!sass!jsontosass?path=${themePath}`
         ),
       },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
+      }
     ],
   },
 };
