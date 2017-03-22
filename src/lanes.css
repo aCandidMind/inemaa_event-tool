@@ -12,6 +12,10 @@
   margin-bottom: 0.5rem;
 }
 
+.searchresult {
+  width: 22rem;
+}
+
 .searchresult header {
   height: 3.8rem;
   padding: 5px;
@@ -27,11 +31,13 @@
   width: 5%;
   vertical-align: top;
   margin: 0.3rem 2px 2px 2px;
+  float: left;
 }
 
 .searchresult header .cardTitle label {
   font-weight: bold;
-  width: 85%;
+  width: 84%;
+  float: left;
 }
 
 .searchresult header .cardLabel {

@@ -2,24 +2,107 @@
   "location": [
     {
       "title": "Kap Hanau am Fluß",
-      "tags": ["DGNP-Gold", "Green Meetings"],
+      "tags": [
+        "DGNP-Gold", "Green Meetings"
+      ],
       "footprint": 3,
       "color": "green"
     },
     {
       "title": "Hanau am Rhein, Berufsbildungswerk",
-      "tags": ["Ökostrom", "Solarenergie", "FSC-Papier", "ÖPNV"],
+      "tags": [
+        "Ökostrom", "Solarenergie", "FSC-Papier", "ÖPNV"
+      ],
       "footprint": 6,
       "color": "yellow"
     },
     {
       "title": "Hanauer Schul- und Bildungswerk",
-      "tags": ["Strommix", "JWD"],
+      "tags": [
+        "Strommix", "JWD"
+      ],
       "footprint": 20,
       "color": "red"
     }
   ],
+  "catering": [
+    {
+      "title": "Green Promotion",
+      "tags": ["Bio-zertifiziert"],
+      "footprint": 3,
+      "color": "green"
+    },
+    {
+      "title": "ABC-Eventmarketing",
+      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "footprint": 3,
+      "color": "yellow"
+    },
+    {
+      "title": "Merchandising Plaza",
+      "tags": ["Strommix", "JWD"],
+      "footprint": 3,
+      "color": "red"
+    }
+  ],
+  "mobilität": [
+    {
+      "title": "Green Promotion",
+      "tags": ["Bio-zertifiziert"],
+      "footprint": 3,
+      "color": "green"
+    },
+    {
+      "title": "ABC-Eventmarketing",
+      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "footprint": 3,
+      "color": "yellow"
+    },
+    {
+      "title": "Merchandising Plaza",
+      "tags": ["Strommix", "JWD"],
+      "footprint": 3,
+      "color": "red"
+    }
+  ],
+  "unterkunft": [
+    {
+      "title": "Green Promotion",
+      "tags": ["Bio-zertifiziert"],
+      "footprint": 3,
+      "color": "green"
+    },
+    {
+      "title": "ABC-Eventmarketing",
+      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "footprint": 3,
+      "color": "yellow"
+    },
+    {
+      "title": "Merchandising Plaza",
+      "tags": ["Strommix", "JWD"],
+      "footprint": 3,
+      "color": "red"
+    }
+  ],
   "merchandiser": [
-
+    {
+      "title": "Green Promotion",
+      "tags": ["Bio-zertifiziert"],
+      "footprint": 3,
+      "color": "green"
+    },
+    {
+      "title": "ABC-Eventmarketing",
+      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "footprint": 3,
+      "color": "yellow"
+    },
+    {
+      "title": "Merchandising Plaza",
+      "tags": ["Strommix", "JWD"],
+      "footprint": 3,
+      "color": "red"
+    }
   ]
 }
