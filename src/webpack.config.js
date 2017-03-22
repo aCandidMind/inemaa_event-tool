@@ -20,7 +20,6 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new HtmlWebpackPlugin({
-      title: 'inemaa',
       template: path.join(__dirname, 'index.html'),
       favicon: path.join(__dirname, 'favicon.ico'),
       inject: 'body',
@@ -68,6 +67,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: "file-loader?name=[name].[ext]",
       }
     ],
   },

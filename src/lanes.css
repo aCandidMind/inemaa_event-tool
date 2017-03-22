@@ -1,9 +1,44 @@
+#reportCallout {
+  margin-bottom: 0;
+  width: 33rem;
+}
+
+#reportCallout h6 {
+  font-weight: bold;
+  margin-top: 0.8rem;
+}
+
+#reportCallout img {
+  margin-bottom: 0.5rem;
+}
+
 .searchresult header {
+  height: 3.8rem;
   padding: 5px;
   border-radius: 3px;
 }
 
-.searchresult header strong {
+.searchresult header .cardTitle {
+  width: 100%;
+  max-width: 20rem;
+}
+
+.searchresult header .cardTitle input {
+  width: 5%;
+  vertical-align: top;
+  margin: 0.3rem 2px 2px 2px;
+}
+
+.searchresult header .cardTitle label {
+  font-weight: bold;
+  width: 85%;
+}
+
+.searchresult header .cardLabel {
+  width: 19%;
+}
+
+.searchresult header .cardLabel strong {
   font-size: 150%;
 }
 
@@ -16,5 +51,11 @@
 }
 
 .searchresult.red header {
-  background-color: #FF3E3E;
+  background-color: #ff6354;
+}
+
+.searchresult .resultTags span {
+  margin-right: 2px;
+  background-color: #e8e8e0;
+  color: #c78155;
 }
