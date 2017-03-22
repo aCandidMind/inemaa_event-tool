@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 
 // Styling
+import { Float } from 'react-foundation-components/lib/float';
 import { Callout } from 'react-foundation-components/lib/callout';
 import { MediaObjectSection, MediaObject } from 'react-foundation-components/lib/media-object';
 import { Button } from 'react-foundation-components/lib/button';
@@ -25,31 +26,33 @@ class ReportCallout extends Component {
     } = this.state;
 
     return (
-      <Callout color id="reportCallout">
-        <MediaObject>
-          <MediaObjectSection>
-            <img role="presentation" src={reportImage} /><br />
-            <Button onClick={this.handleShowReport}><i className="fi-print"></i>Auswahl drucken</Button>
-            <Reveal onHide={this.handleHideReport} show={showReport}>
-              <CloseButton onClick={this.handleHideReport} />
-              <h1>Ihre Auswahl</h1>
-              <ol>
-                <li>Kap Hanau am Fluß</li>
-                <li>Anderer Anbieter</li>
-                <li>Noch ein Anbieter</li>
-              </ol>
-            </Reveal>
-          </MediaObjectSection>
-          <MediaObjectSection>
-            <h6>Auswahl zusammenstellen und Drucken</h6>
-            <p>
-              Wählen sie unten aus den jeweiligen Bereichen so viele
-              Anbieter, wie sie wollen und lassen sie sich dann einen
-              ausdruckbaren Report anzeigen.
-            </p>
-          </MediaObjectSection>
-        </MediaObject>
-      </Callout>
+      <Float id="reportCallout" position="right">
+        <Callout>
+          <MediaObject>
+            <MediaObjectSection>
+              <img role="presentation" src={reportImage} /><br />
+              <Button onClick={this.handleShowReport}><i className="fi-print"></i>Auswahl drucken</Button>
+              <Reveal onHide={this.handleHideReport} show={showReport}>
+                <CloseButton onClick={this.handleHideReport} />
+                <h1>Ihre Auswahl</h1>
+                <ol>
+                  <li>Kap Hanau am Fluß</li>
+                  <li>Anderer Anbieter</li>
+                  <li>Noch ein Anbieter</li>
+                </ol>
+              </Reveal>
+            </MediaObjectSection>
+            <MediaObjectSection>
+              <h6>Auswahl zusammenstellen und Drucken</h6>
+              <p>
+                Wählen sie unten aus den jeweiligen Bereichen so viele
+                Anbieter, wie sie wollen und lassen sie sich dann einen
+                ausdruckbaren Report anzeigen.
+              </p>
+            </MediaObjectSection>
+          </MediaObject>
+        </Callout>
+      </Float>
     );
   }
 

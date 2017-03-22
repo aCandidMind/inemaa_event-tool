@@ -3,6 +3,9 @@ import React, {Component, PropTypes} from 'react';
 // Styling
 import { FormField, FormFieldInput, FormFieldLabel } from 'react-foundation-components/lib/forms';
 import { Label } from 'react-foundation-components/lib/label';
+import { Button } from 'react-foundation-components/lib/button';
+import { Float, ClearFix } from 'react-foundation-components/lib/float';
+
 import './lanes.css';
 
 
@@ -20,10 +23,15 @@ function getTitleMarkup(id, title) {
   );
 }
 
-function getTagsMarkup(tags) {
+function getContentMarkup(tags) {
   return (
     <div className="resultTags">
       {tags.map(tag => <Label color="primary">{tag}</Label>)}
+      <ClearFix>
+        <Float position="right">
+          <Button className="moreButton" color="secondary" size="tiny">MEHR</Button>
+        </Float>
+      </ClearFix>
     </div>
   );
 }
@@ -40,7 +48,7 @@ function enrichData(data) {
       const card = {
         id: id,
         title: getTitleMarkup(id, item.title),
-        description: getTagsMarkup(item.tags),
+        description: getContentMarkup(item.tags),
         label: [<strong>{item.footprint}</strong>, ' kg CO2/Gast'],
         metadata: {cssClassname: `searchresult ${item.color}`},
       };
@@ -53,7 +61,13 @@ function enrichData(data) {
 
 class Lanes extends Component {
   render() {
-    return <Board data={enrichData(data)} draggable={false} />;
+    return (
+      <ClearFix id="lanes">
+        <Float position="center" noWrap>
+          <Board data={enrichData(data)} draggable={false} />
+        </Float>
+      </ClearFix>
+    );
   }
 }
 

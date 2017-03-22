@@ -1,10 +1,16 @@
 {
   "foundation-palette": {
     "primary": "#f1d204",
-    "secondary": "#800080",
+    "secondary": "#BBBBBB",
     "success": "#3adb76",
     "warning": "#ffae00",
     "alert": "#ec5840"
   },
-  "label-font-size": "0.8rem"
+  "label-font-size": "0.8rem",
+  "button-sizes": {
+    "tiny": "0.5rem",
+    "small": "0.75rem",
+    "default": "0.9rem",
+    "large": "1.25rem"
+  }
 }

@@ -1,6 +1,10 @@
+#lanes > div {
+  height: 100%;
+}
+
 #reportCallout {
-  margin-bottom: 0;
   width: 33rem;
+  margin: 0 0.7rem;
 }
 
 #reportCallout h6 {
@@ -64,4 +68,8 @@
   margin-right: 2px;
   background-color: #e8e8e0;
   color: #c78155;
+}
+
+.searchresult .resultTags .moreButton {
+  margin: 10px 0 0;
 }

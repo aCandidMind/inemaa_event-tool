@@ -10,8 +10,8 @@ import 'react-foundation-components/lib/_typography.scss';
 
 const App = () => (
   <div>
-    <ReportCallout />
     <Lanes />
+    <ReportCallout />
   </div>
 );
 
