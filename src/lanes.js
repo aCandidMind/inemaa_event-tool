@@ -29,7 +29,7 @@ function getContentMarkup(tags) {
       {tags.map(tag => <Label color="primary">{tag}</Label>)}
       <ClearFix>
         <Float position="right">
-          <Button className="moreButton" color="secondary" size="tiny">MEHR</Button>
+          <Button className="moreButton" color="secondary" size="tiny">mehr ...</Button>
         </Float>
       </ClearFix>
     </div>
