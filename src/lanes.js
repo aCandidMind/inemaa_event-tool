@@ -9,6 +9,8 @@ import './lanes.css';
 // Board component to create lanes
 import { Board } from 'react-trello';
 
+const data = require("json!./data.json");
+
 function getTitleMarkup(id, title) {
   return (
     <FormField id={id}>
@@ -18,7 +20,7 @@ function getTitleMarkup(id, title) {
   );
 }
 
-function getTagsMarkup(...tags) {
+function getTagsMarkup(tags) {
   return (
     <div className="resultTags">
       {tags.map(tag => <Label color="primary">{tag}</Label>)}
@@ -26,46 +28,32 @@ function getTagsMarkup(...tags) {
   );
 }
 
-const data = {
-  lanes: [
-    {
-      id: 'location',
-      title: 'Location',
-      cards: [
-        {
-          id: '1',
-          title: getTitleMarkup('1', 'Kap Hanau am Fluß'),
-          description: getTagsMarkup('DGNP-Gold', 'Green Meetings'),
-          label: [<strong>3</strong>, ' kg CO2/Gast'],
-          metadata: {cssClassname: 'searchresult green'},
-        },
-        {
-          id: '2',
-          title: getTitleMarkup('2', 'Hanau am Rhein, Berufsbildungswerk'),
-          description: getTagsMarkup('Ökostrom', 'Solarenergie', 'FSC-Papier', 'ÖPNV'),
-          label: [<strong>6</strong>, ' kg CO2/Gast'],
-          metadata: {cssClassname: 'searchresult yellow'},
-        },
-        {
-          id: '3',
-          title: getTitleMarkup('3', 'Hanauer Schul- und Bildungswerk'),
-          description: getTagsMarkup('Strommix', 'JWD'),
-          label: [<strong>20</strong>, ' kg CO2/Gast'],
-          metadata: {cssClassname: 'searchresult red'},
-        },
-      ]
-    },
-    {
-      id: 'merchandiser',
-      title: 'Merchandiser',
-      cards: []
-    }
-  ]
-};
+function enrichData(data) {
+  const enrichedData = {
+    lanes: [
+    ]
+  };
+  Object.keys(data).forEach((key) => {
+    const lane = {id: key, title: key.toUpperCase(), cards: []};
+    data[key].forEach((item, i) => {
+      const id = `${key}_${i}`;
+      const card = {
+        id: id,
+        title: getTitleMarkup(id, item.title),
+        description: getTagsMarkup(item.tags),
+        label: [<strong>{item.footprint}</strong>, ' kg CO2/Gast'],
+        metadata: {cssClassname: `searchresult ${item.color}`},
+      };
+      lane.cards.push(card);
+    });
+    enrichedData.lanes.push(lane);
+  });
+  return enrichedData;
+}
 
 class Lanes extends Component {
   render() {
-    return <Board data={data} draggable={false} />;
+    return <Board data={enrichData(data)} draggable={false} />;
   }
 }
 

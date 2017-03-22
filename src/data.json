@@ -1,0 +1,25 @@
+{
+  "location": [
+    {
+      "title": "Kap Hanau am Fluß",
+      "tags": ["DGNP-Gold", "Green Meetings"],
+      "footprint": 3,
+      "color": "green"
+    },
+    {
+      "title": "Hanau am Rhein, Berufsbildungswerk",
+      "tags": ["Ökostrom", "Solarenergie", "FSC-Papier", "ÖPNV"],
+      "footprint": 6,
+      "color": "yellow"
+    },
+    {
+      "title": "Hanauer Schul- und Bildungswerk",
+      "tags": ["Strommix", "JWD"],
+      "footprint": 20,
+      "color": "red"
+    }
+  ],
+  "merchandiser": [
+
+  ]
+}
