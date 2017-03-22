@@ -3,13 +3,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import LanesContainer from './lanes';
+import ReportCallout from './report';
+import Lanes from './lanes';
 
 import 'react-foundation-components/lib/_typography.scss';
 
 const App = () => (
   <div>
-    <LanesContainer />
+    <ReportCallout />
+    <Lanes />
   </div>
 );
 

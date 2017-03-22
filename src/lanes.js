@@ -1,13 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 
 // Styling
-import { Callout } from 'react-foundation-components/lib/callout';
-import { MediaObjectSection, MediaObject } from 'react-foundation-components/lib/media-object';
-import { Button } from 'react-foundation-components/lib/button';
 import { FormField, FormFieldInput, FormFieldLabel } from 'react-foundation-components/lib/forms';
 import { Label } from 'react-foundation-components/lib/label';
 import './lanes.css';
-import reportImage from './report.png';
+
 
 // Board component to create lanes
 import { Board } from 'react-trello';
@@ -66,30 +63,10 @@ const data = {
   ]
 };
 
-class LanesContainer extends Component {
-  render () {
-    return (
-      <div>
-        <Callout color id="reportCallout">
-          <MediaObject>
-            <MediaObjectSection>
-              <img role="presentation" src={reportImage} /><br />
-              <Button><i className="fi-print"></i>Auswahl drucken</Button>
-            </MediaObjectSection>
-            <MediaObjectSection>
-              <h6>Auswahl zusammenstellen und Drucken</h6>
-              <p>
-                Wählen sie unten aus den jeweiligen Bereichen so viele
-                Anbieter, wie sie wollen und lassen sie sich dann einen
-                ausdruckbaren Report anzeigen.
-              </p>
-            </MediaObjectSection>
-          </MediaObject>
-        </Callout>
-        <Board data={data} draggable={false} />
-      </div>
-    );
+class Lanes extends Component {
+  render() {
+    return <Board data={data} draggable={false} />;
   }
 }
 
-export default LanesContainer;
+export default Lanes;
