@@ -22,7 +22,7 @@
 }
 
 .searchresult {
-  width: 22rem;
+  width: 100%;
 }
 
 .searchresult header {
@@ -45,16 +45,13 @@
 
 .searchresult header .cardTitle label {
   font-weight: bold;
-  width: 84%;
+  width: 80%;
   float: left;
 }
 
 .searchresult header .cardLabel {
   width: 19%;
-}
-
-.searchresult header .cardLabel strong {
-  font-size: 150%;
+  display: inline-table;
 }
 
 .searchresult.green header {
@@ -76,5 +73,5 @@
 }
 
 .searchresult .resultTags .moreButton {
-  margin: 10px 0 0;
+  margin: 5px;
 }

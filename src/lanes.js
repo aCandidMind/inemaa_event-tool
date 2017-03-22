@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
 // Styling
-import { FormField, FormFieldInput, FormFieldLabel } from 'react-foundation-components/lib/forms';
 import { Float, ClearFix } from 'react-foundation-components/lib/float';
 
 import './lanes.css';
@@ -10,6 +9,7 @@ import './lanes.css';
 import { Board } from 'react-trello';
 
 const data = require("json!./data.json");
+import CardHeader from './cardHeader';
 import CardContent from './cardContent';
 
 class Lanes extends Component {
@@ -24,13 +24,13 @@ class Lanes extends Component {
     );
   }
 
-  getTitleMarkup(id, title) {
-    return (
-      <FormField id={id}>
-        <FormFieldInput type="checkbox" />
-        <FormFieldLabel>{title}</FormFieldLabel>
-      </FormField>
-    );
+  getCardTitleMarkup(id, title) {
+    return <CardHeader id={id} title={title} />;
+  }
+
+  getCardLabelMarkup(id, card) {
+    const label = [<strong>{card.footprint}</strong>, ' kg CO2/Gast'];
+    return <CardHeader id={id} className="cardLabel" label={label} />;
   }
 
   getContentMarkup(kind, card) {
@@ -48,9 +48,9 @@ class Lanes extends Component {
         const id = `${key}_${i}`;
         const card = {
           id: id,
-          title: this.getTitleMarkup(id, item.title),
+          title: this.getCardTitleMarkup(id, item.title),
           description: this.getContentMarkup(key, item),
-          label: [<strong>{item.footprint}</strong>, ' kg CO2/Gast'],
+          label: this.getCardLabelMarkup(id, item),
           metadata: {cssClassname: `searchresult ${item.color}`},
         };
         lane.cards.push(card);
