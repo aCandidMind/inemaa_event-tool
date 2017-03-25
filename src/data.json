@@ -27,19 +27,19 @@
   ],
   "catering": [
     {
-      "title": "Green Promotion",
-      "tags": ["Bio-zertifiziert"],
+      "title": "Hans Mampf",
+      "tags": ["Öko-zertifiziert"],
       "footprint": 3,
       "color": "green"
     },
     {
-      "title": "ABC-Eventmarketing",
-      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "title": "Bio-Tellerchen",
+      "tags": ["Ökostrom", "Solarenergie"],
       "footprint": 3,
       "color": "yellow"
     },
     {
-      "title": "Merchandising Plaza",
+      "title": "Zum Röhrenden Hirschen",
       "tags": ["Strommix", "JWD"],
       "footprint": 3,
       "color": "red"
@@ -47,39 +47,39 @@
   ],
   "mobilität": [
     {
-      "title": "Green Promotion",
-      "tags": ["Bio-zertifiziert"],
+      "title": "Fahrrad",
+      "tags": ["eigenes Fahrrad", "Bike-Sharing"],
       "footprint": 3,
       "color": "green"
     },
     {
-      "title": "ABC-Eventmarketing",
-      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "title": "ÖPNV",
+      "tags": ["Ökostrom"],
       "footprint": 3,
       "color": "yellow"
     },
     {
-      "title": "Merchandising Plaza",
-      "tags": ["Strommix", "JWD"],
+      "title": "DB",
+      "tags": ["Strommix"],
       "footprint": 3,
       "color": "red"
     }
   ],
   "unterkunft": [
     {
-      "title": "Green Promotion",
-      "tags": ["Bio-zertifiziert"],
+      "title": "Bio-Hotel Eggensberger",
+      "tags": ["Öko-zertifiziert", "Green-Meetings"],
       "footprint": 3,
       "color": "green"
     },
     {
-      "title": "ABC-Eventmarketing",
-      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
+      "title": "Bio-Tellerchen, Bistro",
+      "tags": ["Ökostrom", "Solarenergie", "FSC"],
       "footprint": 3,
       "color": "yellow"
     },
     {
-      "title": "Merchandising Plaza",
+      "title": "Zum Röhrenden Hirschen",
       "tags": ["Strommix", "JWD"],
       "footprint": 3,
       "color": "red"
