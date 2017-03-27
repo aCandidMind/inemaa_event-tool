@@ -45,7 +45,7 @@ class CardContent extends Component {
             <Reveal onHide={this.handleHideDetail} show={showDetail}>
               <CloseButton onClick={this.handleHideDetail} />
               <h1>{card.title} <small>{kind}</small></h1>
-              <img role="presentation" src={detailPages[kind === 'mobilität' ? 'mobility' : kind]} />
+              <img role="presentation" src={detailPages[kind]} />
             </Reveal>
           </Float>
         </ClearFix>
