@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div id="splashContainer">
       <a href="http://localhost:3000/#mapSummer">
-        <img id="map" role="presentation" src="http://localhost:3000/map_summer.png" />
+        <img id="map" role="presentation" src="http://localhost:3000/map_summer.jpg" />
       </a>
     </div>
   );
