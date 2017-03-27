@@ -6,6 +6,7 @@ html, body {
 #splashContainer {
   width: 100%;
   height: 100%;
+  justify-content: center;
 }
 
 #splashContainer a {
