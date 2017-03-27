@@ -7,7 +7,10 @@ const autoprefixer = require('autoprefixer');
 const themePath = path.join(__dirname, 'theme.json');
 
 module.exports = {
-  entry: path.join(__dirname, 'app.js'),
+  entry: {
+    main: path.join(__dirname, 'app.js'),
+    splash: path.join(__dirname, 'splash.js'),
+  },
 
   output: {
     path: '/',
@@ -24,7 +27,15 @@ module.exports = {
       favicon: path.join(__dirname, 'favicon.ico'),
       inject: 'body',
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'index.html'),
+      favicon: path.join(__dirname, 'favicon.ico'),
+      inject: 'body',
+      filename: 'splash.html',
+      chunks: ['splash']
+    }),
     new ExtractTextPlugin('main-[contenthash].css'),
+    new ExtractTextPlugin('splash-[contenthash].css'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
