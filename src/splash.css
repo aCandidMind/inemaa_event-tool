@@ -4,6 +4,10 @@ html, body {
 }
 
 #splashContainer {
-  /*background-color: #c78155;*/
-  /*height: 100%;*/
+  width: 100%;
+  height: 100%;
+}
+
+#splashContainer a {
+  height: 100%;
 }
