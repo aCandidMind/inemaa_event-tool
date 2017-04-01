@@ -11,16 +11,14 @@ import './splashFilters.jpg';
 
 import 'react-foundation-components/lib/_typography.scss';
 
-const App = () => {
+export default () => {
   return (
     <FlexParent id="splashContainer" horizontalAlignment="middle" verticalAlignment="middle">
       <FlexChild>
-        <a href="http://localhost:3000/#mapSummer">
-          <img id="map" role="presentation" src="http://localhost:3000/splashFilters.jpg" />
+        <a href="index.html#mapSummer">
+          <img id="map" role="presentation" src="splashFilters.jpg" />
         </a>
       </FlexChild>
     </FlexParent>
   );
 };
-
-ReactDOM.render(<App />, document.getElementById('app'));

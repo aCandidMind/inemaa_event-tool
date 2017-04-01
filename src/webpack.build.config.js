@@ -6,33 +6,29 @@ const autoprefixer = require('autoprefixer');
 
 const themePath = path.join(__dirname, 'theme.json');
 
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+
 module.exports = {
   entry: {
-    main: path.join(__dirname, 'appRender.js'),
-    splash: path.join(__dirname, 'splashRender.js'),
+    main: path.join(__dirname, 'appStatic.js'),
+    splashChunk: path.join(__dirname, 'splashStatic.js'),
   },
+//  entry: {
+//    main: path.join(__dirname, 'appStatic.js'),
+//    splashChunk: path.join(__dirname, 'splashStatic.js'),
+//  },
+//  main: path.join(__dirname, 'appStatic.js'),
 
   output: {
-    path: '/',
-    filename: '[name]-[chunkhash].js',
-    publicPath: '/',
+    path: 'dist',
+    filename: '[name].js',
+    //publicPath: '/eventTool',
+    libraryTarget: 'umd'
   },
 
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
-      favicon: path.join(__dirname, 'favicon.ico'),
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
-      favicon: path.join(__dirname, 'favicon.ico'),
-      inject: 'body',
-      filename: 'splash.html',
-      chunks: ['splash']
     }),
     new ExtractTextPlugin('main-[contenthash].css'),
     new ExtractTextPlugin('splash-[contenthash].css'),
@@ -40,6 +36,15 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
+    new StaticSiteGeneratorPlugin({
+        paths: [
+            'splashChunk',
+            'main'
+        ],
+        globals: {
+          window: {}
+        }
+    })
   ],
 
   sassLoader: {
@@ -72,7 +77,7 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style',
-          `css?modules!postcss!sass!jsontosass?path=${themePath}`
+          'css?modules!postcss!sass!jsontosass?path='+themePath
         ),
       },
       {
@@ -82,6 +87,10 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: "file-loader?name=[name].[ext]",
+      },
+      {
+        test: /\.ejs$/,
+        loader: "ejs-compiled",
       }
     ],
   },

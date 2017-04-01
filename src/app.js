@@ -9,7 +9,7 @@ import * as maps from './maps';
 
 import 'react-foundation-components/lib/_typography.scss';
 
-const App = () => {
+export default () => {
   const mapFile = location.hash.replace('#', '');
   return (
     <div id="appContainer">
@@ -19,5 +19,3 @@ const App = () => {
     </div>
   );
 };
-
-ReactDOM.render(<App />, document.getElementById('app'));
