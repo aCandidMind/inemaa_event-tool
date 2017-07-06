@@ -29,7 +29,7 @@ class Lanes extends Component {
   }
 
   getCardLabelMarkup(id, card) {
-    const label = [<strong>{card.footprint}</strong>, ' kg CO2/Gast'];
+    const label = [<strong key={id + '_fp'}>{card.footprint}</strong>, ' kg CO2/Gast'];
     return <CardHeader id={id} className="cardLabel" label={label} />;
   }
 

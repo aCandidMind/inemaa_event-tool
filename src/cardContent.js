@@ -31,7 +31,7 @@ class CardContent extends Component {
 
     return (
       <div className="resultTags">
-        {card.tags.map(tag => <Label color="primary">{tag}</Label>)}
+        {card.tags.map(tag => <Label key={tag} color="primary">{tag}</Label>)}
         <ClearFix>
           <Float position="right">
             <Button
