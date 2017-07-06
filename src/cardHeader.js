@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 
 // Styling
-import { FormField, FormFieldInput, FormFieldLabel } from 'react-foundation-components/lib/forms';
+import { FormField, FormFieldLabel } from 'react-foundation-components/lib/forms';
 import { Reveal } from 'react-foundation-components/lib/reveal';
 import { CloseButton } from 'react-foundation-components/lib/close-button';
 import { Callout } from 'react-foundation-components/lib/callout';
@@ -31,7 +31,6 @@ class CardHeader extends Component {
 
     return (
       <FormField id={id}>
-        <FormFieldInput type="checkbox" />
         <FormFieldLabel onClick={this.handleShowDetail}>
           {title}
         </FormFieldLabel>
