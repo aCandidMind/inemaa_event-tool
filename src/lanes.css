@@ -18,6 +18,7 @@ html, body {
 }
 
 #reportCallout {
+  display: none;
   width: 33rem;
   margin: 0 0.7rem;
 }
