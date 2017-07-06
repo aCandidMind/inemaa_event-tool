@@ -1,44 +1,59 @@
 {
   "location": [
     {
+      "id": 1,
       "title": "Kap Hanau am Fluß",
       "tags": [
         "DGNP-Gold", "Green Meetings"
       ],
       "footprint": 3,
-      "color": "green"
+      "color": "green",
+      "associations": {
+        "catering": [{"id": 1}, {"id": 2}]
+      }
     },
     {
+      "id": 2,
       "title": "Hanau am Rhein, Mehrzweckhalle",
       "tags": [
         "Ökostrom", "Solarenergie", "FSC-Papier", "ÖPNV"
       ],
       "footprint": 6,
-      "color": "white"
+      "color": "white",
+      "associations": {
+        "catering": [{"id": 3, "kind": "forced"}]
+      }
     },
     {
+      "id": 3,
       "title": "Hanauer Schul- und Bildungswerk",
       "tags": [
         "Strommix", "JWD"
       ],
       "footprint": 12,
-      "color": "white"
+      "color": "white",
+      "associations": {
+        "catering": [{"id": 2, "kind": "rebate"}]
+      }
     }
   ],
   "catering": [
     {
+      "id": 1,
       "title": "Hans Mampf",
       "tags": ["Öko-zertifiziert"],
       "footprint": 3,
       "color": "green"
     },
     {
+      "id": 2,
       "title": "Bio-Tellerchen",
       "tags": ["Ökostrom", "Solarenergie"],
       "footprint": 3,
       "color": "white"
     },
     {
+      "id": 3,
       "title": "Zum Röhrenden Hirschen",
       "tags": ["Strommix", "JWD"],
       "footprint": 8,
