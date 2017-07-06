@@ -96,7 +96,7 @@ class CardHeader extends Component {
 CardHeader.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.array,
 };
 
 export default CardHeader;
