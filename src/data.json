@@ -14,7 +14,7 @@
         "Ökostrom", "Solarenergie", "FSC-Papier", "ÖPNV"
       ],
       "footprint": 6,
-      "color": "yellow"
+      "color": "white"
     },
     {
       "title": "Hanauer Schul- und Bildungswerk",
@@ -22,7 +22,7 @@
         "Strommix", "JWD"
       ],
       "footprint": 12,
-      "color": "red"
+      "color": "white"
     }
   ],
   "catering": [
@@ -36,73 +36,13 @@
       "title": "Bio-Tellerchen",
       "tags": ["Ökostrom", "Solarenergie"],
       "footprint": 3,
-      "color": "yellow"
+      "color": "white"
     },
     {
       "title": "Zum Röhrenden Hirschen",
       "tags": ["Strommix", "JWD"],
       "footprint": 8,
-      "color": "red"
-    }
-  ],
-  "transport": [
-    {
-      "title": "Fahrrad",
-      "tags": ["eigenes Fahrrad", "Bike-Sharing"],
-      "footprint": 1,
-      "color": "green"
-    },
-    {
-      "title": "ÖPNV",
-      "tags": ["Ökostrom"],
-      "footprint": 4,
-      "color": "yellow"
-    },
-    {
-      "title": "DB",
-      "tags": ["Strommix"],
-      "footprint": 4,
-      "color": "red"
-    }
-  ],
-  "unterkunft": [
-    {
-      "title": "Bio-Hotel Eggensberger",
-      "tags": ["Öko-zertifiziert", "Green-Meetings"],
-      "footprint": 1,
-      "color": "green"
-    },
-    {
-      "title": "Villa Orange, Bistro",
-      "tags": ["Ökostrom", "Solarenergie", "FSC"],
-      "footprint": 2,
-      "color": "yellow"
-    },
-    {
-      "title": "Zum Röhrenden Hirschen",
-      "tags": ["Strommix", "JWD"],
-      "footprint": 3,
-      "color": "red"
-    }
-  ],
-  "merchandiser": [
-    {
-      "title": "Green Promotion",
-      "tags": ["Bio-zertifiziert"],
-      "footprint": 2,
-      "color": "green"
-    },
-    {
-      "title": "ABC-Eventmarketing",
-      "tags": ["Ökostrom", "FSC-Papier", "ÖPNV"],
-      "footprint": 3,
-      "color": "yellow"
-    },
-    {
-      "title": "Deko Plaza",
-      "tags": ["Strommix", "JWD"],
-      "footprint": 5,
-      "color": "red"
+      "color": "white"
     }
   ]
 }

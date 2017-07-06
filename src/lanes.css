@@ -5,10 +5,16 @@ html, body {
 #map {
   width: 100%;
   height: 600px;
+  display: none;
 }
 
 #lanes > div {
   height: 100%;
+}
+
+#lanes section {
+  width: 40%;
+  margin: 50px;
 }
 
 #reportCallout {
@@ -55,18 +61,15 @@ html, body {
 
 .searchresult header .cardLabel {
   width: 19%;
-  display: inline-table;
+  /*display: inline-table;*/
+  display: none;
 }
 
 .searchresult.green header {
   background-color: #35B33D;
 }
 
-.searchresult.yellow header {
-  background-color: #FCFF4C;
-}
-
-.searchresult.red header {
+.searchresult.white header {
   background-color: #ffffff;
 }
 
