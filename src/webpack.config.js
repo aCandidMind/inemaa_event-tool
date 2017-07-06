@@ -37,7 +37,6 @@ module.exports = {
     new ExtractTextPlugin('main-[contenthash].css'),
     new ExtractTextPlugin('splash-[contenthash].css'),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
   ],
 
