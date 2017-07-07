@@ -8,13 +8,17 @@ html, body {
   display: none;
 }
 
+#meter {
+  margin: 20px 56px;
+}
+
 #lanes > div {
   height: 100%;
 }
 
 #lanes section {
   width: 40%;
-  margin: 50px;
+  margin: 0 50px 20px;
 }
 
 #reportCallout {

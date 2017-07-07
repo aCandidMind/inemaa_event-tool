@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "foundation-sites": "~6.2.4",
+    "rc-progress": "~2.2.1",
     "react": "~15.4.2",
     "react-dom": "~15.4.2",
     "react-foundation-components": "0.12.0",
