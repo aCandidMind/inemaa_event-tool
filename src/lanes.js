@@ -29,7 +29,7 @@ class Lanes extends Component {
           <Board
             data={this.state.data}
             onCardClick={(cardId, cardMetadata) => this.handleCardClick(cardId, cardMetadata)}
-            eventBusHandle={this.setBoardEventBus}
+            eventBusHandle={(handle) => this.boardEventBus = handle}
             draggable={false} />
         </Float>
       </ClearFix>
@@ -43,15 +43,11 @@ class Lanes extends Component {
     }
   }
 
-  setBoardEventBus = (handle) => {
-    this.boardEventBus = handle;
-  };
-
   handleCardClick(cardId, cardMetadata) {
     console.log("handleCardClick", cardId);
     if (cardMetadata.type === 'location') {
       const associations = cardMetadata && cardMetadata.associations || [];
-      console.log(associations.catering.map((c) => c.id));
+      console.log("setState will be called with these ids", associations.catering.map((c) => c.id));
       this.setState({cardId, cardMetadata, data: this.enrichData(data, associations)});
     }
   }
