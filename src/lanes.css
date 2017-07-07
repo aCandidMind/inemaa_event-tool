@@ -27,6 +27,11 @@ html, body {
   z-index: 9999;
 }
 
+.needle span {
+  position: absolute;
+  left: 25px;
+}
+
 #reference_needle {
   left: 60px;
 }

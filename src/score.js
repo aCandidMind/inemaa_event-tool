@@ -9,8 +9,14 @@ class Score extends Component {
   render() {
     return (
       <div id="meter">
-        <img id="reference_needle" className="needle" src={imgs['pinBlue']} />
-        <img id="optimum_needle" className="needle" src={imgs['pinGreen']} />
+        <div id="reference_needle" className="needle">
+          <span>R</span>
+          <img src={imgs['pinBlue']} />
+        </div>
+        <div id="optimum_needle" className="needle">
+          <span>O</span>
+          <img src={imgs['pinGreen']} />
+        </div>
         <LineProgress percent="30"
                       strokeWidth="3" strokeColor="#00FF00"
                       trailWidth="3.5" />
