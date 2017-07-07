@@ -17,7 +17,8 @@ class Lanes extends Component {
 
   state = {
     cardId: firstLocation.id,
-    cardMetadata: {associations: firstLocation.associations}
+    cardMetadata: {associations: firstLocation.associations},
+    data: this.enrichData(data, firstLocation.associations),
   };
 
   render() {
@@ -26,28 +27,41 @@ class Lanes extends Component {
       <ClearFix id="lanes">
         <Float position="center" noWrap>
           <Board
-            data={this.enrichData(data)}
+            data={this.state.data}
             onCardClick={(cardId, cardMetadata) => this.handleCardClick(cardId, cardMetadata)}
+            eventBusHandle={this.setBoardEventBus}
             draggable={false} />
         </Float>
       </ClearFix>
     );
   }
 
-  handleCardClick(cardId, cardMetadata) {
-    console.log("handleCardClick", cardId);
-    if (cardMetadata.type === 'location') {
-      console.log(cardMetadata.associations.catering.map((c) => c.id));
-      this.setState({cardId, cardMetadata});
+  componentWillUpdate(nextProps, nextState) {
+    if (this.boardEventBus) {
+      console.log('REFRESH_BOARD', nextState.data.lanes[1].cards.map((c) => c.id));
+      this.boardEventBus.publish({type: 'REFRESH_BOARD', data: nextState.data});
     }
   }
 
-  enrichData(data) {
+  setBoardEventBus = (handle) => {
+    this.boardEventBus = handle;
+  };
+
+  handleCardClick(cardId, cardMetadata) {
+    console.log("handleCardClick", cardId);
+    if (cardMetadata.type === 'location') {
+      const associations = cardMetadata && cardMetadata.associations || [];
+      console.log(associations.catering.map((c) => c.id));
+      this.setState({cardId, cardMetadata, data: this.enrichData(data, associations)});
+    }
+  }
+
+  enrichData(data, associations) {
     const enrichedData = {
       lanes: [
       ]
     };
-    const associations = this.state.cardMetadata && this.state.cardMetadata.associations || [];
+    console.log("associations", associations);
     Object.keys(data).forEach((key) => {
       const lane = {id: key, title: key.toUpperCase(), cards: []};
       data[key].forEach((item) => {
@@ -97,4 +111,5 @@ function findAssociationById(associations, key, id) {
     return association.id === id;
   })
 }
+
 export default Lanes;
