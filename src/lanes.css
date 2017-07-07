@@ -10,6 +10,29 @@ html, body {
 
 #meter {
   margin: 20px 56px;
+  position: relative;
+  height: 4em;
+}
+
+#meter svg {
+  position: absolute;
+  top: 60%;
+}
+
+.needle {
+  position: absolute;
+  top: 3px;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+}
+
+#reference_needle {
+  left: 60px;
+}
+
+#optimum_needle {
+  left: 300px;
 }
 
 #lanes > div {

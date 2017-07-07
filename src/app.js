@@ -8,6 +8,7 @@ import { Line as LineProgress } from 'rc-progress';
 import ReportCallout from './report';
 import Lanes from './lanes';
 import * as maps from './maps';
+import * as imgs from './imgs';
 
 import 'react-foundation-components/lib/_typography.scss';
 
@@ -16,7 +17,13 @@ const App = () => {
   return (
     <div id="appContainer">
       <img id="map" role="presentation" src={maps[mapFile]} />
-      <LineProgress id="meter" percent="30" strokeWidth="1" strokeColor="#00FF00" trailWidth="0.5" />
+      <div id="meter">
+        <img id="reference_needle" className="needle" src={imgs['pinBlue']} />
+        <img id="optimum_needle" className="needle" src={imgs['pinGreen']} />
+        <LineProgress percent="30"
+                      strokeWidth="3" strokeColor="#00FF00"
+                      trailWidth="3.5" />
+      </div>
       <Lanes />
       <ReportCallout />
     </div>
