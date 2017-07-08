@@ -28,15 +28,28 @@
     },
     {
       "id": 3,
-      "title": "Hanauer Schul- und Bildungswerk",
+      "title": "Genau Referenzpunktzahl",
+      "tags": [
+        "Strommix", "JWD"
+      ],
+      "footprint": 12,
+      "color": "green",
+      "score": 60,
+      "associations": {
+        "catering": [{"id": 2}, {"id": 3}]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Irgendwas nicht so Gutes",
       "tags": [
         "Strommix", "JWD"
       ],
       "footprint": 12,
       "color": "white",
-      "score": 60,
+      "score": 33,
       "associations": {
-        "catering": [{"id": 2, "kind": "rebate"}]
+        "catering": [{"id": 3, "kind": "rebate"}]
       }
     }
   ],
@@ -59,7 +72,7 @@
     },
     {
       "id": 3,
-      "title": "Zum Röhrenden Hirschen",
+      "title": "Nicht so ökologisches Catering",
       "tags": ["Strommix", "JWD"],
       "footprint": 8,
       "color": "white",
