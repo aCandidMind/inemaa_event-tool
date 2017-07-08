@@ -37,7 +37,7 @@ class Lanes extends Component {
   }
 
   componentDidMount() {
-    this.props.publishLaneChoice(this.state.cardMetadata.score);
+    this.props.publishLaneChoice(this.state.cardMetadata.score, 'location');
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -54,7 +54,7 @@ class Lanes extends Component {
       console.log("setState will be called with these ids", associations.catering.map((c) => c.id));
       this.setState({cardId, cardMetadata, data: this.enrichData(data, associations)});
     }
-    this.props.publishLaneChoice(cardMetadata.score);
+    this.props.publishLaneChoice(cardMetadata.score, cardMetadata.type);
   }
 
   enrichData(data, associations) {

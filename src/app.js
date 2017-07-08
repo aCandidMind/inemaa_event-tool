@@ -14,15 +14,15 @@ const App = () => {
   let scoreComponent = null;
   const mapFile = location.hash.replace('#', '');
 
-  function publishLaneChoice(score) {
-    scoreComponent.setScore(score);
+  function publishLaneChoice(score, type) {
+    scoreComponent.setScore(score, type);
   }
 
   return (
     <div id="appContainer">
       <img id="map" role="presentation" src={maps[mapFile]} />
       <Score ref={(comp) => scoreComponent = comp} />
-      <Lanes publishLaneChoice={(score) => publishLaneChoice(score)} />
+      <Lanes publishLaneChoice={publishLaneChoice} />
       <ReportCallout />
     </div>
   );

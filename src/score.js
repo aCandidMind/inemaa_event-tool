@@ -8,9 +8,6 @@ const scoreLookup = {
   location: {reference: 60, optimum: 200},
   catering: {reference: 150, optimum: 200},
 };
-const sumReferences = Object.keys(scoreLookup)
-                            .map(key => scoreLookup[key].reference)
-                            .reduce((acc, val) => acc + val, 0);
 const sumOptima = Object.keys(scoreLookup)
                         .map(key => scoreLookup[key].optimum)
                         .reduce((acc, val) => acc + val, 0);
@@ -19,7 +16,6 @@ class Score extends Component {
 
   state = {
     curReference: scoreLookup.location.reference,
-    sumReferences: sumReferences,
     curOptimum: scoreLookup.location.optimum,
     sumOptima: sumOptima,
     score: 0,
@@ -28,9 +24,10 @@ class Score extends Component {
   };
 
   render() {
-    console.log("Score#render state.score (percent)", this.state.score);
+    const scorePercent = scoreToPercent(this.state.score, this.state.sumOptima);
     let referencePercent = scoreToPercent(this.state.curReference, this.state.sumOptima);
     let optimumPercent = scoreToPercent(this.state.curOptimum, this.state.sumOptima);
+    console.log("Score#render state.score", this.state.score, 'in percent', scorePercent);
     console.log("referencePercent", referencePercent);
     console.log("optimumPercent", optimumPercent);
 
@@ -59,16 +56,30 @@ class Score extends Component {
           <span>O</span>
           <img src={imgs['pinGreen']} />
         </div>
-        <LineProgress percent={this.state.score}
+        <LineProgress percent={scorePercent}
                       strokeWidth="1" strokeColor="#00FF00"
                       trailWidth="1" />
       </div>
     );
   }
 
-  setScore(score) {
-    console.log("Score#setScore score", score, "old score (percent)", this.state.score);
-    this.setState({score: scoreToPercent(score, this.state.sumOptima)})
+  setScore(score, type) {
+    console.log('Score#setScore type', type, 'score', score, "old score", this.state.score);
+    if (type !== 'location') {
+      // add to the old score, reference and optimum
+      this.setState({
+        score: score + this.state.score,
+        curReference: scoreLookup[type].reference + this.state.curReference,
+        curOptimum: scoreLookup[type].optimum + this.state.curOptimum,
+      });
+    } else {
+      // don't add anything, instead simply set to corresponding values
+      this.setState({
+        score: score,
+        curReference: scoreLookup[type].reference,
+        curOptimum: scoreLookup[type].optimum,
+      });
+    }
   }
 
   updateMeterWidth() {
