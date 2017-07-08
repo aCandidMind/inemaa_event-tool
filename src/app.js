@@ -15,7 +15,6 @@ const App = () => {
   const mapFile = location.hash.replace('#', '');
 
   function publishLaneChoice(score) {
-    console.log("App#publishLaneChoice score", score);
     scoreComponent.setScore(score);
   }
 

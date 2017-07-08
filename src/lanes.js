@@ -17,7 +17,7 @@ class Lanes extends Component {
 
   state = {
     cardId: firstLocation.id,
-    cardMetadata: {associations: firstLocation.associations},
+    cardMetadata: {associations: firstLocation.associations, score: firstLocation.score},
     data: this.enrichData(data, firstLocation.associations),
   };
 
@@ -34,6 +34,10 @@ class Lanes extends Component {
         </Float>
       </ClearFix>
     );
+  }
+
+  componentDidMount() {
+    this.props.publishLaneChoice(this.state.cardMetadata.score);
   }
 
   componentWillUpdate(nextProps, nextState) {
