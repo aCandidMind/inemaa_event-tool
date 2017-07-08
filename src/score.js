@@ -27,8 +27,7 @@ class Score extends Component {
     const pinStyle = {
       width: '60px',
     };
-    const pinCenter = parseInt(pinStyle.width) / 2;
-    console.log("render this.state.meterWidth", this.state.meterWidth);
+    const pinCenter = (parseInt(pinStyle.width) / 2) - 10;
     const offsetToCenterOfPins = pinCenter / this.state.meterWidth * 100;
     console.log("offsetToCenterOfPins", offsetToCenterOfPins);
     referencePercent -= offsetToCenterOfPins;

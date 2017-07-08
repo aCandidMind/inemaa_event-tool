@@ -10,6 +10,7 @@ html, body {
 
 #meter {
   position: relative;
+  width: 90%;
   height: 4em;
   /* margin is controlled by react */
 }
@@ -34,13 +35,21 @@ html, body {
   left: 24px;
 }
 
+#lanes {
+  width: 90%;
+  margin: 20px 56px;
+}
+
 #lanes > div {
   height: 100%;
 }
 
 #lanes section {
-  width: 40%;
-  margin: 0 50px 20px;
+  width: 50%;
+}
+
+#lanes section:first-child {
+  margin: 0 6% 20px 0;
 }
 
 #reportCallout {
