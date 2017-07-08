@@ -4,13 +4,24 @@ import { Line as LineProgress } from 'rc-progress';
 
 import * as imgs from './imgs';
 
+const scoreLookup = {
+  location: {reference: 60, optimum: 200},
+  catering: {reference: 150, optimum: 200},
+};
+const sumReferences = Object.keys(scoreLookup)
+                            .map(key => scoreLookup[key].reference)
+                            .reduce((acc, val) => acc + val, 0);
+const sumOptima = Object.keys(scoreLookup)
+                        .map(key => scoreLookup[key].optimum)
+                        .reduce((acc, val) => acc + val, 0);
+
 class Score extends Component {
 
   state = {
-    curReference: 60,
-    allReferences: 120,
-    curOptimum: 200,
-    allOptima: 400,
+    curReference: scoreLookup.location.reference,
+    sumReferences: sumReferences,
+    curOptimum: scoreLookup.location.optimum,
+    sumOptima: sumOptima,
     score: 0,
     meterWidth: 0,
     meterHorizontalMargin: 56,
@@ -18,8 +29,8 @@ class Score extends Component {
 
   render() {
     console.log("Score#render state.score (percent)", this.state.score);
-    let referencePercent = scoreToPercent(this.state.curReference, this.state.allOptima);
-    let optimumPercent = scoreToPercent(this.state.curOptimum, this.state.allOptima);
+    let referencePercent = scoreToPercent(this.state.curReference, this.state.sumOptima);
+    let optimumPercent = scoreToPercent(this.state.curOptimum, this.state.sumOptima);
     console.log("referencePercent", referencePercent);
     console.log("optimumPercent", optimumPercent);
 
@@ -57,7 +68,7 @@ class Score extends Component {
 
   setScore(score) {
     console.log("Score#setScore score", score, "old score (percent)", this.state.score);
-    this.setState({score: scoreToPercent(score, this.state.allOptima)})
+    this.setState({score: scoreToPercent(score, this.state.sumOptima)})
   }
 
   updateMeterWidth() {
