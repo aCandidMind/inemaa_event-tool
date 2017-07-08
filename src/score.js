@@ -6,7 +6,13 @@ import * as imgs from './imgs';
 
 class Score extends Component {
 
+  state = {
+    optimum: 200,
+    score: 70,
+  };
+
   render() {
+    console.log("Score#render state.score", this.state.score);
     return (
       <div id="meter">
         <div id="reference_needle" className="needle">
@@ -17,11 +23,16 @@ class Score extends Component {
           <span>O</span>
           <img src={imgs['pinGreen']} />
         </div>
-        <LineProgress percent="30"
+        <LineProgress percent={this.state.score}
                       strokeWidth="3" strokeColor="#00FF00"
-                      trailWidth="3.5" />
+                      trailWidth="4" />
       </div>
     );
+  }
+
+  setScore(score) {
+    console.log("Score#setScore score", score, "old score", this.state.score);
+    this.setState({score: score / this.state.optimum * 100})
   }
 
 }

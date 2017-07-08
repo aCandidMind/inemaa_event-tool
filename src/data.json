@@ -8,6 +8,7 @@
       ],
       "footprint": 3,
       "color": "green",
+      "score": 140,
       "associations": {
         "catering": [{"id": 1}, {"id": 2}]
       }
@@ -20,6 +21,7 @@
       ],
       "footprint": 6,
       "color": "white",
+      "score": 90,
       "associations": {
         "catering": [{"id": 3, "kind": "forced"}]
       }
@@ -32,6 +34,7 @@
       ],
       "footprint": 12,
       "color": "white",
+      "score": 60,
       "associations": {
         "catering": [{"id": 2, "kind": "rebate"}]
       }
@@ -43,21 +46,24 @@
       "title": "Hans Mampf",
       "tags": ["Öko-zertifiziert"],
       "footprint": 3,
-      "color": "green"
+      "color": "green",
+      "score": 170
     },
     {
       "id": 2,
       "title": "Bio-Tellerchen",
       "tags": ["Ökostrom", "Solarenergie"],
       "footprint": 3,
-      "color": "white"
+      "color": "white",
+      "score": 130
     },
     {
       "id": 3,
       "title": "Zum Röhrenden Hirschen",
       "tags": ["Strommix", "JWD"],
       "footprint": 8,
-      "color": "white"
+      "color": "white",
+      "score": 70
     }
   ]
 }

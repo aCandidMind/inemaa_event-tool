@@ -50,6 +50,7 @@ class Lanes extends Component {
       console.log("setState will be called with these ids", associations.catering.map((c) => c.id));
       this.setState({cardId, cardMetadata, data: this.enrichData(data, associations)});
     }
+    this.props.publishLaneChoice(cardMetadata.score);
   }
 
   enrichData(data, associations) {
@@ -74,6 +75,7 @@ class Lanes extends Component {
           metadata: {
             associations: item.associations,
             type: key,
+            score: item.score,
             cssClassname: `searchresult ${item.color}`
           },
         };
@@ -85,6 +87,10 @@ class Lanes extends Component {
     return enrichedData;
   }
 }
+
+Lanes.propTypes = {
+  publishLaneChoice: PropTypes.func.isRequired,
+};
 
 function getCardTitleMarkup(id, title) {
   return <CardHeader id={id} title={title} />;

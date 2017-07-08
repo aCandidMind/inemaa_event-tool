@@ -29,7 +29,7 @@ html, body {
 
 .needle span {
   position: absolute;
-  left: 25px;
+  left: 24px;
 }
 
 #reference_needle {
