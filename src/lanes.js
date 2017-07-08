@@ -38,6 +38,7 @@ class Lanes extends Component {
 
   componentDidMount() {
     this.props.publishLaneChoice(this.state.cardMetadata.score, 'location');
+    this.board = document.getElementById('lanes');
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -49,6 +50,24 @@ class Lanes extends Component {
 
   handleCardClick(cardId, cardMetadata) {
     console.log("handleCardClick", cardId);
+
+    // add CSS class 'selected' & remove it from previous card
+    const cards = this.board.getElementsByTagName('article');
+    let clickedCard = null;
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const dataId = card.getAttribute('data-id');
+      if (dataId === cardId) {
+        clickedCard = card;
+        clickedCard.classList.add('selected');
+      } else {
+        // for other cards of the chosen type remove the selected class
+        if (dataId.split('_')[0] === cardMetadata.type) {
+          card.classList.remove('selected');
+        }
+      }
+    }
+
     if (cardMetadata.type === 'location') {
       const associations = cardMetadata && cardMetadata.associations || [];
       console.log("setState will be called with these ids", associations.catering.map((c) => c.id));

@@ -71,6 +71,10 @@ html, body {
   width: 100%;
 }
 
+.searchresult.selected {
+  background-color: #B3B3B3;
+}
+
 .searchresult header {
   height: 3.8rem;
   padding: 5px;
