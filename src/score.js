@@ -5,8 +5,8 @@ import { Line as LineProgress } from 'rc-progress';
 import * as imgs from './imgs';
 
 const scoreLookup = {
-  location: {reference: 60, optimum: 200},
-  catering: {reference: 150, optimum: 200},
+  location: {score: 0, reference: 60, optimum: 200},
+  catering: {score: 0, reference: 150, optimum: 200},
 };
 const sumOptima = Object.keys(scoreLookup)
                         .map(key => scoreLookup[key].optimum)
@@ -70,12 +70,13 @@ class Score extends Component {
     if (type !== 'location') {
       // add to the old score, reference and optimum
       this.setState({
-        score: score + this.state.score,
-        curReference: scoreLookup[type].reference + this.state.curReference,
-        curOptimum: scoreLookup[type].optimum + this.state.curOptimum,
+        score: score + scoreLookup['location'].score,
+        curReference: scoreLookup[type].reference + scoreLookup['location'].reference,
+        curOptimum: scoreLookup[type].optimum + scoreLookup['location'].optimum,
       });
     } else {
       // don't add anything, instead simply set to corresponding values
+      scoreLookup[type].score = score;
       this.setState({
         score: score,
         curReference: scoreLookup[type].reference,
