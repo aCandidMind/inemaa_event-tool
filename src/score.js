@@ -24,7 +24,8 @@ class Score extends Component {
   };
 
   render() {
-    const scorePercent = scoreToPercent(this.state.score, this.state.sumOptima);
+    const styleInducedMeterFillOffset = 3;
+    const scorePercent = scoreToPercent(this.state.score - styleInducedMeterFillOffset, this.state.sumOptima);
     let referencePercent = scoreToPercent(this.state.curReference, this.state.sumOptima);
     let optimumPercent = scoreToPercent(this.state.curOptimum, this.state.sumOptima);
     console.log("Score#render state.score", this.state.score, 'in percent', scorePercent);
@@ -35,7 +36,8 @@ class Score extends Component {
     const pinStyle = {
       width: '60px',
     };
-    const pinCenter = (parseInt(pinStyle.width) / 2) - 10;
+    const styleInducedPinCenterOffset = 5;
+    const pinCenter = (parseInt(pinStyle.width) / 2) + styleInducedPinCenterOffset;
     const offsetToCenterOfPins = pinCenter / this.state.meterWidth * 100;
     console.log("offsetToCenterOfPins", offsetToCenterOfPins);
     referencePercent -= offsetToCenterOfPins;
@@ -48,11 +50,11 @@ class Score extends Component {
     const meterStyle = {margin: '20px ' + this.state.meterHorizontalMargin + 'px'};
     return (
       <div id="meter" style={meterStyle}>
-        <div id="reference_needle" className="needle" style={referencePinStyle}>
+        <div id="reference_pin" className="pin" style={referencePinStyle}>
           <span>R</span>
           <img src={imgs['pinBlue']} />
         </div>
-        <div id="optimum_needle" className="needle" style={optimumPinStyle}>
+        <div id="optimum_pin" className="pin" style={optimumPinStyle}>
           <span>O</span>
           <img src={imgs['pinGreen']} />
         </div>

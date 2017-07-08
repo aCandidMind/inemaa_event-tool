@@ -22,7 +22,7 @@ html, body {
   height: 25px;
 }
 
-.needle {
+.pin {
   position: absolute;
   top: 3px;
   /* width is controlled by react */
@@ -30,7 +30,7 @@ html, body {
   z-index: 9999;
 }
 
-.needle span {
+.pin span {
   position: absolute;
   left: 24px;
 }
