@@ -9,20 +9,22 @@ html, body {
 }
 
 #meter {
-  margin: 20px 56px;
   position: relative;
   height: 4em;
+  /* margin is controlled by react */
 }
 
 #meter svg {
   position: absolute;
   top: 60%;
+  width: 100%;
+  height: 25px;
 }
 
 .needle {
   position: absolute;
   top: 3px;
-  width: 60px;
+  /* width is controlled by react */
   height: 60px;
   z-index: 9999;
 }
@@ -30,14 +32,6 @@ html, body {
 .needle span {
   position: absolute;
   left: 24px;
-}
-
-#reference_needle {
-  left: 60px;
-}
-
-#optimum_needle {
-  left: 300px;
 }
 
 #lanes > div {
