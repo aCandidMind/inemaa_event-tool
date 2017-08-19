@@ -20,6 +20,7 @@ class Score extends Component {
         <LineProgress percent={scorePercent}
                       strokeWidth="1" strokeColor="#00FF00"
                       trailWidth="1" />
+        Nachhaltigkeitslevel {scorePercent}%
       </div>
     );
   }
