@@ -1,8 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 
-// Styling
-import { Float, ClearFix } from 'react-foundation-components/lib/float';
-
 import './lanes.css';
 
 // Board component to create lanes
@@ -24,15 +21,11 @@ class Lanes extends Component {
   render() {
     console.log("render", this.state.cardId, this.state.cardMetadata.associations.catering.map((c) => c.id));
     return (
-      <ClearFix id="lanes">
-        <Float position="center" noWrap>
-          <Board
-            data={this.state.data}
-            onCardClick={(cardId, cardMetadata) => this.handleCardClick(cardId, cardMetadata)}
-            eventBusHandle={(handle) => this.boardEventBus = handle}
-            draggable={false} />
-        </Float>
-      </ClearFix>
+      <Board
+        data={this.state.data}
+        onCardClick={(cardId, cardMetadata) => this.handleCardClick(cardId, cardMetadata)}
+        eventBusHandle={(handle) => this.boardEventBus = handle}
+        draggable={false} />
     );
   }
 

@@ -8,36 +8,17 @@ html, body {
   display: none;
 }
 
-#meter {
-  position: relative;
-  width: 90%;
-  height: 4em;
-  /* margin is controlled by react */
-}
-
-#meter svg {
-  position: absolute;
-  top: 60%;
-  width: 100%;
-  height: 25px;
-}
-
-.pin {
-  position: absolute;
-  top: 3px;
-  /* width is controlled by react */
-  height: 60px;
-  z-index: 9999;
-}
-
-.pin span {
-  position: absolute;
-  left: 24px;
+#lanes, #sidebar {
+  float: left;
 }
 
 #lanes {
-  width: 90%;
-  margin: 20px 56px;
+  width: 80%;
+}
+
+#sidebar {
+  position: relative;
+  width: 20%;
 }
 
 #lanes > div {
@@ -50,21 +31,6 @@ html, body {
 
 #lanes section:first-child {
   margin: 0 6% 20px 0;
-}
-
-#reportCallout {
-  display: none;
-  width: 33rem;
-  margin: 0 0.7rem;
-}
-
-#reportCallout h6 {
-  font-weight: bold;
-  margin-top: 0.8rem;
-}
-
-#reportCallout img {
-  margin-bottom: 0.5rem;
 }
 
 .searchresult {
@@ -121,4 +87,32 @@ html, body {
 
 .searchresult .resultTags .moreButton {
   margin: 5px;
+}
+
+#sidebar meter {
+  position: relative;
+  height: 4em;
+  /* margin is controlled by react */
+}
+
+#sidebar meter svg {
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  height: 25px;
+}
+
+#reportCallout {
+  display: none;
+  width: 33rem;
+  margin: 0 0.7rem;
+}
+
+#reportCallout h6 {
+  font-weight: bold;
+  margin-top: 0.8rem;
+}
+
+#reportCallout img {
+  margin-bottom: 0.5rem;
 }

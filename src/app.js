@@ -1,31 +1,70 @@
 /* eslint-disable import/no-unresolved */
 
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import ReportCallout from './report';
-import Score from './score';
-import Lanes from './lanes';
-import * as maps from './maps';
-
+// Styling
+import { Float, ClearFix } from 'react-foundation-components/lib/float';
 import 'react-foundation-components/lib/_typography.scss';
 
-const App = () => {
-  let scoreComponent = null;
-  const mapFile = location.hash.replace('#', '');
+import Lanes from './lanes';
+import Score from './score'
+import ReportCallout from './report';
+import * as maps from './maps';
 
-  function publishLaneChoice(score, type) {
-    scoreComponent.setScore(score, type);
+const scoreLookup = {
+  location: {score: 0},
+  catering: {score: 0},
+};
+
+class App extends Component {
+
+  state = {
+    score: 0,
+  };
+
+
+  onLaneChoice(score, type) {
+    this.setScore(score, type);
   }
 
-  return (
-    <div id="appContainer">
-      <img id="map" role="presentation" src={maps[mapFile]} />
-      <Score ref={(comp) => scoreComponent = comp} />
-      <Lanes publishLaneChoice={publishLaneChoice} />
-      <ReportCallout />
-    </div>
-  );
-};
+  setScore(score, type) {
+    console.log('Score#setScore type', type, 'score', score, "old score", this.state.score);
+    if (type !== 'location') {
+      // add to the old score
+      this.setState({
+        score: score + scoreLookup['location'].score,
+      });
+    } else {
+      // don't add anything, instead simply set to value
+      scoreLookup[type].score = score;
+      this.setState({
+        score: score,
+      });
+    }
+  }
+
+  render() {
+    const mapFile = location.hash.replace('#', '');
+    return (
+      <div id="appContainer">
+        <img id="map" role="presentation" src={maps[mapFile]}/>
+        <ClearFix>
+          <Float position="center" noWrap>
+            <div id="mainApp">
+              <div id="lanes">
+                <Lanes publishLaneChoice={this.onLaneChoice.bind(this)}/>
+              </div>
+              <div id="sidebar">
+                <Score score={this.state.score} />
+              </div>
+            </div>
+          </Float>
+        </ClearFix>
+        <ReportCallout />
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
