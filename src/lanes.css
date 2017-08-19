@@ -33,6 +33,22 @@ html, body {
   margin: 0 6% 20px 0;
 }
 
+.tickerContainer {
+  height: 50px;
+  position: relative;
+  padding: 20px 0;
+}
+
+.tickerItem {
+  width: 100%;
+  position: absolute;
+}
+
+.tickerItem .guidanceLink {
+  float: right;
+  color: black;
+}
+
 .searchresult {
   width: 100%;
 }

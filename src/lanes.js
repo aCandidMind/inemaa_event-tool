@@ -7,6 +7,7 @@ import { Board } from 'react-trello';
 
 const data = require("json!./data.json");
 const firstLocation = data.location[0];
+import GuidanceTicker from './guidanceTicker';
 import CardHeader from './cardHeader';
 import CardContent from './cardContent';
 
@@ -74,9 +75,22 @@ class Lanes extends Component {
       lanes: [
       ]
     };
+    const guidances = {
+      location: <GuidanceTicker data={[
+        { id: 'a', text: 'Location mit Green Globe Zertifkat auswählen' },
+        { id: 'b', text: 'Möglichst nah am Bahnhof' },
+        { id: 'c', text: 'GCB Green Member ist ein exzellentes Siegel' },
+      ]} />,
+      catering: <GuidanceTicker data={[
+        { id: 'a', text: 'Catering bei Location ist ideal' },
+        { id: 'b', text: 'Rohkost spart Strom' },
+        { id: 'c', text: 'Regionale Kost hat einen besseren CO² Fußabdruck' },
+        { id: 'd', text: 'Ein, zwei Gänge reichen' },
+      ]} />,
+    };
     console.log("associations", associations);
     Object.keys(data).forEach((key) => {
-      const lane = {id: key, title: key.toUpperCase(), cards: []};
+      const lane = {id: key, title: key.toUpperCase(), cards: [], laneIntro: guidances[key]};
       data[key].forEach((item) => {
         if (key != "location" && !findAssociationById(associations, key, item.id)) {
           return;
