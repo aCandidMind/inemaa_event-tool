@@ -9,6 +9,7 @@ import 'react-foundation-components/lib/_typography.scss';
 
 import Lanes from './lanes';
 import Score from './score'
+import Filters from './filters'
 import ReportCallout from './report';
 import * as maps from './maps';
 
@@ -57,6 +58,7 @@ class App extends Component {
               </div>
               <div id="sidebar">
                 <Score score={this.state.score} />
+                <Filters id="filters" />
               </div>
             </div>
           </Float>
