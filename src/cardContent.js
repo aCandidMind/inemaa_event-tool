@@ -6,6 +6,7 @@ import { Button } from 'react-foundation-components/lib/button';
 import { Reveal } from 'react-foundation-components/lib/reveal';
 import { CloseButton } from 'react-foundation-components/lib/close-button';
 import { Float, ClearFix } from 'react-foundation-components/lib/float';
+import FontAwesome from 'react-fontawesome';
 
 import * as detailPages from './detailPages';
 
@@ -19,6 +20,27 @@ class CardContent extends Component {
 
   handleHideDetail = () => this.setState({showDetail: false});
 
+  getListFormatMetaData() {
+    const {
+      distanceCenter,
+      distanceStation,
+    } = this.props.card.metadata;
+    return (
+      <ClearFix className="searchMetadata">
+        {this.props.kind === 'location' &&
+          <div>
+            <div>Personen: {this.props.card.metadata.capacity}</div>
+            <div>Konferenzräume: {this.props.card.metadata.conferenceRooms}</div>
+          </div>
+        }
+        <ul className="distances">
+          <li><FontAwesome name='dot-circle-o' /> {distanceCenter}</li>
+          <li><FontAwesome name='train' /> {distanceStation}</li>
+        </ul>
+      </ClearFix>
+    );
+  }
+
   render() {
     const {
       card,
@@ -31,6 +53,7 @@ class CardContent extends Component {
 
     return (
       <div className="resultTags">
+        {this.getListFormatMetaData()}
         {card.tags.map(tag => <Label key={tag} color="primary">{tag}</Label>)}
         <ClearFix>
           <Float position="right">

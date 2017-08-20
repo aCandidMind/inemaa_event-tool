@@ -9,6 +9,12 @@
       "footprint": 3,
       "color": "green",
       "score": 200,
+      "metadata": {
+        "capacity": 2400,
+        "conferenceRooms": 8,
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      },
       "associations": {
         "catering": [{"id": 1}, {"id": 2}]
       }
@@ -22,6 +28,12 @@
       "footprint": 6,
       "color": "green",
       "score": 90,
+      "metadata": {
+        "capacity": 2400,
+        "conferenceRooms": 8,
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      },
       "associations": {
         "catering": [{"id": 3, "kind": "forced"}]
       }
@@ -35,6 +47,12 @@
       "footprint": 12,
       "color": "green",
       "score": 60,
+      "metadata": {
+        "capacity": 2400,
+        "conferenceRooms": 8,
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      },
       "associations": {
         "catering": [{"id": 2}, {"id": 3}]
       }
@@ -48,6 +66,12 @@
       "footprint": 12,
       "color": "white",
       "score": 33,
+      "metadata": {
+        "capacity": 2400,
+        "conferenceRooms": 8,
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      },
       "associations": {
         "catering": [{"id": 3, "kind": "rebate"}]
       }
@@ -60,7 +84,11 @@
       "tags": ["Öko-zertifiziert"],
       "footprint": 3,
       "color": "green",
-      "score": 170
+      "score": 170,
+      "metadata": {
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      }
     },
     {
       "id": 2,
@@ -68,7 +96,11 @@
       "tags": ["Ökostrom", "Solarenergie"],
       "footprint": 3,
       "color": "white",
-      "score": 130
+      "score": 130,
+      "metadata": {
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      }
     },
     {
       "id": 3,
@@ -76,7 +108,11 @@
       "tags": ["Strommix", "JWD"],
       "footprint": 8,
       "color": "white",
-      "score": 70
+      "score": 70,
+      "metadata": {
+        "distanceCenter": 0.8,
+        "distanceStation": 0.1
+      }
     }
   ]
 }

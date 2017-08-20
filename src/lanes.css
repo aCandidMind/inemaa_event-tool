@@ -59,7 +59,7 @@ html, body {
 }
 
 .searchresult header {
-  height: 3.8rem;
+  height: 2.4rem;
   padding: 5px;
   border-radius: 3px;
 }
@@ -94,6 +94,14 @@ html, body {
 
 .searchresult.white header {
   background-color: #ffffff;
+}
+
+.searchresult .distances li {
+  float: left;
+}
+
+.searchresult .distances .fa {
+  width: 20px;
 }
 
 .searchresult .resultTags span {

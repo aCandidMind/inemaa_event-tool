@@ -109,6 +109,8 @@ class Lanes extends Component {
             cssClassname: `searchresult ${item.color}`
           },
         };
+        // merge above metadata with those from the data request
+        card.metadata = {...card.metadata, ...item.metadata};
         lane.cards.push(card);
       });
       enrichedData.lanes.push(lane);
