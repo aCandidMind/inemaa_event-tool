@@ -39,7 +39,11 @@ class Filters extends Component {
         body: <CertificateForm />
       },
       {
-        header: 'Entfernung',
+        header: 'Food-Impact',
+        body: <CertificateForm />
+      },
+      {
+        header: 'Bewertungen',
         body: <CertificateForm />
       },
     ];
