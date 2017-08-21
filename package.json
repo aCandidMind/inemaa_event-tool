@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "foundation-sites": "~6.2.4",
+    "font-awesome": "~4.7.0",
     "rc-collapse": "~1.7.6",
     "rc-progress": "~2.2.1",
     "react": "~15.4.2",
     "react-dom": "~15.4.2",
     "react-foundation-components": "0.12.0",
-    "react-fontawesome": "~1.6.1",
     "react-motion": "^0.5.0",
     "react-trello": "1.17.1",
     "webpack": "1.14.0"
@@ -39,7 +39,7 @@
     "eslint-plugin-react": "^6.3.0",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.8.5",
+    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "json-loader": "^0.5.4",
     "jsontosass-loader": "^0.1.9",

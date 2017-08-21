@@ -70,13 +70,18 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style',
-          `css?modules!postcss!sass!jsontosass?path=${themePath}`
+          `css?postcss!sass!jsontosass?path=${themePath}`
         ),
       },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
       },
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
+      {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: "file-loader?name=[name].[ext]",

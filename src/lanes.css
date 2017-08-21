@@ -80,6 +80,7 @@ html, body {
   font-weight: bold;
   width: 80%;
   float: left;
+  margin: 0 4px;
 }
 
 .searchresult header .cardLabel {
@@ -96,12 +97,8 @@ html, body {
   background-color: #ffffff;
 }
 
-.searchresult .distances li {
-  float: left;
-}
-
-.searchresult .distances .fa {
-  width: 20px;
+.searchresult .resultTags {
+  margin-bottom: 10px;
 }
 
 .searchresult .resultTags span {
@@ -110,8 +107,35 @@ html, body {
   color: #c78155;
 }
 
-.searchresult .resultTags .moreButton {
-  margin: 5px;
+.searchresult .searchMetadata, .searchresult .resultButtons {
+  width: 50%;
+}
+
+.searchresult .searchMetadata {
+  margin: 8px 8px 2px;
+}
+
+.searchresult ul.distances {
+  margin: 15px 0;
+}
+
+/* .fa is for font-awesome icons */
+.searchresult .distances .fa {
+  margin-right: 4px;
+}
+
+.searchresult .distances li {
+  float: left;
+  list-style: none;
+  margin-right: 12px;
+}
+
+.searchresult .resultButtons button {
+  margin: 8px 0 5px 8px;
+}
+
+.searchresult .resultButtons button .fa {
+  margin-right: 3px;
 }
 
 #sidebar #meter {

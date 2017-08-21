@@ -6,7 +6,8 @@ import { Button } from 'react-foundation-components/lib/button';
 import { Reveal } from 'react-foundation-components/lib/reveal';
 import { CloseButton } from 'react-foundation-components/lib/close-button';
 import { Float, ClearFix } from 'react-foundation-components/lib/float';
-import FontAwesome from 'react-fontawesome';
+import { FlexParent, FlexChild } from 'react-foundation-components/lib/flex';
+import 'font-awesome/scss/font-awesome.scss';
 
 import * as detailPages from './detailPages';
 
@@ -26,18 +27,18 @@ class CardContent extends Component {
       distanceStation,
     } = this.props.card.metadata;
     return (
-      <ClearFix className="searchMetadata">
+      <Float position="left" className="searchMetadata">
         {this.props.kind === 'location' &&
           <div>
-            <div>Personen: {this.props.card.metadata.capacity}</div>
+            <div>Kapazität: {this.props.card.metadata.capacity}</div>
             <div>Konferenzräume: {this.props.card.metadata.conferenceRooms}</div>
           </div>
         }
         <ul className="distances">
-          <li><FontAwesome name='dot-circle-o' /> {distanceCenter}</li>
-          <li><FontAwesome name='train' /> {distanceStation}</li>
+          <li><span className="fa fa-dot-circle-o" /> {distanceCenter}</li>
+          <li><span className="fa fa-train" /> {distanceStation}</li>
         </ul>
-      </ClearFix>
+      </Float>
     );
   }
 
@@ -52,25 +53,39 @@ class CardContent extends Component {
     } = this.state;
 
     return (
-      <div className="resultTags">
-        {this.getListFormatMetaData()}
-        {card.tags.map(tag => <Label key={tag} color="primary">{tag}</Label>)}
+      <div>
+        <div className="resultTags">
+          {card.tags.map(tag => <Label key={tag} color="primary">{tag}</Label>)}
+        </div>
         <ClearFix>
-          <Float position="right">
-            <Button
-              className="moreButton"
-              color="secondary"
-              size="tiny"
-              onClick={this.handleShowDetail}>
-              <i className="fi-info"></i>
-              mehr ...
-            </Button>
-            <Reveal onHide={this.handleHideDetail} show={showDetail}>
-              <CloseButton onClick={this.handleHideDetail} />
-              <h1>{card.title} <small>{kind}</small></h1>
-              <img role="presentation" src={detailPages[kind]} />
-            </Reveal>
-          </Float>
+          <FlexParent verticalAlignment="bottom">
+            {this.getListFormatMetaData()}
+            <Float className="resultButtons" position="right">
+              <FlexChild>
+                <Button
+                  className="moreButton"
+                  color="secondary"
+                  size="small"
+                  onClick={() => {}}>
+                  <i className="fa fa-save"></i>
+                  merken
+                </Button>
+                <Button
+                  className="moreButton"
+                  color="secondary"
+                  size="small"
+                  onClick={this.handleShowDetail}>
+                  <span className="fa fa-info"></span>
+                  mehr ...
+                </Button>
+                <Reveal onHide={this.handleHideDetail} show={showDetail}>
+                  <CloseButton onClick={this.handleHideDetail} />
+                  <h1>{card.title} <small>{kind}</small></h1>
+                  <img role="presentation" src={detailPages[kind]} />
+                </Reveal>
+              </FlexChild>
+            </Float>
+          </FlexParent>
         </ClearFix>
       </div>
     );
