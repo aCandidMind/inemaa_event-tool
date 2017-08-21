@@ -44,23 +44,7 @@ class Lanes extends Component {
 
   handleCardClick(cardId, cardMetadata) {
     console.log("handleCardClick", cardId);
-
-    // add CSS class 'selected' & remove it from previous card
-    const cards = this.board.getElementsByTagName('article');
-    let clickedCard = null;
-    for (let i = 0; i < cards.length; i++) {
-      const card = cards[i];
-      const dataId = card.getAttribute('data-id');
-      if (dataId === cardId) {
-        clickedCard = card;
-        clickedCard.classList.add('selected');
-      } else {
-        // for other cards of the chosen type remove the selected class
-        if (dataId.split('_')[0] === cardMetadata.type) {
-          card.classList.remove('selected');
-        }
-      }
-    }
+    this.addClassToCards(cardId, cardMetadata, 'selected');
 
     if (cardMetadata.type === 'location') {
       const associations = cardMetadata && cardMetadata.associations || [];
@@ -68,6 +52,33 @@ class Lanes extends Component {
       this.setState({cardId, cardMetadata, data: this.enrichData(data, associations)});
     }
     this.props.publishLaneChoice(cardMetadata.score, cardMetadata.type);
+  }
+
+  addClassToCards(cardId, cardMetadata, className) {
+    // add CSS class & remove it from previous card
+    const cards = this.board.getElementsByTagName('article');
+    let clickedCard = null;
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const dataId = card.getAttribute('data-id');
+      if (dataId === cardId) {
+        clickedCard = card;
+        clickedCard.classList.add(className);
+      } else {
+        // for other cards of the chosen type remove the selected class
+        if (dataId.split('_')[0] === cardMetadata.type) {
+          card.classList.remove(className);
+        }
+      }
+    }
+  }
+
+  handleCheckboxClick(value) {
+    if (value === 'DGNP-Gold') {
+
+    } else {
+      this.addClassToCards(null, 'location', 'hidden');
+    }
   }
 
   enrichData(data, associations) {

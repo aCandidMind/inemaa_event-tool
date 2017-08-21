@@ -29,6 +29,10 @@ class App extends Component {
     this.setScore(score, type);
   }
 
+  handleCheckboxClick(value) {
+    this.lane.handleCheckboxClick(value);
+  }
+
   setScore(score, type) {
     console.log('Score#setScore type', type, 'score', score, "old score", this.state.score);
     if (type !== 'location') {
@@ -54,11 +58,14 @@ class App extends Component {
           <Float position="center" noWrap>
             <div id="mainApp">
               <div id="lanes">
-                <Lanes publishLaneChoice={this.onLaneChoice.bind(this)}/>
+                <Lanes
+                  publishLaneChoice={this.onLaneChoice.bind(this)}
+                  ref={(lane) => this.lane = lane}
+                />
               </div>
               <div id="sidebar">
                 <Score score={this.state.score} />
-                <Filters id="filters" />
+                <Filters id="filters" handleCheckboxClick={this.handleCheckboxClick} />
               </div>
             </div>
           </Float>

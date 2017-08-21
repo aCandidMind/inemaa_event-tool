@@ -2,8 +2,18 @@ import React, {Component, PropTypes} from 'react';
 
 class CertificateForm extends Component {
 
+  state = {
+    activeIds: '1',
+  };
+
+  handleCheckboxClick(e) {
+    console.log("e", e);
+    this.props.handleCheckboxClick(e.value)
+  }
+
   render() {
     const certificates = [
+      'DGNP-Gold',
       'Green Globe',
       'GCB Green Member'
     ];
@@ -13,7 +23,7 @@ class CertificateForm extends Component {
           certificates.map((cert, i) => {
             return (
               <div key={i}>
-                <input id={`checkbox${i}`} type="checkbox" />
+                <input onClick={this.handleCheckboxClick} type="checkbox" id={`checkbox${i}`}  />
                 <label htmlFor={`checkbox${i}`}>{cert}</label>
               </div>
             );

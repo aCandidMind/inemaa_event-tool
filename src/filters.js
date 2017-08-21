@@ -36,14 +36,14 @@ class Filters extends Component {
     const items = [
       {
         header: 'Zertifikate',
-        body: <CertificateForm />
+        body: <CertificateForm handleCheckboxClick={this.props.handleCheckboxClick} />
       },
       {
         header: 'Food-Impact',
         body: <CertificateForm />
       },
       {
-        header: 'Bewertungen',
+        header: 'Bewertung',
         body: <CertificateForm />
       },
     ];
