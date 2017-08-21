@@ -55,7 +55,7 @@ html, body {
 }
 
 .searchresult.selected {
-  background-color: #B3B3B3;
+  background-color: #d7d7d7;
 }
 
 .searchresult header {
@@ -89,12 +89,17 @@ html, body {
   display: none;
 }
 
-.searchresult.green header {
-  background-color: #35B33D;
+.searchresult header {
+  background-color: #ffffff;
 }
 
-.searchresult.white header {
-  background-color: #ffffff;
+/* .fa is for font-awesome icons */
+.searchresult header .fa.green {
+  color: #35B33D;
+}
+
+.searchresult header .fa.white {
+  color: #e7e7e7;
 }
 
 .searchresult .resultTags {

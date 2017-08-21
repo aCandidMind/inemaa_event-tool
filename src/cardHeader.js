@@ -27,12 +27,14 @@ class CardHeader extends Component {
     const {
       id,
       title,
+      color,
     } = this.props;
+    const icon = color === 'green' ? 'fa-thumbs-up' : 'fa-square';
 
     return (
       <FormField id={id}>
         <FormFieldLabel onClick={this.handleShowDetail}>
-          {title}
+          <span className={`fa ${icon} ${color}`}/> {title}
         </FormFieldLabel>
       </FormField>
     );
@@ -96,6 +98,7 @@ CardHeader.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
   label: PropTypes.array,
+  color: PropTypes.string,
 };
 
 export default CardHeader;

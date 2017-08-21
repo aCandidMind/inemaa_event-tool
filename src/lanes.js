@@ -99,14 +99,14 @@ class Lanes extends Component {
         const id = `${key}_${item.id}`;
         const card = {
           id: id,
-          title: getCardTitleMarkup(id, item.title),
+          title: getCardTitleMarkup(id, item.title, item.color),
           description: getContentMarkup(key, item),
           label: getCardLabelMarkup(id, item),
           metadata: {
             associations: item.associations,
             type: key,
             score: item.score,
-            cssClassname: `searchresult ${item.color}`
+            cssClassname: "searchresult"
           },
         };
         // merge above metadata with those from the data request
@@ -124,8 +124,8 @@ Lanes.propTypes = {
   publishLaneChoice: PropTypes.func.isRequired,
 };
 
-function getCardTitleMarkup(id, title) {
-  return <CardHeader id={id} title={title} />;
+function getCardTitleMarkup(id, title, color) {
+  return <CardHeader id={id} title={title} color={color} />;
 }
 
 function getCardLabelMarkup(id, card) {
