@@ -112,12 +112,31 @@ html, body {
   color: #c78155;
 }
 
+.searchresult .dataAndButtons {
+  position: relative;
+  min-height: 42px;
+}
+
+.searchresult .dataAndButtons.extraMetadata {
+  height: 76px;
+}
+
 .searchresult .searchMetadata, .searchresult .resultButtons {
-  width: 50%;
+  position: absolute;
 }
 
 .searchresult .searchMetadata {
-  margin: 8px 8px 2px;
+  left: 0;
+  top: 0;
+}
+
+.searchresult .resultButtons {
+  right: 0;
+  bottom: 0;
+}
+
+.searchresult .searchMetadata, .searchresult .resultButtons {
+  margin: 8px 0 2px 8px;
 }
 
 .searchresult ul.distances {
@@ -136,7 +155,7 @@ html, body {
 }
 
 .searchresult .resultButtons button {
-  margin: 8px 0 5px 8px;
+  margin: 0 0 0 10px;
 }
 
 .searchresult .resultButtons button .fa {
