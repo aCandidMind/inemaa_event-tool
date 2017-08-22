@@ -4,7 +4,7 @@ import Collapse, { Panel } from 'rc-collapse';
 import { Callout } from 'react-foundation-components/lib/callout';
 import 'rc-collapse/assets/index.css';
 
-import CertificateForm from './certificateForm';
+import FilterForm from './filterForm';
 
 
 class Filters extends Component {
@@ -23,7 +23,7 @@ class Filters extends Component {
         <h5>Filter</h5>
         <Collapse
           accordion={true}
-          onChange={this.onChange.bind(this)}
+          onChange={this.onChange}
           activeKey={this.state.activeKey}
         >
           {this.getItems()}
@@ -36,15 +36,24 @@ class Filters extends Component {
     const items = [
       {
         header: 'Zertifikate',
-        body: <CertificateForm handleCheckboxClick={this.props.handleCheckboxClick} />
+        body: <FilterForm
+                name="certificate"
+                handleCheckboxClick={this.props.handleCheckboxClick}
+              />
       },
       {
         header: 'Food-Impact',
-        body: <CertificateForm />
+        body: <FilterForm
+                name="foodImpact"
+                handleCheckboxClick={this.props.handleCheckboxClick}
+              />
       },
       {
         header: 'Bewertung',
-        body: <CertificateForm />
+        body: <FilterForm
+                name="rating"
+                handleCheckboxClick={this.props.handleCheckboxClick}
+              />
       },
     ];
     return items.map((item) =>

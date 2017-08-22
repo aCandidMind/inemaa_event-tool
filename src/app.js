@@ -20,17 +20,22 @@ const scoreLookup = {
 
 class App extends Component {
 
-  state = {
-    score: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      score: 0,
+    };
+    this.onLaneChoice = this.onLaneChoice.bind(this);
+    this.handleCheckboxClick = this.handleCheckboxClick.bind(this);
+  }
 
 
   onLaneChoice(score, type) {
     this.setScore(score, type);
   }
 
-  handleCheckboxClick(value) {
-    this.lane.handleCheckboxClick(value);
+  handleCheckboxClick(name, value) {
+    this.lane.handleCheckboxClick(name, value);
   }
 
   setScore(score, type) {
@@ -59,7 +64,7 @@ class App extends Component {
             <div id="mainApp">
               <div id="lanes">
                 <Lanes
-                  publishLaneChoice={this.onLaneChoice.bind(this)}
+                  publishLaneChoice={this.onLaneChoice}
                   ref={(lane) => this.lane = lane}
                 />
               </div>

@@ -52,6 +52,11 @@ html, body {
 
 .searchresult {
   width: 100%;
+  display: none;
+}
+
+.searchresult.visible {
+  display: block;
 }
 
 .searchresult.selected {

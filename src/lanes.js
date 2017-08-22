@@ -61,7 +61,8 @@ class Lanes extends Component {
     for (let i = 0; i < cards.length; i++) {
       const card = cards[i];
       const dataId = card.getAttribute('data-id');
-      if (dataId === cardId) {
+      const isInArray = cardId && cardId.length && cardId.indexOf(dataId) !== -1;
+      if (dataId === cardId || isInArray) {
         clickedCard = card;
         clickedCard.classList.add(className);
       } else {
@@ -73,11 +74,38 @@ class Lanes extends Component {
     }
   }
 
-  handleCheckboxClick(value) {
-    if (value === 'DGNP-Gold') {
+  handleCheckboxClick(name, value) {
+    const checkboxes = document.getElementsByName(name);
+    function areAllCheckboxesUnchecked() {
+      for(let i = 0; i < checkboxes.length; i++) {
+         if (checkboxes.item(i).checked) {
+           return false;
+         }
+      }
+      return true;
+    }
 
+    const certDGNP = checkboxes[0].checked;
+    const certFSC = checkboxes[3].checked;
+    if (certDGNP || certFSC) {
+      const visible = [];
+      if (certDGNP) {
+        visible.push('location_1');
+      }
+      if (certFSC) {
+        visible.push('location_2');
+      }
+      this.addClassToCards(visible, {type: 'location'}, 'visible');
+      this.addClassToCards(null, {type: 'catering'}, 'visible');
+    } else if (areAllCheckboxesUnchecked()) {
+      const cards = this.board.getElementsByTagName('article');
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        card.classList.add('visible');
+      }
     } else {
-      this.addClassToCards(null, 'location', 'hidden');
+      this.addClassToCards(null, {type: 'location'}, 'visible');
+      this.addClassToCards(null, {type: 'catering'}, 'visible');
     }
   }
 
@@ -117,7 +145,7 @@ class Lanes extends Component {
             associations: item.associations,
             type: key,
             score: item.score,
-            cssClassname: "searchresult"
+            cssClassname: "searchresult visible"
           },
         };
         // merge above metadata with those from the data request
