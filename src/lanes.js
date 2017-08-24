@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
-import './lanes.css';
+import './lanes.scss';
 
 // Board component to create lanes
 import { Board } from 'react-trello';
