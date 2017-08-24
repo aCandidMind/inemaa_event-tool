@@ -11,6 +11,7 @@ import { Callout } from 'react-foundation-components/lib/callout';
 
 import Lanes from './lanes';
 import Score from './score'
+import CategoryForm from './categoryForm'
 import Filters from './filters'
 import ReportCallout from './report';
 import * as maps from './maps';
@@ -81,6 +82,7 @@ class App extends Component {
                     </select>
                   </form>
                 </Callout>
+                <CategoryForm />
                 <Filters id="filters" handleCheckboxClick={this.handleCheckboxClick} />
               </div>
             </div>

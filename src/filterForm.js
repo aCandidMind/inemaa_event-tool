@@ -36,7 +36,7 @@ class FilterForm extends Component {
     const name = this.props.name;
     const values = this.values[name];
     return (
-      <div className="form">
+      <div>
         {
           values.map((value, i) => {
             const checkboxId = `${name}_${i}`;
