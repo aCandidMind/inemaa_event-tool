@@ -8,6 +8,7 @@ import './main.scss';
 import 'react-foundation-components/lib/_typography.scss';
 import { Float, ClearFix } from 'react-foundation-components/lib/float';
 import { Callout } from 'react-foundation-components/lib/callout';
+import { Button } from 'react-foundation-components/lib/button';
 
 import Lanes from './lanes';
 import Score from './score'
@@ -72,7 +73,16 @@ class App extends Component {
                 />
               </div>
               <div id="sidebar">
-                <Score score={this.state.score} />
+                <ClearFix>
+                  <Score score={this.state.score} />
+                  <Button
+                    id="memoListBtn"
+                    size="small"
+                  >
+                    <i className="fa fa-save"></i>
+                    Merkzettel
+                  </Button>
+                </ClearFix>
                 <Callout>
                   <h5>Sortierung</h5>
                   <form>

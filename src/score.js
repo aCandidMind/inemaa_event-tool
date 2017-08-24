@@ -18,7 +18,7 @@ class Score extends Component {
     return (
       <div id="meter">
         <LineProgress percent={scorePercent}
-                      strokeWidth="1" strokeColor="#00FF00"
+                      strokeWidth="1" strokeColor="#35B33D"
                       trailWidth="1" />
         Nachhaltigkeitslevel {Math.round(scorePercent)}%
       </div>
