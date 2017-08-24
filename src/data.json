@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Kap Hanau am Fluß",
       "tags": [
-        "DGNP-Gold", "Green Meetings"
+        "DGNP-Gold", "Green Meetings", "Ressourcenschonend"
       ],
       "footprint": 3,
       "color": "green",
@@ -29,10 +29,10 @@
       "color": "green",
       "score": 90,
       "metadata": {
-        "capacity": 2400,
-        "conferenceRooms": 8,
-        "distanceCenter": 0.8,
-        "distanceStation": 0.1
+        "capacity": 700,
+        "conferenceRooms": 3,
+        "distanceCenter": 1.5,
+        "distanceStation": 0.3,
       },
       "associations": {
         "catering": [{"id": 3, "kind": "forced"}]
@@ -48,10 +48,10 @@
       "color": "green",
       "score": 60,
       "metadata": {
-        "capacity": 2400,
-        "conferenceRooms": 8,
-        "distanceCenter": 0.8,
-        "distanceStation": 0.1
+        "capacity": 300,
+        "conferenceRooms": 1,
+        "distanceCenter": 2.0,
+        "distanceStation": 0.3
       },
       "associations": {
         "catering": [{"id": 2}, {"id": 3}]
@@ -59,7 +59,7 @@
     },
     {
       "id": 4,
-      "title": "Irgendwas nicht so Gutes",
+      "title": "Rudis Karaoke Bar",
       "tags": [
         "Strommix", "JWD"
       ],
@@ -67,10 +67,10 @@
       "color": "white",
       "score": 33,
       "metadata": {
-        "capacity": 2400,
-        "conferenceRooms": 8,
-        "distanceCenter": 0.8,
-        "distanceStation": 0.1
+        "capacity": 150,
+        "conferenceRooms": 0,
+        "distanceCenter": 4,
+        "distanceStation": 0.9
       },
       "associations": {
         "catering": [{"id": 3, "kind": "rebate"}]
@@ -81,19 +81,19 @@
     {
       "id": 1,
       "title": "Hans Mampf",
-      "tags": ["Öko-zertifiziert"],
+      "tags": ["Öko-zertifiziert", "Vegan", "Bio-Anbau", "Solar-Energie"],
       "footprint": 3,
       "color": "green",
       "score": 170,
       "metadata": {
-        "distanceCenter": 0.8,
-        "distanceStation": 0.1
+        "distanceCenter": 0.4,
+        "distanceStation": 0.5
       }
     },
     {
       "id": 2,
       "title": "Bio-Tellerchen",
-      "tags": ["Ökostrom", "Solarenergie"],
+      "tags": ["Ökostrom", "Solarenergie", "Bio-Anbau"],
       "footprint": 3,
       "color": "white",
       "score": 130,
@@ -104,14 +104,14 @@
     },
     {
       "id": 3,
-      "title": "Nicht so ökologisches Catering",
-      "tags": ["Strommix", "JWD"],
+      "title": "Tinas Schlachtplatte",
+      "tags": ["Strommix", "JWD", "Fleisch"],
       "footprint": 8,
       "color": "white",
       "score": 70,
       "metadata": {
-        "distanceCenter": 0.8,
-        "distanceStation": 0.1
+        "distanceCenter": 3.8,
+        "distanceStation": 1.5
       }
     }
   ]
