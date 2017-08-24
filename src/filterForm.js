@@ -39,6 +39,7 @@ class FilterForm extends Component {
       <div className="form">
         {
           values.map((value, i) => {
+            const checkboxId = `${name}_${i}`;
             return (
               <div key={i}>
                 <input
@@ -46,9 +47,9 @@ class FilterForm extends Component {
                   type="checkbox"
                   value={value}
                   name={name}
-                  id={`${name}_${i}`}
+                  id={checkboxId}
                 />
-                <label htmlFor={`checkbox${i}`}>{value}</label>
+                <label htmlFor={checkboxId}>{value}</label>
               </div>
             );
           })
