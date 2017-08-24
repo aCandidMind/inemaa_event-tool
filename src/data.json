@@ -32,7 +32,7 @@
         "capacity": 700,
         "conferenceRooms": 3,
         "distanceCenter": 1.5,
-        "distanceStation": 0.3,
+        "distanceStation": 0.3
       },
       "associations": {
         "catering": [{"id": 3, "kind": "forced"}]
