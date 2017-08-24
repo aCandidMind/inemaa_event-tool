@@ -15,8 +15,8 @@ const App = () => {
   return (
     <FlexParent id="splashContainer" horizontalAlignment="center" verticalAlignment="middle">
       <FlexChild>
-        <a href="http://localhost:3000/#mapSummer">
-          <img id="map" role="presentation" src="http://localhost:3000/splashFilters.jpg" />
+        <a href="/#mapSummer">
+          <img id="map" role="presentation" src="splashFilters.jpg" />
         </a>
       </FlexChild>
     </FlexParent>
