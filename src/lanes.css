@@ -175,19 +175,17 @@ html, body {
   /* margin is controlled by react */
 }
 
-#sidebar #filters {
+#sidebar .callout {
   margin: 20px;
   padding: 0.75rem;
 }
 
 #sidebar #filters input, #sidebar #filters label {
-  height: 25px;
-  vertical-align: middle;
-  margin: 2px;
+  font-size: 1rem;
 }
 
-#sidebar #filters input {
-    margin-top: 4px;
+#sidebar select {
+  padding-bottom: 0.3rem;
 }
 
 #reportCallout {

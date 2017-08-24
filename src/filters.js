@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import Collapse, { Panel } from 'rc-collapse';
 
-import { Callout } from 'react-foundation-components/lib/callout';
 import 'rc-collapse/assets/index.css';
+import { Callout } from 'react-foundation-components/lib/callout';
 
 import FilterForm from './filterForm';
 
@@ -21,13 +21,25 @@ class Filters extends Component {
     return (
       <Callout id={this.props.id}>
         <h5>Filter</h5>
-        <Collapse
-          accordion={true}
-          onChange={this.onChange}
-          activeKey={this.state.activeKey}
-        >
+        <form>
+          <label>
+            Ort
+            <input type="text" defaultValue="Frankfurt" />
+          </label>
+
+          <label>
+            Personen
+            <input type="number" defaultValue="10" />
+          </label>
+
+          <Collapse
+            accordion={true}
+            onChange={this.onChange}
+            activeKey={this.state.activeKey}
+          >
           {this.getItems()}
-        </Collapse>
+          </Collapse>
+        </form>
       </Callout>
     );
   }

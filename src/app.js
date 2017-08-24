@@ -4,8 +4,10 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 // Styling
-import { Float, ClearFix } from 'react-foundation-components/lib/float';
+import './main.scss';
 import 'react-foundation-components/lib/_typography.scss';
+import { Float, ClearFix } from 'react-foundation-components/lib/float';
+import { Callout } from 'react-foundation-components/lib/callout';
 
 import Lanes from './lanes';
 import Score from './score'
@@ -70,6 +72,15 @@ class App extends Component {
               </div>
               <div id="sidebar">
                 <Score score={this.state.score} />
+                <Callout>
+                  <h5>Sortierung</h5>
+                  <form>
+                    <select>
+                      <option>Nachhaltigkeit</option>
+                      <option>Name</option>
+                    </select>
+                  </form>
+                </Callout>
                 <Filters id="filters" handleCheckboxClick={this.handleCheckboxClick} />
               </div>
             </div>
