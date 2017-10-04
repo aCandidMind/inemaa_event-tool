@@ -1,7 +1,4 @@
-import React, {Component, PropTypes} from 'react';
-import 'rc-progress/assets/index.css';
-import { Line as LineProgress } from 'rc-progress';
-
+import React, {Component} from 'react';
 
 class Score extends Component {
 
@@ -17,10 +14,22 @@ class Score extends Component {
     console.log("Score#render state.score", this.props.score, 'in percent', scorePercent);
     return (
       <div id="meter">
-        <LineProgress percent={scorePercent}
-                      strokeWidth="1" strokeColor="#35B33D"
-                      trailWidth="1" />
-        Nachhaltigkeitslevel {Math.round(scorePercent)}%
+        <div className="row">
+          <div className="columns">
+            NACHHALTIGKEITSLEVEL
+          </div>
+        </div>
+        <div className="row percent-row align-justify">
+          <div className="small-4 columns">
+          {Math.round(scorePercent)}<span className="percent">%</span>
+          </div>
+          <div className="small-2 columns">
+            <i className="fa fa-info" />
+          </div>
+        </div>
+        <div className="progress success score-line" role="progressbar" tabIndex="0" aria-valuenow="50" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
+          <div className="progress-meter" style={{width: "50%"}}></div>
+        </div>
       </div>
     );
   }

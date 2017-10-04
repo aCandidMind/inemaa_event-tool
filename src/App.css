@@ -1,28 +1,96 @@
-.App {
-  text-align: center;
+@media screen and (min-width: 39.9375em) {
+  #header {
+    height: 9em;
+  }
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#header .button {
+  margin-bottom: 0;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.topbar-center-logo {
+  background: #FFFFFF;
 }
 
-.App-title {
-  font-size: 1.5em;
+.topbar-center-logo .menu {
+  background: #FFFFFF;
 }
 
-.App-intro {
-  font-size: large;
+.topbar-center-logo .menu a {
+  color: #1A1A1A;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.topbar-center-logo .top-bar-center {
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .topbar-center-logo .top-bar-left, .topbar-center-logo .top-bar-right {
+    display: none;
+  }
+}
+
+.topbar-center-logo-mobile {
+  background: #FFFFFF;
+}
+
+.topbar-center-logo-mobile .menu-icon {
+  vertical-align: text-top;
+}
+
+#meter {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  height: 9em;
+  position: relative;
+
+}
+
+#meter .percent-row {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#meter .percent {
+  color: #0dc237;
+}
+
+#meter .score-line {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#meter .progress {
+  background-color: #4D4D4D;
+}
+
+#meter .progress, #meter .progress-meter {
+  border-radius: 0;
+}
+
+.wish-list-button {
+  padding: 0.65em;
+}
+
+.wish-list-button .right {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+/* .fa is for font-awesome icons */
+.searchresult .distances .fa {
+  margin-right: 4px;
+}
+
+button .fa {
+  margin-right: 5px;
+}
+
+button .fa-2x {
+  font-size: 1.25em;
+  vertical-align: baseline;
 }
