@@ -26,6 +26,9 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
+# Generated css files from node-sass
+src/**/*.css
+
 # Dependency directories
 node_modules
 jspm_packages
