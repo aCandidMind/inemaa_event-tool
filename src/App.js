@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="off-canvas-wrapper">
         <div className="off-canvas position-left reveal-for-medium reveal-for-large" id="filters" data-off-canvas>
-          <Score score={66} />
+          <Score score={273} />
           <Filters />
         </div>
 

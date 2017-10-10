@@ -1,8 +1,5 @@
-/*
-#root, #root > div, .off-canvas-wrapper-inner {
-  height: 100%;
-}
-*/
-
 @import 'foundation/foundation.scss';
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-forms;
 @include foundation-everything;

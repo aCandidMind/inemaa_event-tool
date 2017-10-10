@@ -1,6 +1,14 @@
+/*
+#1A1A1A
+#999999
+#0EC237
+#666666
+#F2F2F2
+*/
+
 @media screen and (min-width: 39.9375em) {
   #header {
-    height: 9em;
+    height: 10em;
   }
 }
 
@@ -40,21 +48,47 @@
   vertical-align: text-top;
 }
 
+@font-face { font-family: 'Roboto-ff';
+             src: url('./fonts/Roboto-Regular_0.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto-ff';
+             src: url('./fonts/Roboto-Medium_0.ttf') format('truetype');
+             font-style: italic; }
+@font-face { font-family: 'Roboto-ff';
+             src: url('./fonts/Roboto-Bold_0.ttf') format('truetype');
+             font-weight: bold; }
+
 #meter {
   background-color: #1A1A1A;
   color: #FFFFFF;
-  height: 9em;
+  height: 10em;
   position: relative;
 
 }
 
+#meter .score-text {
+  height: 9em;
+}
+
+#meter h3 {
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
 #meter .percent-row {
-  font-size: x-large;
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-size: 36px;
+  line-height: 2rem;
   font-weight: bold;
 }
 
+#meter .percent-row .fa-info {
+  margin-left: 5px;
+}
+
 #meter .percent {
-  color: #0dc237;
+  color: #0EC237;
 }
 
 #meter .score-line {
