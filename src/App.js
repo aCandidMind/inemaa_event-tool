@@ -17,9 +17,9 @@ class App extends Component {
           <Filters />
         </div>
 
-        <div className="off-canvas-content" data-off-canvas-content>
-          <div id="header" className="row align-middle">
-            <div className="columns" >
+        <div id="main" className="off-canvas-content" data-off-canvas-content>
+          <div id="header" className="grid-x align-justify align-middle">
+            <div className="cell" >
               {/* mobile nav bar */}
               <div className="title-bar topbar-center-logo-mobile hide-for-medium" data-responsive-toggle="topbar-center-logo">
                 <div className="title-bar-left">
@@ -55,14 +55,17 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="row small-up-2 medium-up-3 large-up-4">
-            <div className="column">
+          <div className="grid-x small-up-2 medium-up-3 large-up-4">
+            <div className="cell">
               <img className="thumbnail" src="http://placehold.it/400x288" />
             </div>
-            <div className="column">
+            <div className="cell">
               <img className="thumbnail" src="http://placehold.it/400x288" />
             </div>
-            <div className="column">
+            <div className="cell">
+              <img className="thumbnail" src="http://placehold.it/400x288" />
+            </div>
+            <div className="cell">
               <img className="thumbnail" src="http://placehold.it/400x288" />
             </div>
           </div>
