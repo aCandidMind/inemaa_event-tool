@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import Score from './Score.js';
 import Filters from './Filters.js';
 import Logo from './Logo.js';
@@ -7,22 +6,8 @@ import WishListButton from './WishListButton.js';
 import 'font-awesome/css/font-awesome.css';
 import './App.css';
 
-window.jQuery = $;
-window.$ = $;
-global.jQuery = $;
 
 class App extends Component {
-
-  componentDidMount() {
-    const script = document.createElement("script");
-    //script.src = "http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js";
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.js";
-    script.async = true;
-    script.onload = function () {
-        $(document).foundation();
-    };
-    document.body.appendChild(script);
-  }
 
   render() {
     return (
