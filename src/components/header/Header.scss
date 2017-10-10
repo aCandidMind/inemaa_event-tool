@@ -1,0 +1,77 @@
+@media screen and (min-width: 39.9375em) {
+  #header {
+    height: 10rem;
+  }
+}
+
+.topbar-center-logo {
+  background: #FFFFFF;
+}
+
+.topbar-center-logo .menu {
+  background: #FFFFFF;
+}
+
+.topbar-center-logo .top-bar-center {
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .topbar-center-logo .top-bar-left, .topbar-center-logo .top-bar-right {
+    display: none;
+  }
+}
+
+.topbar-center-logo-mobile {
+  background: #FFFFFF;
+}
+
+.topbar-center-logo-mobile .menu-icon {
+  vertical-align: text-top;
+}
+
+
+// BUTTON CODE
+#header .button {
+  margin-bottom: 0;
+
+  /* .fa is for font-awesome icons */
+  .fa {
+    margin-right: 5px;
+  }
+
+  .fa-2x {
+    font-size: 1.25em;
+    vertical-align: baseline;
+  }
+
+  @media screen and (min-width: 39.9375em) {
+    .fa-2x {
+      font-size: 2em;
+      vertical-align: sub;
+    }
+  }
+}
+
+.wish-list-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.65em;
+
+  .right {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 39.9375em) {
+  .wish-list-button {
+    padding: 1.5em 2em;
+
+    .right {
+      margin-left: 10px;
+    }
+  }
+}
