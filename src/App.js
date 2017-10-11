@@ -19,7 +19,22 @@ class App extends Component {
         <div id="main" className="off-canvas-content" data-off-canvas-content>
           <Header />
 
-          <div className="grid-x small-up-2 medium-up-3 large-up-4">
+          <div className="category location grid-x small-up-2 medium-up-3 large-up-4">
+            <div className="cell">
+              <img className="thumbnail" src="http://placehold.it/400x288" />
+            </div>
+            <div className="cell">
+              <img className="thumbnail" src="http://placehold.it/400x288" />
+            </div>
+            <div className="cell">
+              <img className="thumbnail" src="http://placehold.it/400x288" />
+            </div>
+            <div className="cell">
+              <img className="thumbnail" src="http://placehold.it/400x288" />
+            </div>
+          </div>
+
+          <div className="category catering grid-x small-up-2 medium-up-3 large-up-4">
             <div className="cell">
               <img className="thumbnail" src="http://placehold.it/400x288" />
             </div>

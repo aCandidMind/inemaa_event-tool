@@ -17,14 +17,17 @@
 
 #main {
   max-width: 1680px;
-  padding-left: 6%;
-  padding-right: 6%;
   font-family: "Roboto-ff", "Roboto", sans-serif;
   font-size: 21px;
   font-style: italic;
 
   a:hover, a:active {
     color: #1A1A1A;
+  }
+
+  #header, .category {
+    padding-left: 6%;
+    padding-right: 6%;
   }
 }
 
@@ -75,4 +78,12 @@
 
 #meter .progress, #meter .progress-meter {
   border-radius: 0;
+}
+
+.location {
+  background-color: #F2F2F2;
+}
+
+.catering {
+  background-color: #E6E6E6;
 }
