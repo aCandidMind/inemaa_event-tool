@@ -26,28 +26,34 @@ class Filters extends Component {
   render() {
     return (
       <div className="filters">
-        <ul className="mobile-filters vertical menu accordion-menu show-for-small-only" data-accordion-menu>
-         <li>
-           <div className="grid-x align-justify align-middle">
-             <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
-             <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
-           </div>
-           {this.getFilterList({})}
-         </li>
-        </ul>
+        <form className="mobile-form">
+          <ul className="mobile-filters vertical menu accordion-menu show-for-small-only" data-accordion-menu>
+            <li>
+              <div className="grid-x align-justify align-middle">
+                <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
+                <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
+              </div>
+              {this.getFilterList({isMobileForm: true})}
+            </li>
+          </ul>
+        </form>
 
-       <div className="grid-x align-justify align-middle hide-for-small-only">
-         <h1 className="filters-header">SUCHFILTER</h1>
-         <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
-       </div>
-       {this.getFilterList({hideForSmallOnly: true})}
+        <form className="desktop-form hide-for-small-only">
+          <div className="grid-x align-justify align-middle">
+            <h1 className="filters-header">SUCHFILTER</h1>
+            <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
+          </div>
+          {this.getFilterList({})}
+        </form>
       </div>
     );
   }
 
-  getFilterList({ hideForSmallOnly }) {
+  getFilterList({ isMobileForm }) {
     let classNames = "vertical menu accordion-menu";
-    if (hideForSmallOnly) {
+    let idPrefix = 'mobile-category-checkbox';
+    if (!isMobileForm) {
+      idPrefix = 'category-checkbox';
       classNames += "hide-for-small-only";
     }
     return (
@@ -55,21 +61,21 @@ class Filters extends Component {
         <li className="filters-tab">
           <a href="#">Ort</a>
           <ul className="categories-menu menu vertical nested is-active">
-            <li><input className="category-clear-selection" id="category-checkbox1" type="checkbox"/><label htmlFor="category-checkbox1">Category 1</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox2" type="checkbox"/><label htmlFor="category-checkbox2">Category 2</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox3" type="checkbox"/><label htmlFor="category-checkbox3">Category 3</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox4" type="checkbox"/><label htmlFor="category-checkbox4">Category 4</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox5" type="checkbox"/><label htmlFor="category-checkbox5">Category 5</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox6" type="checkbox"/><label htmlFor="category-checkbox6">Category 6</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox7" type="checkbox"/><label htmlFor="category-checkbox7">Category 7</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox8" type="checkbox"/><label htmlFor="category-checkbox8">Category 8</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox9" type="checkbox"/><label htmlFor="category-checkbox9">Category 9</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox10" type="checkbox"/><label htmlFor="category-checkbox10">Category 10</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox11" type="checkbox"/><label htmlFor="category-checkbox11">Category 11</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox12" type="checkbox"/><label htmlFor="category-checkbox12">Category 12</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox13" type="checkbox"/><label htmlFor="category-checkbox13">Category 13</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox14" type="checkbox"/><label htmlFor="category-checkbox14">Category 14</label></li>
-            <li><input className="category-clear-selection" id="category-checkbox15" type="checkbox"/><label htmlFor="category-checkbox15">Category 15</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "1"} type="checkbox"/><label htmlFor={idPrefix + "1"}>Category 1</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "2"} type="checkbox"/><label htmlFor={idPrefix + "2"}>Category 2</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "3"} type="checkbox"/><label htmlFor={idPrefix + "3"}>Category 3</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "4"} type="checkbox"/><label htmlFor={idPrefix + "4"}>Category 4</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "5"} type="checkbox"/><label htmlFor={idPrefix + "5"}>Category 5</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "6"} type="checkbox"/><label htmlFor={idPrefix + "6"}>Category 6</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "7"} type="checkbox"/><label htmlFor={idPrefix + "7"}>Category 7</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "8"} type="checkbox"/><label htmlFor={idPrefix + "8"}>Category 8</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "9"} type="checkbox"/><label htmlFor={idPrefix + "9"}>Category 9</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "10"} type="checkbox"/><label htmlFor={idPrefix + "10"}>Category 10</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "11"} type="checkbox"/><label htmlFor={idPrefix + "11"}>Category 11</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "12"} type="checkbox"/><label htmlFor={idPrefix + "12"}>Category 12</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "13"} type="checkbox"/><label htmlFor={idPrefix + "13"}>Category 13</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "14"} type="checkbox"/><label htmlFor={idPrefix + "14"}>Category 14</label></li>
+            <li><input className="category-clear-selection" id={idPrefix + "15"} type="checkbox"/><label htmlFor={idPrefix + "15"}>Category 15</label></li>
           </ul>
         </li>
         <li className="filters-tab">
