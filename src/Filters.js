@@ -28,12 +28,14 @@ class Filters extends Component {
       <div className="filters">
         <ul className="mobile-filters vertical menu accordion-menu show-for-small-only" data-accordion-menu>
          <li>
-           <a href="#"><h2>SUCHFILTER</h2></a>
+           <div className="grid-x align-justify align-middle">
+             <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
+             <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
+           </div>
            <ul className="vertical menu accordion-menu" data-accordion-menu>
             <li className="filters-tab">
-              <a href="#">Category</a>
+              <a href="#">Ort</a>
               <ul className="categories-menu menu vertical nested is-active">
-                 <a href="#" className="clear-all" id="category-clear-all">Clear All</a>
                  <li><input className="category-clear-selection" id="category-checkbox1" type="checkbox" /><label htmlFor="category-checkbox1">Category 1</label></li>
                  <li><input className="category-clear-selection" id="category-checkbox2" type="checkbox" /><label htmlFor="category-checkbox2">Category 2</label></li>
                  <li><input className="category-clear-selection" id="category-checkbox3" type="checkbox" /><label htmlFor="category-checkbox3">Category 3</label></li>
@@ -52,21 +54,18 @@ class Filters extends Component {
                </ul>
            </li>
            <li className="filters-tab">
-              <a href="#">Size</a>
+              <a href="#">Anlass</a>
               <ul className="categories-menu menu vertical nested is-active">
-                <a href="#" className="clear-all" id="size-clear-all">Clear All</a>
                 <li><input id="size-checkbox1" type="checkbox" /><label htmlFor="size-checkbox1">Small</label></li>
                 <li><input id="size-checkbox2" type="checkbox" /><label htmlFor="size-checkbox2">Medium</label></li>
                 <li><input id="size-checkbox3" type="checkbox" /><label htmlFor="size-checkbox3">Large</label></li>
                 <li><input id="size-checkbox3" type="checkbox" /><label htmlFor="size-checkbox3">X-Large</label></li>
                 <li><input id="size-checkbox3" type="checkbox" /><label htmlFor="size-checkbox3">XX-Large</label></li>
               </ul>
-
             </li>
            <li className="filters-tab">
-              <a href="#">Color</a>
+              <a href="#">Personen</a>
               <ul className="categories-menu menu vertical nested">
-                <a href="#" className="clear-all" id="color-clear-all">Clear All</a>
                 <li><input id="color-checkbox1" type="checkbox" /><label htmlFor="color-checkbox1">All Color</label></li>
                 <li><input id="color-checkbox2" type="checkbox" /><label htmlFor="color-checkbox2">Black</label></li>
                 <li><input id="color-checkbox3" type="checkbox" /><label htmlFor="color-checkbox3">White</label></li>
@@ -79,9 +78,8 @@ class Filters extends Component {
               </ul>
             </li>
            <li className="filters-tab">
-              <a href="#">Price</a>
+              <a href="#">Zertifikate</a>
               <ul className="categories-menu menu vertical nested">
-                <a href="#" className="clear-all" id="price-clear-all">Clear All</a>
                 <li><input id="price-checkbox1" type="checkbox" /><label htmlFor="price-checkbox1">Under $25</label></li>
                 <li><input id="price-checkbox2" type="checkbox" /><label htmlFor="price-checkbox2">$25–$50</label></li>
                 <li><input id="price-checkbox3" type="checkbox" /><label htmlFor="price-checkbox3">$50–$250</label></li>
@@ -93,12 +91,14 @@ class Filters extends Component {
          </li>
        </ul>
 
-       <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
+       <div className="grid-x align-justify align-middle">
+         <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
+         <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
+       </div>
        <ul className="vertical menu accordion-menu hide-for-small-only" data-accordion-menu>
           <li className="filters-tab">
-            <a href="#">Category</a>
+            <a href="#">Ort</a>
             <ul className="categories-menu menu vertical nested is-active">
-               <a href="#" className="clear-all" id="category-clear-all">Clear All</a>
                <li><input id="category-checkbox1" type="checkbox" /><label htmlFor="category-checkbox1">Category 1</label></li>
                <li><input id="category-checkbox2" type="checkbox" /><label htmlFor="category-checkbox2">Category 2</label></li>
                <li><input id="category-checkbox3" type="checkbox" /><label htmlFor="category-checkbox3">Category 3</label></li>
@@ -117,9 +117,8 @@ class Filters extends Component {
             </ul>
          </li>
          <li className="filters-tab">
-            <a href="#">Size</a>
+            <a href="#">Anlass</a>
             <ul className="categories-menu menu vertical nested is-active">
-              <a href="#" className="clear-all" id="size-clear-all">Clear All</a>
               <li><input id="size-checkbox1" type="checkbox" /><label htmlFor="size-checkbox1">Small</label></li>
               <li><input id="size-checkbox2" type="checkbox" /><label htmlFor="size-checkbox2">Medium</label></li>
               <li><input id="size-checkbox3" type="checkbox" /><label htmlFor="size-checkbox3">Large</label></li>
@@ -128,9 +127,8 @@ class Filters extends Component {
             </ul>
          </li>
          <li className="filters-tab">
-            <a href="#">Color</a>
+            <a href="#">Personen</a>
             <ul className="categories-menu menu vertical nested">
-              <a href="#" className="clear-all" id="color-clear-all">Clear All</a>
               <li><input id="color-checkbox1" type="checkbox" /><label htmlFor="color-checkbox1">All Color</label></li>
               <li><input id="color-checkbox2" type="checkbox" /><label htmlFor="color-checkbox2">Black</label></li>
               <li><input id="color-checkbox3" type="checkbox" /><label htmlFor="color-checkbox3">White</label></li>
@@ -143,9 +141,8 @@ class Filters extends Component {
             </ul>
          </li>
          <li className="filters-tab">
-            <a href="#">Price</a>
+            <a href="#">Zertifikate</a>
             <ul className="categories-menu menu vertical nested">
-              <a href="#" className="clear-all" id="price-clear-all">Clear All</a>
               <li><input id="price-checkbox1" type="checkbox" /><label htmlFor="price-checkbox1">Under $25</label></li>
               <li><input id="price-checkbox2" type="checkbox" /><label htmlFor="price-checkbox2">$25–$50</label></li>
               <li><input id="price-checkbox3" type="checkbox" /><label htmlFor="price-checkbox3">$50–$250</label></li>

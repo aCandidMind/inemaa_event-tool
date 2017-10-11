@@ -4,6 +4,14 @@
   background-color: #fefefe;
 }
 
+.filters h3 {
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+
 .filters label {
   color: #8a8a8a;
 }
@@ -15,7 +23,6 @@
 
 .filters .menu > li > a {
   padding-left: 0;
-  color: #4a4a4a;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -24,9 +31,11 @@
   border-color: #cacaca transparent transparent;
 }
 
-.filters .clear-all {
+.filters a.clear-all {
   font-size: 0.9rem;
-  color: #cacaca;
+  color: inherit;
+  background-color: inherit;
+  float: right;
 }
 
 .filters .more {
@@ -38,14 +47,6 @@
 .filters-header {
   font-size: 1.25rem;
   padding-top: 0.5rem;
-}
-
-.filters-tab {
-  border-top: 1px solid #e6e6e6;
-}
-
-.filters-tab:last-child {
-  border-bottom: 1px solid #e6e6e6;
 }
 
 .mobile-filters {
