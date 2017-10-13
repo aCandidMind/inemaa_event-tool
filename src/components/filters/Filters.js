@@ -26,8 +26,8 @@ class Filters extends Component {
   render() {
     return (
       <div className="filters">
-        <form className="mobile-form">
-          <ul className="mobile-filters vertical menu accordion-menu show-for-small-only" data-accordion-menu>
+        <form className="mobile-form show-for-small-only">
+          <ul className="mobile-filters vertical menu accordion-menu" data-accordion-menu>
             <li>
               <div className="grid-x align-justify align-middle">
                 <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
@@ -50,14 +50,12 @@ class Filters extends Component {
   }
 
   getFilterList({ isMobileForm }) {
-    let classNames = "vertical menu accordion-menu";
     let idPrefix = 'mobile-category-checkbox';
     if (!isMobileForm) {
       idPrefix = 'category-checkbox';
-      classNames += "hide-for-small-only";
     }
     return (
-      <ul className={classNames} data-accordion-menu>
+      <ul className="vertical menu accordion-menu" data-accordion-menu>
         <li className="filters-tab">
           <a href="#">Ort</a>
           <ul className="categories-menu menu vertical nested is-active">
