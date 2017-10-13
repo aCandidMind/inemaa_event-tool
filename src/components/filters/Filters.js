@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import './Filters.css'
 
+function getFilterHeader() {
+  return (
+    <div className="grid-x align-justify align-middle">
+      <h1 className="filters-header">SUCHFILTER</h1>
+      <button type="reset" className="clear-all" id="clear-all-filters">Alles zurücksetzen</button>
+    </div>
+  );
+}
+
 function getSelectionFilter(title, choices, idPrefix) {
   return (
     <li className="filters-tab">
@@ -71,20 +80,14 @@ class Filters extends Component {
         <form className="mobile-form show-for-small-only">
           <ul className="mobile-filters vertical menu accordion-menu" data-accordion-menu>
             <li>
-              <div className="grid-x align-justify align-middle">
-                <h1 className="filters-header hide-for-small-only">SUCHFILTER</h1>
-                <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
-              </div>
+              {getFilterHeader()}
               {this.getFilterList({isMobileForm: true})}
             </li>
           </ul>
         </form>
 
         <form className="desktop-form hide-for-small-only">
-          <div className="grid-x align-justify align-middle">
-            <h1 className="filters-header">SUCHFILTER</h1>
-            <a href="#" className="clear-all" id="clear-all-filters">Alle aufheben</a>
-          </div>
+          {getFilterHeader()}
           {this.getFilterList({})}
         </form>
       </div>
