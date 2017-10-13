@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Logo from './Logo.js';
 import WishListButton from './WishListButton.js';
-import './Header.css'
 
 class Header extends Component {
   render() {

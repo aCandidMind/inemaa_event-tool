@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import './Filters.css'
 
 function getFilterHeader() {
   return (

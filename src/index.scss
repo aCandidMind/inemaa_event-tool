@@ -3,3 +3,7 @@
 @include foundation-flex-classes;
 @include foundation-forms;
 @include foundation-everything;
+
+@import '_app.scss';
+@import 'components/filters/_filters.scss';
+@import 'components/header/_header.scss';
