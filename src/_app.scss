@@ -8,18 +8,16 @@
 
 @font-face { font-family: 'Roboto-ff';
              src: url('./fonts/Roboto-Regular_0.ttf') format('truetype'); }
-@font-face { font-family: 'Roboto-ff';
-             src: url('./fonts/Roboto-Medium_0.ttf') format('truetype');
-             font-style: italic; }
+@font-face { font-family: 'Roboto-ff medium';
+             src: url('./fonts/Roboto-Medium_0.ttf') format('truetype'); }
 @font-face { font-family: 'Roboto-ff';
              src: url('./fonts/Roboto-Bold_0.ttf') format('truetype');
              font-weight: bold; }
 
 #main {
   max-width: 1680px;
-  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-family: "Roboto-ff medium", "Roboto", sans-serif;
   font-size: 21px;
-  font-style: italic;
 
   a:hover, a:active {
     color: #1A1A1A;

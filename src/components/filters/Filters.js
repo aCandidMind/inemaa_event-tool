@@ -75,8 +75,8 @@ class Filters extends Component {
 
   render() {
     return (
-      <div className="filters">
-        <form className="mobile-form show-for-small-only">
+      <div className="filters grid-x align-center">
+        <form className="mobile-form small-10 show-for-small-only">
           <ul className="mobile-filters vertical menu accordion-menu" data-accordion-menu>
             <li>
               {getFilterHeader()}
@@ -85,7 +85,7 @@ class Filters extends Component {
           </ul>
         </form>
 
-        <form className="desktop-form hide-for-small-only">
+        <form className="desktop-form small-10 hide-for-small-only">
           {getFilterHeader()}
           {this.getFilterList({})}
         </form>
