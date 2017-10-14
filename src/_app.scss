@@ -23,9 +23,13 @@
     color: #1A1A1A;
   }
 
-  #header, .category {
-    padding-left: 6%;
-    padding-right: 6%;
+  .category {
+    padding: 4% 8%;
+
+    h3 {
+      color: #1A1A1A;
+      font-size: 21px;
+    }
   }
 }
 
