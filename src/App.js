@@ -3,7 +3,6 @@ import Score from './components/Score';
 import Filters from './components/filters/Filters';
 import Header from './components/header/Header';
 import Records from './components/records/Records';
-import 'font-awesome/css/font-awesome.css';
 
 class App extends Component {
 
