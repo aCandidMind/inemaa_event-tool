@@ -121,6 +121,23 @@ class Filters extends Component {
         {getSelectionFilter("Zertifikate", this.values.certificates, idPrefix + 'cert-')}
         {getSelectionFilter("Food Impact", this.values.foodImpact, idPrefix + 'food-')}
         {getSelectionFilter("Bewertung", this.values.rating, idPrefix + 'rating-')}
+        <div className="date-filter">
+          <h1 className="filters-header">DATUM</h1>
+          <ul className="vertical menu accordion-menu" data-accordion-menu>
+            <li className="filters-tab">
+              <a href="#">Beginn</a>
+              <ul className="categories-menu menu vertical nested">
+                <li><input type="date"/></li>
+              </ul>
+            </li>
+            <li className="filters-tab">
+              <a href="#">Ende</a>
+              <ul className="categories-menu menu vertical nested">
+                <li><input type="date"/></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </ul>
     );
   }
