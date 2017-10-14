@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Carousel from 'nuka-carousel';
-import Record from './Record';
 
 const decorators = [
   {

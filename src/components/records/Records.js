@@ -7,10 +7,10 @@ class Records extends Component {
 
   render() {
     const records = [
-      <Record title="Kap Hanau am Fluß" />,
-      <Record title="Bla blub" />,
-      <Record title="asdqwe wersfs" />,
-      <Record title="Fluß Buss Nuss" />
+      <Record key="record-1" title="Kap Hanau am Fluß" />,
+      <Record key="record-2" title="Bla blub" />,
+      <Record key="record-3" title="asdqwe wersfs" />,
+      <Record key="record-4" title="Fluß Buss Nuss" />
     ];
     return (
       <div className={`category ${this.props.title.toLowerCase()} grid-x small-up-2 medium-up-3 large-up-4`}>

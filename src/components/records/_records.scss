@@ -6,13 +6,21 @@
 
 #main .category .cell {
   padding: 40px;
-  background-color: #1A1A1A;
   height: 288px;
+  background-color: #FFFFFF;
 
   h3 {
     font-family: "Roboto-ff medium", "Roboto", sans-serif;
     font-size: 21px;
-    color: #ffffff;
+    color: #1A1A1A;
+  }
+
+  &.selected {
+    background-color: #1A1A1A;
+
+    h3 {
+      color: #FFFFFF;
+    }
   }
 
   .tags {
