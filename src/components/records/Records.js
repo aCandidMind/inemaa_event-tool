@@ -6,11 +6,20 @@ import Record from './Record';
 class Records extends Component {
 
   render() {
+    const kind = this.props.title === 'Location' ? 'location' : 'catering';
+    const cardProp = {
+      metadata: {
+        capacity: 2400,
+        conferenceRooms: 8,
+        distanceCenter: 0.8,
+        distanceStation: 0.1
+      }
+    };
     const records = [
-      <Record key="record-1" title="Kap Hanau am Fluß" />,
-      <Record key="record-2" title="Bla blub" />,
-      <Record key="record-3" title="asdqwe wersfs" />,
-      <Record key="record-4" title="Fluß Buss Nuss" />
+      <Record key="record-1" title="Kap Hanau am Fluß" kind={kind} card={cardProp} />,
+      <Record key="record-2" title="Bla blub" kind={kind} card={cardProp} />,
+      <Record key="record-3" title="asdqwe wersfs" kind={kind} card={cardProp} />,
+      <Record key="record-4" title="Fluß Buss Nuss" kind={kind} card={cardProp} />
     ];
     return (
       <div className={`category ${this.props.title.toLowerCase()} grid-x small-up-2 medium-up-3 large-up-4`}>
