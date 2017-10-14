@@ -40,13 +40,19 @@ class RecordCarousel extends Component {
       <Carousel
         slidesToShow={3}
         slidesToScroll={1}
-        swiping={true}
+        initialSlideHeight={288}
         cellSpacing={20}
         decorators={decorators}
         ref={(c) => this._carousel = c}
       >
         <div className="cell">
-          <img src="http://placehold.it/400x288?text=1" />
+          <h3>Kap Hanau am Fluß</h3>
+          <div className="rating">5 Stars</div>
+          <ul className="tags menu simple">
+            <li>#Strommix</li>
+            <li>#JWD</li>
+            <li>#Fleisch</li>
+          </ul>
         </div>
         <div className="cell">
           <img src="http://placehold.it/400x288?text=2" />

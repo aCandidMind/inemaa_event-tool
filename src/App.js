@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Score from './components/Score';
 import Filters from './components/filters/Filters';
 import Header from './components/header/Header';
-import RecordCarousel from './components/record_carousel/RecordCarousel';
+import Records from './components/records/Records';
 import 'font-awesome/css/font-awesome.css';
 
 class App extends Component {
@@ -20,12 +20,12 @@ class App extends Component {
 
           <div className="category location grid-x small-up-2 medium-up-3 large-up-4">
             <h3>Location</h3>
-            <RecordCarousel />
+            <Records />
           </div>
 
           <div className="category catering grid-x small-up-2 medium-up-3 large-up-4">
             <h3>Catering</h3>
-            <RecordCarousel />
+            <Records />
           </div>
 
         </div>
