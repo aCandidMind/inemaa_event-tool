@@ -1,3 +1,9 @@
+@font-face { font-family: 'Georgia Bold Italic';
+             src: url('./fonts/georgiaz.ttf') format('truetype');
+             font-weight: bold;
+             font-style: italic; }
+
+
 #main .category .cell {
   padding: 40px;
   background-color: #1A1A1A;
@@ -7,6 +13,14 @@
     font-family: "Roboto-ff medium", "Roboto", sans-serif;
     font-size: 21px;
     color: #ffffff;
+  }
+
+  .tags {
+    font-family: 'Georgia Bold Italic', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    color: get-color(success);
   }
 }
 
