@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Carousel from 'nuka-carousel';
+import Record from './Record';
 
 const decorators = [
   {
@@ -45,24 +46,7 @@ class RecordCarousel extends Component {
         decorators={decorators}
         ref={(c) => this._carousel = c}
       >
-        <div className="cell">
-          <h3>Kap Hanau am Fluß</h3>
-          <div className="rating">5 Stars</div>
-          <ul className="tags menu simple">
-            <li>#Strommix</li>
-            <li>#JWD</li>
-            <li>#Fleisch</li>
-          </ul>
-        </div>
-        <div className="cell">
-          <img src="http://placehold.it/400x288?text=2" />
-        </div>
-        <div className="cell">
-          <img src="http://placehold.it/400x288?text=3" />
-        </div>
-        <div className="cell">
-          <img src="http://placehold.it/400x288?text=4" />
-        </div>
+        {this.props.records}
       </Carousel>
     );
   }

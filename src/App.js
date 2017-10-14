@@ -17,17 +17,8 @@ class App extends Component {
 
         <div id="main" className="off-canvas-content" data-off-canvas-content>
           <Header />
-
-          <div className="category location grid-x small-up-2 medium-up-3 large-up-4">
-            <h3>Location</h3>
-            <Records />
-          </div>
-
-          <div className="category catering grid-x small-up-2 medium-up-3 large-up-4">
-            <h3>Catering</h3>
-            <Records />
-          </div>
-
+          <Records title="Location"/>
+          <Records title="Catering"/>
         </div>
       </div>
     );

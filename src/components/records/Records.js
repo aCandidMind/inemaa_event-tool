@@ -1,37 +1,30 @@
 import React, {Component} from 'react';
 import MediaQuery from 'react-responsive';
 import RecordCarousel from './RecordCarousel';
+import Record from './Record';
 
 class Records extends Component {
 
   render() {
-    return [
-      <MediaQuery query="(min-device-width: 1224px)">
-        <RecordCarousel />
-      </MediaQuery>,
-      <MediaQuery query="(max-device-width: 1224px)">
-        <div>
-          <div className="cell">
-            <h3>Kap Hanau am Fluß</h3>
-            <div className="rating">5 Stars</div>
-            <ul className="tags menu simple">
-              <li>#Strommix</li>
-              <li>#JWD</li>
-              <li>#Fleisch</li>
-            </ul>
+    const records = [
+      <Record title="Kap Hanau am Fluß" />,
+      <Record title="Bla blub" />,
+      <Record title="asdqwe wersfs" />,
+      <Record title="Fluß Buss Nuss" />
+    ];
+    return (
+      <div className={`category ${this.props.title.toLowerCase()} grid-x small-up-2 medium-up-3 large-up-4`}>
+        <h3>{this.props.title}</h3>
+        <MediaQuery query="(min-device-width: 1224px)">
+          <RecordCarousel records={records} />
+        </MediaQuery>
+        <MediaQuery query="(max-device-width: 1224px)">
+          <div className="mobile-records">
+            {records}
           </div>
-          <div className="cell">
-            <img src="http://placehold.it/400x288?text=2" />
-          </div>
-          <div className="cell">
-            <img src="http://placehold.it/400x288?text=3" />
-          </div>
-          <div className="cell">
-            <img src="http://placehold.it/400x288?text=4" />
-          </div>
-        </div>
-      </MediaQuery>
-    ]
+        </MediaQuery>
+      </div>
+    )
   }
 }
 
