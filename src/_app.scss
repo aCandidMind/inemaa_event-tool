@@ -64,7 +64,7 @@
 }
 
 #meter .percent {
-  color: #0EC237;
+  color: get-color(success);
 }
 
 #meter .score-line {
