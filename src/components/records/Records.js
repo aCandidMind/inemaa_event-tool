@@ -24,10 +24,10 @@ class Records extends Component {
     return (
       <div className={`category ${this.props.title.toLowerCase()} grid-x small-up-2 medium-up-3 large-up-4`}>
         <h3>{this.props.title}</h3>
-        <MediaQuery query="(min-device-width: 1224px)">
+        <MediaQuery query="(min-width: 1224px)">
           <RecordCarousel records={records} />
         </MediaQuery>
-        <MediaQuery query="(max-device-width: 1224px)">
+        <MediaQuery query="(max-width: 1224px)">
           <div className="mobile-records">
             {records}
           </div>

@@ -35,9 +35,15 @@
   }
 
   .tags {
+    list-style: none;
+    margin-left: 0;
     font-family: 'Georgia Bold Italic', sans-serif;
     font-size: 18px;
     color: get-color(success);
+
+    li {
+      margin-right: 0.625rem;
+    }
   }
 
   .extra-metadata {
@@ -77,7 +83,7 @@
   }
 }
 
-#main .mobile-records .cell {
+#main .mobile-records .card-cell {
   padding: 20px;
   margin-bottom: 20px;
 }

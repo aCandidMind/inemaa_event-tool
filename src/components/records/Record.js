@@ -18,7 +18,7 @@ class Record extends Component {
       <div className={className} onClick={this.toggleSelected.bind(this)}>
         <h3>{this.props.title}</h3>
         <div className="rating">5 Stars</div>
-        <ul className="tags menu simple">
+        <ul className="tags menu">
           <li>#Strommix</li>
           <li>#JWD</li>
           <li>#Fleisch</li>
@@ -26,13 +26,13 @@ class Record extends Component {
         <div className="data-and-buttons cell auto grid-x">
           {this.getExtraMetaData()}
           <div className="cell grid-x align-bottom">
-            <div className="cell small-5">
+            <div className="cell shrink">
               <ul className="distances">
                 <li><span className="fa fa-dot-circle-o" /> {distanceCenter}</li>
                 <li><span className="fa fa-train" /> {distanceStation}</li>
               </ul>
             </div>
-            <div className="cell small-7 result-buttons grid-x align-right">
+            <div className="cell auto result-buttons grid-x align-right">
               <button className="clear secondary button button-small cell auto">
                 <span className="fa fa-paperclip" />
                 Merken
