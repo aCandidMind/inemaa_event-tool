@@ -2,20 +2,23 @@ import React, {Component} from 'react';
 
 class Record extends Component {
 
-  state = {
-    classNameSuffix: '',
-  };
+  constructor(props) {
+    super(props);
+    this.handleSelected = this.handleSelected.bind(this);
+    this.handleDetailClicked = this.handleDetailClicked.bind(this);
+  }
 
   render() {
-    const className = "cell card-cell grid-y" + this.state.classNameSuffix;
+    const className = "cell card-cell grid-y" + (this.props.card.selected ? ' selected' : '');
 
     const {
       distanceCenter,
       distanceStation,
     } = this.props.card.metadata;
+    const id = this.props.id;
 
     return (
-      <div className={className} onClick={this.toggleSelected.bind(this)}>
+      <div className={className} onClick={() => this.handleSelected(id)}>
         <h3>{this.props.title}</h3>
         <div className="rating">5 Stars</div>
         <ul className="tags menu">
@@ -37,7 +40,7 @@ class Record extends Component {
                 <span className="fa fa-paperclip" />
                 Merken
               </button>
-              <button className="clear secondary button button-small cell auto">
+              <button className="clear secondary button button-small cell auto" onClick={() => this.handleDetailClicked(id)}>
                 <span className="fa fa-info" />
                 Detail
               </button>
@@ -46,6 +49,14 @@ class Record extends Component {
         </div>
       </div>
     )
+  }
+
+  handleSelected(id) {
+    this.props.handleCardSelected(id);
+  }
+
+  handleDetailClicked(id) {
+    this.props.handleDetailClick(id);
   }
 
   getExtraMetaData() {
@@ -63,11 +74,6 @@ class Record extends Component {
       );
     }
     return result;
-  }
-
-  toggleSelected() {
-      const classNameSuffix = (this.state.classNameSuffix === '') ? " selected" : '';
-      this.setState({classNameSuffix: classNameSuffix});
   }
 }
 
