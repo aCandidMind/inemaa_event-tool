@@ -1,7 +1,7 @@
 {
   "foundation-palette": {
-    "primary": "#35B33D",
-    "secondary": "#BBBBBB",
+    "primary": "#ffae00",
+    "secondary": "#F1D205",
     "success": "#3adb76",
     "warning": "#ffae00",
     "alert": "#ec5840"
