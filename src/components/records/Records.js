@@ -15,14 +15,15 @@ class Records extends Component {
         capacity: 2400,
         conferenceRooms: 8,
         distanceCenter: 0.8,
-        distanceStation: 0.1
+        distanceStation: 0.1,
+        description: "Your response to that issue seemed to appease the user, but I am a bit concerned by the blog post, and confused about how to go forward without the Mixin. How would the ES6 syntax look, exactly? What would I add to this to make it work properly?",
       }
     };
     this.state = {
       cardDetail: null,
       records: [
         {title: "Kap Hanau am Fluß", id: kind + '1', kind: kind, card: cardProps},
-        {title: "Bla blub", id: kind + '2', kind: kind, card: cardProps},
+        {title: "Schloß Blau", id: kind + '2', kind: kind, card: cardProps},
         {title: "asdqwe wersfs", id: kind + '3', kind: kind, card: cardProps},
         {title: "Fluß Buss Nuss", id: kind + '4', kind: kind, card: cardProps},
       ]
