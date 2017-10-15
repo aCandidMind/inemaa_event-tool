@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import MediaQuery from 'react-responsive';
-import RecordCarousel from './RecordCarousel';
 import Record from './Record';
+import RecordCarousel from './RecordCarousel';
+import RecordDetail from './RecordDetail';
 
 class Records extends Component {
 
@@ -54,15 +55,24 @@ class Records extends Component {
           </MediaQuery>
         </div>
         {
-          this.state.cardDetail &&
-            <div className="category grid-x bla" style={{backgroundColor: 'black', height: '400px'}} />
+          this.state.cardDetail && <RecordDetail cardDetail={this.state.cardDetail} />
         }
       </div>
     )
   }
 
   handleDetailClick(clickedId) {
-    this.setState({cardDetail: clickedId});
+    let cardDetail = null;
+    this.state.records.forEach(record => {
+      if (record.id === clickedId) {
+        cardDetail = record;
+      }
+    });
+    if (cardDetail) {
+      this.setState({cardDetail: cardDetail});
+    } else {
+      throw new Error('no such card id ' + clickedId);
+    }
   }
 
   handleCardSelected(selectedId) {
