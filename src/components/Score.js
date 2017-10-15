@@ -25,9 +25,9 @@ class Score extends Component {
               <span className="cell small-3">
               {Math.round(scorePercent)}<span className="percent">%</span>
               </span>
-              <span className="cell small-1">
+              <button className="cell small-1 button hollow">
                 <i className="fa fa-info" />
-              </span>
+              </button>
             </div>
           </div>
         </div>
