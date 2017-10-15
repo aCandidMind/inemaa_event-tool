@@ -1,0 +1,214 @@
+@font-face { font-family: 'Georgia Bold Italic';
+             src: url('./fonts/georgiaz.ttf') format('truetype'); }
+
+.location {
+  background-color: #F2F2F2;
+}
+
+.catering {
+  background-color: #E6E6E6;
+}
+
+#main .category .card-cell {
+  padding: 1.5rem 2.2rem;
+  height: 288px;
+  background-color: #FFFFFF;
+
+  h3 {
+    font-family: "Roboto-ff medium", "Roboto", sans-serif;
+    font-size: 21px;
+    color: #1A1A1A;
+  }
+
+  &.selected {
+    background-color: #1A1A1A;
+
+    h3 {
+      color: #FFFFFF;
+    }
+
+    .result-buttons {
+      button {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .tags {
+    list-style: none;
+    margin-left: 0;
+    font-family: 'Georgia Bold Italic', sans-serif;
+    font-size: 18px;
+    color: get-color(success);
+
+    li {
+      margin-right: 0.625rem;
+    }
+  }
+
+  .extra-metadata {
+    font-family: "Roboto-ff bold", "Roboto-ff", "Roboto", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 2.2rem;
+  }
+
+  .result-buttons {
+    button {
+      padding: 5px;
+      margin: 0 0 0 10px;
+      text-transform: uppercase;
+      color: inherit;
+
+      &:hover {
+        color: get-color(secondary);
+      }
+    }
+  }
+}
+
+#main .mobile-records .card-cell {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.slider {
+  background-color: inherit;
+
+  .slide-button {
+    position: relative;
+    right: 50px;
+
+    &.slide-next {
+      left: 50px;
+    }
+  }
+}
+
+ul.distances {
+  font-size: 1rem;
+  margin: 0;
+
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 12px;
+  }
+
+  /* .fa is for font-awesome icons */
+  .fa {
+    margin-right: 4px;
+  }
+}
+
+#main .category.record-detail {
+  background-color: $black;
+
+  header {
+    margin-bottom: 20px;
+
+    & > * {
+      float: left;
+    }
+
+    h3 {
+      color: #FFFFFF;
+      margin-right: 1rem;
+    }
+
+    button {
+      float: right;
+      font-size: xx-large;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  article {
+    background-color: #FFFFFF;
+
+    h3, h4, a {
+      font-family: "Roboto-ff medium", "Roboto-ff", sans-serif;
+      font-size: 21px;
+      color: $black;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    .record-image {
+      max-height: 288px;
+    }
+
+    .record-contact {
+      font-family: "Roboto-ff medium";
+      font-size: 21px;
+      padding: 2.5rem 2.5rem 0;
+
+      p {
+        line-height: 1.4;
+        margin-bottom: 20px;
+      }
+    }
+
+    .record-body {
+      color: #808080;
+      background-color: #E6E6E6;
+      font-size: 21px;
+
+      .cell {
+        @include xy-gutters(
+          $gutters: 50,
+          $gutter-type: padding,
+          $gutter-position: top right bottom left
+        );
+      }
+
+      h4 {
+        margin-top: 2rem;
+      }
+
+      ul {
+        font-family: "Roboto-ff bold", "Roboto-ff";
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      ul.key-facts {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          @include xy-cell(50%);
+          text-indent: -.7em;
+          margin-bottom: 0.7rem;
+
+          &::before {
+            content: "■";
+            color: #0EC237;
+            margin-right: 1.5rem;
+          }
+        }
+      }
+    }
+
+    footer {
+      @include xy-gutters(
+        $gutters: 50,
+        $gutter-type: padding,
+        $gutter-position: top right bottom left
+      );
+
+      button {
+        margin: 0;
+        padding: 0;
+
+        &:hover {
+          color: get-color(secondary)
+        }
+      }
+    }
+  }
+}

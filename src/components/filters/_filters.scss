@@ -1,0 +1,65 @@
+.filters {
+  flex: 10 0 auto;
+  padding: 2.5rem 1.5rem;
+  background-color: #fefefe;
+}
+
+.filters-header {
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: $black;
+  padding-top: 0.5rem;
+}
+
+.filters .filters-tab > a {
+  font-family: "Roboto-ff medium", "Roboto", sans-serif;
+  font-size: 21px;
+  padding: 1rem 0 1rem 0;
+}
+
+
+.filters label {
+  color: #8a8a8a;
+}
+
+.filters .menu.nested {
+  margin-left: 0rem;
+  margin-bottom: 0.9rem;
+}
+
+.filters .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)[aria-expanded="false"] > a::after {
+  right: 5px !important;
+  transform: rotate(90deg);
+}
+
+.filters .accordion-menu .is-accordion-submenu-parent[aria-expanded="true"] > a::after {
+  transform: rotate(0deg);
+}
+
+.filters .accordion-menu .is-accordion-submenu-parent.has-submenu-toggle > a::after,
+.filters .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
+  border-width: 8px !important;
+  border-color: #DADADA transparent transparent !important;
+  right: 0 !important;
+}
+
+.filters button.clear-all {
+  color: inherit;
+  background-color: inherit;
+  float: right;
+}
+
+.filters .more {
+  color: #1779ba;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.mobile-filters {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.filters .date-filter {
+  margin-top: 2rem;
+}

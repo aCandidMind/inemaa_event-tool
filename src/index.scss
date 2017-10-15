@@ -1,0 +1,12 @@
+@import 'foundation/foundation.scss';
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-forms;
+@include foundation-everything;
+
+@import '../node_modules/font-awesome/css/font-awesome.css';
+
+@import '_app.scss';
+@import 'components/filters/_filters.scss';
+@import 'components/header/_header.scss';
+@import 'components/records/_records.scss';

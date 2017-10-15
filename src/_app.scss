@@ -1,0 +1,97 @@
+/*
+#1A1A1A
+#999999
+#0EC237
+#666666
+#F2F2F2
+*/
+
+@font-face { font-family: 'Roboto-ff';
+             src: url('./fonts/Roboto-Regular_0.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto-ff medium';
+             src: url('./fonts/Roboto-Medium_0.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto-ff';
+             src: url('./fonts/Roboto-Bold_0.ttf') format('truetype');
+             font-weight: bold; }
+@font-face { font-family: 'Roboto-ff bold';
+             src: url('./fonts/Roboto-Bold_0.ttf') format('truetype'); }
+
+#main {
+  max-width: 1680px;
+  font-family: "Roboto-ff medium", "Roboto", sans-serif;
+  font-size: 21px;
+
+  a:hover, a:active {
+    color: #1A1A1A;
+  }
+
+  .category {
+    padding: 4% 8%;
+
+    h3 {
+      color: #1A1A1A;
+      font-size: 21px;
+    }
+  }
+}
+
+#meter {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  height: 10rem;
+  position: relative;
+
+}
+
+#meter .score-text {
+  height: 9em;
+}
+
+#meter h3 {
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+#meter .percent-row {
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  font-size: 36px;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+#meter .percent-row button {
+  padding: 0;
+  margin: 0;
+  font-size: 50%;
+  border: 1px solid #666666;
+  color: #666666;
+
+  .fa {
+    margin-right: 0;
+  }
+}
+
+#meter .percent {
+  color: get-color(success);
+}
+
+#meter .score-line {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#meter .progress {
+  background-color: #4D4D4D;
+}
+
+#meter .progress, #meter .progress-meter {
+  border-radius: 0;
+}
+
+button .fa {
+  margin-right: 3px;
+}
