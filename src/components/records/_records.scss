@@ -1,8 +1,13 @@
 @font-face { font-family: 'Georgia Bold Italic';
-             src: url('./fonts/georgiaz.ttf') format('truetype');
-             font-weight: bold;
-             font-style: italic; }
+             src: url('./fonts/georgiaz.ttf') format('truetype'); }
 
+.location {
+  background-color: #F2F2F2;
+}
+
+.catering {
+  background-color: #E6E6E6;
+}
 
 #main .category .card-cell {
   padding: 1.5rem 2.2rem;
@@ -31,8 +36,6 @@
 
   .tags {
     font-family: 'Georgia Bold Italic', sans-serif;
-    font-weight: bold;
-    font-style: italic;
     font-size: 18px;
     color: get-color(success);
   }
