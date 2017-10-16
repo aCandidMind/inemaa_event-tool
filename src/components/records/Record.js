@@ -19,7 +19,7 @@ class Record extends Component {
 
     return (
       <div className={className} onClick={() => this.handleSelected(id)}>
-        <h3>{this.props.title}</h3>
+        <h3>{this.props.name}</h3>
         <div className="rating">5 Stars</div>
         <ul className="tags menu">
           <li>#Strommix</li>

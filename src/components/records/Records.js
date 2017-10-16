@@ -8,7 +8,16 @@ class Records extends Component {
 
   constructor(props) {
     super(props);
-    const kind = props.title === 'Location' ? 'location' : 'catering';
+    this.state = {
+      cardDetail: null,
+      records: [],
+    };
+    this.handleDetailClick = this.handleDetailClick.bind(this);
+    this.handleCardSelected = this.handleCardSelected.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    const kind = newProps.title === 'Location' ? 'location' : 'catering';
     const cardProps = {
       selected: false,
       metadata: {
@@ -19,17 +28,12 @@ class Records extends Component {
         description: "Your response to that issue seemed to appease the user, but I am a bit concerned by the blog post, and confused about how to go forward without the Mixin. How would the ES6 syntax look, exactly? What would I add to this to make it work properly?",
       }
     };
-    this.state = {
-      cardDetail: null,
-      records: [
-        {title: "Kap Hanau am Fluß", id: kind + '1', kind: kind, card: cardProps},
-        {title: "Schloß Blau", id: kind + '2', kind: kind, card: cardProps},
-        {title: "asdqwe wersfs", id: kind + '3', kind: kind, card: cardProps},
-        {title: "Fluß Buss Nuss", id: kind + '4', kind: kind, card: cardProps},
-      ]
-    };
-    this.handleDetailClick = this.handleDetailClick.bind(this);
-    this.handleCardSelected = this.handleCardSelected.bind(this);
+    const records = newProps.records.map(record => Object.assign({}, record, {
+      id: kind + record.id,
+      kind: kind,
+      card: cardProps
+    }));
+    this.setState({records: records});
   }
 
   render() {

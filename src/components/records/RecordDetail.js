@@ -8,7 +8,7 @@ class RecordDetail extends Component {
 
   render() {
     const {
-      title,
+      name,
       kind,
     } = this.props.cardDetail;
 
@@ -22,7 +22,7 @@ class RecordDetail extends Component {
     return (
       <section className="category record-detail grid-x">
         <header className="cell align-top">
-          <h3>{capitalizeFirstLetter(kind)} „{title}“</h3>
+          <h3>{capitalizeFirstLetter(kind)} „{name}“</h3>
           <span>5 Sterne</span>
           <button className="button clear">
             <span className="fa fa-close" />
@@ -44,7 +44,7 @@ class RecordDetail extends Component {
           </div>
           <div className="grid-x record-body">
             <div className="cell small-8">
-              <h3>{title}</h3>
+              <h3>{name}</h3>
               <p>{description}</p>
               <section>
                 <h4>KEY FACTS</h4>
