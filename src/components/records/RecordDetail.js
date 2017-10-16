@@ -45,7 +45,7 @@ class RecordDetail extends Component {
           <div className="grid-x record-body">
             <div className="cell small-8">
               <h3>{name}</h3>
-              <p>{description}</p>
+              <p>{description || 'Lorem ipsum dolor sit amet'}</p>
               <section>
                 <h4>KEY FACTS</h4>
                 <ul className="grid-x small-up-2 key-facts">

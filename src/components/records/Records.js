@@ -18,21 +18,22 @@ class Records extends Component {
 
   componentWillReceiveProps(newProps) {
     const kind = newProps.title === 'Location' ? 'location' : 'catering';
-    const cardProps = {
-      selected: false,
-      metadata: {
-        capacity: 2400,
-        conferenceRooms: 8,
-        distanceCenter: 0.8,
-        distanceStation: 0.1,
-        description: "Your response to that issue seemed to appease the user, but I am a bit concerned by the blog post, and confused about how to go forward without the Mixin. How would the ES6 syntax look, exactly? What would I add to this to make it work properly?",
-      }
-    };
-    const records = newProps.records.map(record => Object.assign({}, record, {
-      id: kind + record.id,
-      kind: kind,
-      card: cardProps
-    }));
+    const records = newProps.records.map(record => {
+      const cardProps = {
+        selected: false,
+        metadata: {
+          distanceCenter: 0.8,
+          distanceStation: 0.1,
+        }
+      };
+      cardProps.metadata = Object.assign({}, cardProps.metadata, {...record});
+      return {
+        id: kind + record.id,
+        name: record.name,
+        kind: kind,
+        card: cardProps,
+      };
+    });
     this.setState({records: records});
   }
 
