@@ -45,6 +45,7 @@ class RecordDetail extends Component {
       kind,
     } = this.props.cardDetail;
     const metadata = this.state.data;
+    const occasions = metadata.occasions.split(';').map(o => o.trim()).filter(o => o !== '');
     const keyFacts = [];
     const translations = window.translations[kind];
     const nonBooleanFields = ['capacity', 'rooms', 'area', 'main_kitchen'];
@@ -91,6 +92,12 @@ class RecordDetail extends Component {
                 <h4>KEY FACTS</h4>
                 <ul className="grid-x small-up-2 key-facts">
                   {keyFacts.map((fact, i) => <li key={i}>{fact}</li>)}
+                </ul>
+              </section>
+              <section>
+                <h4>ANLÄSSE</h4>
+                <ul className="grid-x small-up-2 occasions">
+                  {occasions.map((occasion, i) => <li key={i}>{occasion}</li>)}
                 </ul>
               </section>
             </div>
