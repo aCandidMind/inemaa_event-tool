@@ -28,7 +28,8 @@ class Records extends Component {
       };
       cardProps.metadata = Object.assign({}, cardProps.metadata, {...record});
       return {
-        id: kind + record.id,
+        id: record.id,
+        namespaced_id: kind + record.id,
         name: record.name,
         kind: kind,
         card: cardProps,
@@ -41,7 +42,7 @@ class Records extends Component {
     // assign handler functions as props and merge the other ones
     const records = this.state.records.map((record) =>
       <Record
-        key={`record-${record.id}`}
+        key={`record-${record.namespaced_id}`}
         handleDetailClick={this.handleDetailClick}
         handleCardSelected={this.handleCardSelected}
         {...record}
@@ -70,7 +71,7 @@ class Records extends Component {
   handleDetailClick(clickedId) {
     let cardDetail = null;
     this.state.records.forEach(record => {
-      if (record.id === clickedId) {
+      if (record.namespaced_id === clickedId) {
         cardDetail = record;
       }
     });
@@ -86,7 +87,7 @@ class Records extends Component {
     this.state.records.forEach(record => {
       // deep clone record, only works with primitive data types and without recursive elements
       const newRecord = JSON.parse(JSON.stringify(record));
-      newRecord.card.selected = record.id === selectedId;
+      newRecord.card.selected = record.namespaced_id === selectedId;
       records.push(newRecord);
     });
     this.setState({records: records});

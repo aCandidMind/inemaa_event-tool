@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import $ from 'jquery';
+import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 function capitalizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1);
@@ -6,24 +8,34 @@ function capitalizeFirstLetter(string) {
 
 class RecordDetail extends Component {
 
+  state = {
+    data: {},
+  };
+
+  componentDidMount() {
+    // Load the env object.
+    const env = runtimeEnv();
+    const {
+      id,
+      kind,
+    } = this.props.cardDetail;
+    $.getJSON(`${env.REACT_APP_API_HOST}/api/v1/${kind}s/${id}`).done((data) => {
+      this.setState({data: data[kind]})
+    });
+  }
+
   render() {
     const {
       name,
       kind,
     } = this.props.cardDetail;
-
-    const {
-      distanceCenter,
-      distanceStation,
-      description,
-    } = this.props.cardDetail.card.metadata;
-
+    const metadata = {...this.props.cardDetail.card.metadata, ...this.state.data};
 
     return (
       <section className="category record-detail grid-x">
         <header className="cell align-top">
           <h3>{capitalizeFirstLetter(kind)} „{name}“</h3>
-          <span>5 Sterne</span>
+          <span>{metadata.rating && metadata.rating + " Sterne"}</span>
           <button className="button clear">
             <span className="fa fa-close" />
           </button>
@@ -32,20 +44,19 @@ class RecordDetail extends Component {
           <img className="cell small-8 record-image" src="http://placehold.it/600x288" />
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>
-            <p>
-              Claudia Maier<br/>
-              Stefan Mustermann
-              <div>Tel: 069 2015 546 44</div>
-            </p>
-            <p>
-              <div>info@schlossblau.de</div>
-              <a href="www.schlossblau.de">www.schlossblau.de</a>
-            </p>
+            <div>
+              {metadata.contact_person_name && <div>{metadata.contact_person_name.split(';').map(name => [name, <br />])}</div>}
+              {metadata.contact_person_phone && <div>Tel. {metadata.contact_person_phone.split(';').map(name => [name, <br />])}</div>}
+            </div>
+            <div>
+              {metadata.contact_person_email && <div>{metadata.contact_person_email}</div>}
+              {metadata.website && <a href={metadata.website}>{metadata.website}</a>}
+            </div>
           </div>
           <div className="grid-x record-body">
             <div className="cell small-8">
               <h3>{name}</h3>
-              <p>{description || 'Lorem ipsum dolor sit amet'}</p>
+              <p>{metadata.description || 'Lorem ipsum dolor sit amet'}</p>
               <section>
                 <h4>KEY FACTS</h4>
                 <ul className="grid-x small-up-2 key-facts">
@@ -68,8 +79,8 @@ class RecordDetail extends Component {
           </div>
           <footer className="cell grid-x align-middle align-justify">
             <ul className="cell shrink distances">
-              <li><span className="fa fa-dot-circle-o" /> {distanceCenter}</li>
-              <li><span className="fa fa-train" /> {distanceStation}</li>
+              <li><span className="fa fa-dot-circle-o" /> {metadata.distanceCenter}</li>
+              <li><span className="fa fa-train" /> {metadata.distanceStation}</li>
             </ul>
             <button className="cell shrink clear button large">
               <span className="fa fa-paperclip" />
