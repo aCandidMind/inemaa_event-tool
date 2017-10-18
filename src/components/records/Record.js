@@ -14,13 +14,14 @@ class Record extends Component {
     const {
       distanceCenter,
       distanceStation,
+      rating,
     } = this.props.card.metadata;
     const id = this.props.id;
 
     return (
       <div className={className} onClick={() => this.handleSelected(id)}>
         <h3>{this.props.name}</h3>
-        <div className="rating">5 Stars</div>
+        <div className="rating">{rating && rating + " Sterne"}</div>
         <ul className="tags menu">
           <li>#Strommix</li>
           <li>#JWD</li>
@@ -62,14 +63,14 @@ class Record extends Component {
   getExtraMetaData() {
     const {
       capacity,
-      conference_rooms,
+      rooms,
     } = this.props.card.metadata;
     let result = null;
     if (this.props.kind === 'location') {
       result = (
         <div className="cell extra-metadata">
-          {capacity && <div>Kapazität: {capacity}</div>}
-          {conference_rooms && <div>Konferenzräume: {conference_rooms}</div>}
+          {capacity && <div>Kapazität: {capacity} Personen</div>}
+          {rooms && <div>Konferenzräume: {rooms}</div>}
         </div>
       );
     }
