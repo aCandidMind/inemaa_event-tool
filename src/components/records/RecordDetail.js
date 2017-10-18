@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 function capitalizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1);
@@ -10,26 +9,57 @@ class RecordDetail extends Component {
 
   state = {
     data: {},
+    loading: true,
   };
 
-  componentDidMount() {
-    // Load the env object.
-    const env = runtimeEnv();
+  fetchData(props) {
     const {
       id,
       kind,
-    } = this.props.cardDetail;
-    $.getJSON(`${env.REACT_APP_API_HOST}/api/v1/${kind}s/${id}`).done((data) => {
-      this.setState({data: data[kind]})
+    } = props.cardDetail;
+    $.getJSON(`${window.apiHost}/api/v1/${kind}s/${id}`).done((data) => {
+      this.setState({data: data[kind], loading: false});
     });
+    this.setState({loading: true});
+  }
+
+  componentDidMount() {
+    this.fetchData(this.props);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.fetchData(newProps);
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <section className="category record-detail grid-x">
+          Lädt ...
+        </section>
+      );
+    }
+
     const {
       name,
       kind,
     } = this.props.cardDetail;
-    const metadata = {...this.props.cardDetail.card.metadata, ...this.state.data};
+    const metadata = this.state.data;
+    const keyFacts = [];
+    const translations = window.translations[kind];
+    const nonBooleanFields = ['capacity', 'rooms', 'area', 'main_kitchen'];
+    nonBooleanFields.forEach(field => {
+      if (metadata[field] !== '' && metadata[field]) {
+        keyFacts.push(translations[field] + metadata[field]);
+      }
+    });
+    Object.keys(metadata).forEach(key => {
+      // all fields that have a boolean true value are key facts
+      if (metadata[key] === true) {
+        const text = kind === 'catering' ? key : window.translations[kind][key];
+        keyFacts.push(text);
+      }
+    });
 
     return (
       <section className="category record-detail grid-x">
@@ -45,8 +75,8 @@ class RecordDetail extends Component {
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>
             <div>
-              {metadata.contact_person_name && <div>{metadata.contact_person_name.split(';').map(name => [name, <br />])}</div>}
-              {metadata.contact_person_phone && <div>Tel. {metadata.contact_person_phone.split(';').map(name => [name, <br />])}</div>}
+              {metadata.contact_person_name && <div>{metadata.contact_person_name.split(';').map((name,i) => [name, <br key={i} />])}</div>}
+              {metadata.contact_person_phone && <div>Tel. {metadata.contact_person_phone.split(';').map((name,i) => [name, <br key={i} />])}</div>}
             </div>
             <div>
               {metadata.contact_person_email && <div>{metadata.contact_person_email}</div>}
@@ -60,16 +90,7 @@ class RecordDetail extends Component {
               <section>
                 <h4>KEY FACTS</h4>
                 <ul className="grid-x small-up-2 key-facts">
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
-                  <li>LOREM IPSUM DOLOR</li>
+                  {keyFacts.map((fact, i) => <li key={i}>{fact}</li>)}
                 </ul>
               </section>
             </div>

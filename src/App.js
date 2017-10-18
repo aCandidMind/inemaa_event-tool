@@ -18,8 +18,40 @@ class App extends Component {
   componentDidMount() {
     // Load the env object.
     const env = runtimeEnv();
+    window.apiHost = env.REACT_APP_API_HOST;
+    window.translations = {
+      location: {
+        "accommodation": "Unterkunft vorhanden",
+        "air_conditioner": "Klimaanlage",
+        "area": "Fläche: ",
+        "rooms": "Räume: ",
+        "canvas": "Leinwand/Mulitmediawand",
+        "capacity": "Kapazität: ",
+        "central_location": "Zentral / ÖPNV-Anbindung",
+        "flexible_catering": "Flexibles Catering",
+        "heater": "Heizung",
+        "internet_access": "Internet Zugang",
+        "kitchen": "Küche vorhanden",
+        "outdoor_use": "Außenbereich",
+        "parking": "Parkplätze",
+        "projector": "Beamer/Projektor",
+        "provided_dishes": "Geschirr mietbar",
+        "provided_furniture": "Mobiliar mietbar",
+        "service_staff": "Service Personal buchbar",
+        "sound_system": "Sound System",
+        "stage": "Bühne ",
+        "truck_access": "LKW Zufahrt möglich",
+        "wifi": "WLAN",
+      },
+      catering: {
+        "main_kitchen": "Hauptküche: ",
+      },
+      accomodation: {
+        //TODO: once accomodation fields are defined, translate them here
+      }
+    };
 
-    $.getJSON(env.REACT_APP_API_HOST + '/api/v1/all').done((data) => {
+    $.getJSON(window.apiHost + '/api/v1/all').done((data) => {
       this.setState({data: data})
     });
   }

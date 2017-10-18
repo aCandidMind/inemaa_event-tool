@@ -67,10 +67,11 @@ class Record extends Component {
     } = this.props.card.metadata;
     let result = null;
     if (this.props.kind === 'location') {
+      const translations = window.translations.location;
       result = (
         <div className="cell extra-metadata">
-          {capacity && <div>Kapazität: {capacity} Personen</div>}
-          {rooms && <div>Konferenzräume: {rooms}</div>}
+          {capacity && <div>{translations.capacity} {capacity} Personen</div>}
+          {rooms && <div>{translations.rooms} {rooms}</div>}
         </div>
       );
     }
