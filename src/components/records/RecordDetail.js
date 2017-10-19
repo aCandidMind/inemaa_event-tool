@@ -41,6 +41,7 @@ class RecordDetail extends Component {
     }
 
     const {
+      id,
       name,
       kind,
     } = this.props.cardDetail;
@@ -78,7 +79,7 @@ class RecordDetail extends Component {
         <header className="cell align-top">
           <h3>{capitalizeFirstLetter(kind)} „{name}“</h3>
           <span>{metadata.rating && metadata.rating + " Sterne"}</span>
-          <button className="button clear">
+          <button className="button clear" onClick={this.props.handleCloseClick}>
             <span className="fa fa-close" />
           </button>
         </header>
@@ -121,7 +122,8 @@ class RecordDetail extends Component {
               <li><span className="fa fa-dot-circle-o" /> {metadata.distanceCenter || '?'}</li>
               <li><span className="fa fa-train" /> {metadata.distanceStation || '?'}</li>
             </ul>
-            <button className="cell shrink clear button large">
+            <button className="cell shrink clear button large"
+                    onClick={() => this.props.handleSaveClick(kind, id)}>
               <span className="fa fa-paperclip" />
               Merken
             </button>

@@ -35,7 +35,8 @@ class Header extends Component {
               </ul>
             </div>
             <div className="top-bar-right">
-              <WishListButton />
+              <WishListButton handleWishListClick={this.props.handleWishListClick}
+                              count={this.props.wishlistCount} />
             </div>
           </div>
           {/* /medium and larger nav bar */}

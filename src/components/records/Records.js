@@ -4,6 +4,10 @@ import Record from './Record';
 import RecordCarousel from './RecordCarousel';
 import RecordDetail from './RecordDetail';
 
+function getKind(props) {
+  return props.title.toLowerCase();
+}
+
 class Records extends Component {
 
   constructor(props) {
@@ -17,7 +21,7 @@ class Records extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const kind = newProps.title === 'Location' ? 'location' : 'catering';
+    const kind = getKind(newProps);
     const records = newProps.records.map(record => {
       const cardProps = {
         selected: false,
@@ -45,12 +49,13 @@ class Records extends Component {
         key={`record-${record.namespaced_id}`}
         handleDetailClick={this.handleDetailClick}
         handleCardSelected={this.handleCardSelected}
+        handleSaveClick={this.props.handleSaveClick}
         {...record}
       />
     );
     return (
       <div>
-        <div ref="category" className={`category ${this.props.title.toLowerCase()} grid-x`}>
+        <div ref="category" className={`category ${getKind(this.props)} grid-x`}>
           <h3>{this.props.title}</h3>
           <MediaQuery query="(min-width: 1224px)">
             <RecordCarousel records={records} />
@@ -62,7 +67,11 @@ class Records extends Component {
           </MediaQuery>
         </div>
         {
-          this.state.cardDetail && <RecordDetail cardDetail={this.state.cardDetail} />
+          this.state.cardDetail &&
+            <RecordDetail
+              cardDetail={this.state.cardDetail}
+              handleCloseClick={this.handleCloseClick.bind(this)}
+              handleSaveClick={this.props.handleSaveClick} />
         }
       </div>
     )
@@ -80,6 +89,22 @@ class Records extends Component {
     } else {
       throw new Error('no such card id ' + clickedId);
     }
+  }
+
+  handleSaveClick() {
+    if (this.state.cardDetail) {
+      const {
+        id,
+        kind
+      } = this.state.cardDetail;
+      this.props.handleSaveClick(kind, id);
+    } else {
+      throw new Error('no currently selected card in state');
+    }
+  }
+
+  handleCloseClick() {
+    this.setState({cardDetail: null});
   }
 
   handleCardSelected(selectedId) {

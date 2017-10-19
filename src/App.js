@@ -13,7 +13,26 @@ class App extends Component {
       locations: [],
       caterings: [],
     },
+    saved: {
+      location: [],
+      catering: [],
+      total_count: 0,
+    }
   };
+
+  handleSaveClick(kind, id) {
+    const saved = this.state.saved;
+    if (saved[kind].indexOf(id) === -1) {
+      saved[kind].push(id);
+      saved.total_count += 1;
+      this.setState({saved: saved});
+    }
+  }
+
+  handleWishListClick() {
+    alert(this.state.saved.location.join(','));
+    alert(this.state.saved.catering.join(','));
+  }
 
   componentDidMount() {
     // Load the env object.
@@ -65,9 +84,14 @@ class App extends Component {
         </div>
 
         <div id="main" className="off-canvas-content" data-off-canvas-content>
-          <Header />
-          <Records title="Location" records={this.state.data.locations} />
-          <Records title="Catering" records={this.state.data.caterings} />
+          <Header handleWishListClick={this.handleWishListClick.bind(this)}
+                  wishlistCount={this.state.saved.total_count} />
+          <Records title="Location"
+                   records={this.state.data.locations}
+                   handleSaveClick={this.handleSaveClick.bind(this)} />
+          <Records title="Catering"
+                   records={this.state.data.caterings}
+                   handleSaveClick={this.handleSaveClick.bind(this)} />
         </div>
       </div>
     );

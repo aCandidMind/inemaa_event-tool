@@ -37,11 +37,13 @@ class Record extends Component {
               </ul>
             </div>
             <div className="cell auto result-buttons grid-x align-right">
-              <button className="clear secondary button button-small cell auto">
+              <button className="clear secondary button button-small cell auto"
+                      onClick={() => this.props.handleSaveClick(this.props.kind, this.props.id)}>
                 <span className="fa fa-paperclip" />
                 Merken
               </button>
-              <button className="clear secondary button button-small cell auto" onClick={() => this.handleDetailClicked(id)}>
+              <button className="clear secondary button button-small cell auto"
+                      onClick={() => this.handleDetailClicked(id)}>
                 <span className="fa fa-info" />
                 Detail
               </button>
