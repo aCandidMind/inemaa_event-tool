@@ -54,8 +54,8 @@ class App extends Component {
   }
 
   handleWishListClick() {
-    alert(this.state.saved.location.join(','));
-    alert(this.state.saved.catering.join(','));
+    alert('locations: ' + this.state.saved.location.join(','));
+    alert('caterings: ' + this.state.saved.catering.join(','));
   }
 
   componentDidMount() {
