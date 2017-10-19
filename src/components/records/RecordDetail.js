@@ -62,6 +62,17 @@ class RecordDetail extends Component {
       }
     });
 
+    let websiteURL = metadata.website;
+    let websiteText = null;
+    if (websiteURL) {
+      const linkForParsing = document.createElement('a');
+      if (!websiteURL.match(/https?:\/\//)) {
+        websiteURL = 'http://' + websiteURL;
+      }
+      linkForParsing.href = websiteURL;
+      websiteText = websiteURL.length > 30 ? 'Deeplink zu ' + linkForParsing.hostname : linkForParsing.hostname;
+    }
+
     return (
       <section className="category record-detail grid-x">
         <header className="cell align-top">
@@ -81,7 +92,7 @@ class RecordDetail extends Component {
             </div>
             <div>
               {metadata.contact_person_email && <div>{metadata.contact_person_email}</div>}
-              {metadata.website && <a href={metadata.website}>{metadata.website}</a>}
+              {websiteURL && <a href={websiteURL}>{websiteText}</a>}
             </div>
           </div>
           <div className="grid-x record-body">
@@ -107,8 +118,8 @@ class RecordDetail extends Component {
           </div>
           <footer className="cell grid-x align-middle align-justify">
             <ul className="cell shrink distances">
-              <li><span className="fa fa-dot-circle-o" /> {metadata.distanceCenter}</li>
-              <li><span className="fa fa-train" /> {metadata.distanceStation}</li>
+              <li><span className="fa fa-dot-circle-o" /> {metadata.distanceCenter || '?'}</li>
+              <li><span className="fa fa-train" /> {metadata.distanceStation || '?'}</li>
             </ul>
             <button className="cell shrink clear button large">
               <span className="fa fa-paperclip" />
