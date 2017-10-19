@@ -82,6 +82,10 @@
     &.slide-next {
       left: 50px;
     }
+
+    &.inactive {
+      color: smart-scale(get-color(primary), $scale: 70%, $threshold: 90%);
+    }
   }
 }
 
