@@ -33,7 +33,6 @@ class Records extends Component {
       cardProps.metadata = Object.assign({}, cardProps.metadata, {...record});
       return {
         id: record.id,
-        namespaced_id: kind + record.id,
         name: record.name,
         kind: kind,
         card: cardProps,
@@ -46,7 +45,7 @@ class Records extends Component {
     // assign handler functions as props and merge the other ones
     const records = this.state.records.map((record) =>
       <Record
-        key={`record-${record.namespaced_id}`}
+        key={`record-${record.id}`}
         handleDetailClick={this.handleDetailClick}
         handleCardSelected={this.handleCardSelected}
         handleSaveClick={this.props.handleSaveClick}
@@ -80,7 +79,7 @@ class Records extends Component {
   handleDetailClick(clickedId) {
     let cardDetail = null;
     this.state.records.forEach(record => {
-      if (record.namespaced_id === clickedId) {
+      if (record.id === clickedId) {
         cardDetail = record;
       }
     });
