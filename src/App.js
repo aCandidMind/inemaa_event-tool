@@ -10,8 +10,17 @@ class App extends Component {
 
   state = {
     data: {
-      locations: [],
-      caterings: [],
+      location: [],
+      catering: [],
+    },
+    selectedId: {
+      location: null,
+      catering: null,
+    },
+    scores: {
+      // 100 because doing nothing is the most sustainable
+      location: 100,
+      catering: 100,
     },
     saved: {
       location: [],
@@ -19,6 +28,21 @@ class App extends Component {
       total_count: 0,
     }
   };
+
+  handleSelect(kind, id) {
+    // update the selectedId for the state
+    const selectedId = this.state.selectedId;
+    selectedId[kind] = id;
+
+    // and update the score for this kind
+    const scores = this.state.scores;
+    this.state.data[kind].forEach(record => {
+      if (record.id === id) {
+        scores[kind] = record.score;
+      }
+    });
+    this.setState({scores: scores, selectedId: selectedId});
+  }
 
   handleSaveClick(kind, id) {
     const saved = this.state.saved;
@@ -38,6 +62,15 @@ class App extends Component {
     // Load the env object.
     const env = runtimeEnv();
     window.apiHost = env.REACT_APP_API_HOST;
+
+    $.getJSON(window.apiHost + '/api/v1/all').done((data) => {
+      const dataState = {
+        location: data.locations,
+        catering: data.caterings,
+      };
+      this.setState({data: dataState})
+    });
+
     window.translations = {
       location: {
         "accommodation": "Unterkunft vorhanden",
@@ -69,17 +102,13 @@ class App extends Component {
         //TODO: once accomodation fields are defined, translate them here
       }
     };
-
-    $.getJSON(window.apiHost + '/api/v1/all').done((data) => {
-      this.setState({data: data})
-    });
   }
 
   render() {
     return (
       <div className="off-canvas-wrapper">
         <div className="off-canvas position-left reveal-for-medium reveal-for-large" id="filters" data-off-canvas>
-          <Score score={273} />
+          <Score scores={this.state.scores} />
           <Filters />
         </div>
 
@@ -87,10 +116,14 @@ class App extends Component {
           <Header handleWishListClick={this.handleWishListClick.bind(this)}
                   wishlistCount={this.state.saved.total_count} />
           <Records title="Location"
-                   records={this.state.data.locations}
+                   records={this.state.data.location}
+                   selectedId={this.state.selectedId.location}
+                   handleSelect={this.handleSelect.bind(this)}
                    handleSaveClick={this.handleSaveClick.bind(this)} />
           <Records title="Catering"
-                   records={this.state.data.caterings}
+                   records={this.state.data.catering}
+                   selectedId={this.state.selectedId.catering}
+                   handleSelect={this.handleSelect.bind(this)}
                    handleSaveClick={this.handleSaveClick.bind(this)} />
         </div>
       </div>

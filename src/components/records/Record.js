@@ -16,7 +16,7 @@ class Record extends Component {
       distanceStation,
       rating,
     } = this.props.card.metadata;
-    const id = this.props.namespaced_id;
+    const id = this.props.id;
 
     return (
       <div className={className} onClick={() => this.handleSelected(id)}>

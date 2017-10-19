@@ -24,7 +24,7 @@ class Records extends Component {
     const kind = getKind(newProps);
     const records = newProps.records.map(record => {
       const cardProps = {
-        selected: false,
+        selected: record.id === newProps.selectedId,
         metadata: {
           distanceCenter: 0.8,
           distanceStation: 0.1,
@@ -108,14 +108,7 @@ class Records extends Component {
   }
 
   handleCardSelected(selectedId) {
-    const records = [];
-    this.state.records.forEach(record => {
-      // deep clone record, only works with primitive data types and without recursive elements
-      const newRecord = JSON.parse(JSON.stringify(record));
-      newRecord.card.selected = record.namespaced_id === selectedId;
-      records.push(newRecord);
-    });
-    this.setState({records: records});
+    this.props.handleSelect(getKind(this.props), selectedId);
   }
 }
 

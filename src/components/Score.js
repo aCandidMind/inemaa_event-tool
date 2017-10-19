@@ -1,17 +1,31 @@
 import React, {Component} from 'react';
 
+function sum(obj) {
+  let sum = 0;
+  for (let el in obj) {
+    if (obj.hasOwnProperty(el)) {
+      sum += parseInt(obj[el]);
+    }
+  }
+  return sum;
+}
+
 class Score extends Component {
 
-  state = {
-    meterWidth: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      meterWidth: 0,
+    };
+    // assuming we are feed with the maximums
+    this.optimum = sum(this.props.scores);
+  }
 
-  optimum = 400;
 
   render() {
-    const styleInducedMeterFillOffset = 3;
-    const scorePercent = scoreToPercent(this.props.score - styleInducedMeterFillOffset, this.optimum);
-    console.log("Score#render state.score", this.props.score, 'in percent', scorePercent);
+    const scoreSum = sum(this.props.scores);
+    const scorePercent = scoreToPercent(scoreSum, this.optimum);
+    console.log("Score#render state.score", scoreSum, 'in percent', scorePercent);
     return (
       <div id="meter">
         <div className="score-text grid-x align-center align-middle">
