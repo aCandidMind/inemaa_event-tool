@@ -1,0 +1,14 @@
+{
+  "root": "build/",
+  "https_only": true,
+  "routes": {
+    "/*.html": "index.html",
+    "/ueber_uns": "index.html",
+    "/app": "index.html"
+  },
+  "headers": {
+    "/**": {
+      "Strict-Transport-Security": "max-age=7776000"
+    }
+  }
+}

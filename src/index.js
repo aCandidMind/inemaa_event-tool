@@ -1,11 +1,24 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import './index.css';
+import Home from './Home';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+
+const supportsHistory = 'pushState' in window.history;
+ReactDOM.render(
+  <Router forceRefresh={!supportsHistory}>
+    <div id="router-root">
+      <Route exact path="/" component={Home}/>
+      <Route path="/app" component={App}/>
+    </div>
+  </Router>,
+  document.getElementById('root')
+);
 registerServiceWorker();
 
 window.jQuery = $;

@@ -1,9 +1,16 @@
-import React, { Component } from 'react'
-import Logo from './Logo.js';
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import WishListButton from './WishListButton.js';
 
 class Header extends Component {
   render() {
+    const Logo = function () {
+      return (
+        <Link to="/">
+          <img alt="inemaa Logo" data-interchange={"[logo_small.png, small], [logo_medium.png, medium], [logo_large.png, large]"} />
+        </Link>
+      );
+    };
     return (
       <div id="header" className="grid-x align-justify align-middle">
         <div className="cell" >
@@ -28,10 +35,10 @@ class Header extends Component {
             </div>
             <div className="top-bar-center">
               <ul className="menu vertical medium-horizontal hide-for-small">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">MySustainEvent</a></li>
-                <li><a href="#">Über uns</a></li>
-                <li><a href="#">Hilfe</a></li>
+                <li><Link to="#">Login</Link></li>
+                <li><Link to="#">MySustainEvent</Link></li>
+                <li><Link to="#">Über uns</Link></li>
+                <li><Link to="#">Hilfe</Link></li>
               </ul>
             </div>
             <div className="top-bar-right">
