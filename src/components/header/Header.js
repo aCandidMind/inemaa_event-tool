@@ -11,6 +11,7 @@ class Header extends Component {
         </Link>
       );
     };
+    const navClassname = this.props.noWishlist ? "top-bar-right" : "top-bar-center";
     return (
       <div id="header" className="grid-x align-justify align-middle">
         <div className="cell" >
@@ -33,13 +34,10 @@ class Header extends Component {
 
           {/* medium and larger nav bar */}
           <div className="top-bar topbar-center-logo hide-for-small" id="topbar-center-logo">
-            {
-              this.props.noLogo !== true &&
-                <div className="top-bar-left">
-                  <Logo />
-                </div>
-            }
-            <div className="top-bar-center">
+            <div className="top-bar-left">
+              <Logo />
+            </div>
+            <div className={navClassname}>
               <ul className="menu vertical medium-horizontal hide-for-small">
                 <li><Link to="#">Login</Link></li>
                 <li><Link to="#">MySustainEvent</Link></li>
@@ -48,7 +46,7 @@ class Header extends Component {
               </ul>
             </div>
             {
-              this.props.handleWishListClick &&
+              this.props.handleWishListClick && this.props.noWishlist !== true &&
                 <div className="top-bar-right">
                   <WishListButton handleWishListClick={this.props.handleWishListClick}
                                 count={this.props.wishlistCount} />
