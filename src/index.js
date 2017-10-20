@@ -5,6 +5,7 @@ import $ from 'jquery';
 import './index.css';
 import Home from './Home';
 import App from './App';
+import About from './About';
 import registerServiceWorker from './registerServiceWorker';
 
 
@@ -15,6 +16,7 @@ ReactDOM.render(
     <div id="router-root">
       <Route exact path="/" component={Home}/>
       <Route path="/app" component={App}/>
+      <Route path="/ueber_uns" component={About}/>
     </div>
   </Router>,
   document.getElementById('root')
