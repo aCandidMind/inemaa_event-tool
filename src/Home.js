@@ -3,7 +3,11 @@ import {Link} from 'react-router-dom';
 
 class Home extends Component {
   render() {
-    return <Link to="/app">App</Link>;
+    return (
+      <div id="home">
+        <a href="/app">App</a>
+      </div>
+    );
   }
 }
 
