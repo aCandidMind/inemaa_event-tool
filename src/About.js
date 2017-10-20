@@ -19,14 +19,12 @@ class About extends Component {
             <div className="callout">
               <h3>Die Idee</h3>
               <p>Messen, Konzerte, Firmenfeiern bis hin zur privaten Gartenparty sind ein fester Bestandteil des Frankfurter Privat- und Geschäftsalltags. Klimafreundliche bzw. klimaneutrale Veranstaltungen jeglicher Art können einen wesentlichen Beitrag zum Masterplan 100% Klimaschutz Frankfurt am Main beitragen. Anbieter von Produkten und Dienstleistungen, mit denen Veranstaltungen klimafreundlich bzw. klimaneutral ausgerichtet werden können gibt es bereits, auch in der Region!</p>
-              <p>
-                Für Eventmanager stellen sich u.a. folgende Fragen:<br />
-                <ul>
-                  <li>Wie finde ich diese Anbieter?</li>
-                  <li>Woher weiß ich, dass sie klimafreundlich bzw. nachhaltig sind?</li>
-                  <li>Wie kann ich einfach und direkt Kontakt aufnehmen?</li>
-                </ul>
-              </p>
+              Für Eventmanager stellen sich u.a. folgende Fragen:<br />
+              <ul>
+                <li>Wie finde ich diese Anbieter?</li>
+                <li>Woher weiß ich, dass sie klimafreundlich bzw. nachhaltig sind?</li>
+                <li>Wie kann ich einfach und direkt Kontakt aufnehmen?</li>
+              </ul>
               <p>Hier setzt unsere Idee an!<br />Im Rahmen des Ideenwettbewerbs Klimaschutz entwickelten wir ein Marktplatz für nachhaltige Eventlösungen für die Metropolregion Frankfurt/Rhein-Main. Zunächst für die Kategorien “Location”, “Catering”, “Unterkunft” und “Mobilität”, später sollen weitere Kategorien (z.B. Messebau, Dekoration etc.) hinzukommen. </p>
             </div>
             <div className="callout">
@@ -49,9 +47,9 @@ class About extends Component {
             </div>
             <div className="callout">
               <h3>Unsere Partner</h3>
-              <ul>
-                <li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Förderer_1.png" alt="Social Impact Lab" style="width:188px;height:125px;" /></li>
-<li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Logo_SIL-Kopie.png" alt="Ideenwettbewerb Klimaschutz" style="width:188px;height:125px;" /></li>
+              <ul className="menu vertical">
+                <li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Förderer_1.png" alt="Social Impact Lab" style={{width:"188px", height: "125px"}} /></li>
+                <li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Logo_SIL-Kopie.png" alt="Ideenwettbewerb Klimaschutz" style={{width:"188px", height: "125px"}} /></li>
               </ul>
             </div>
             <div className="callout">
