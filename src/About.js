@@ -50,7 +50,8 @@ class About extends Component {
             <div className="callout">
               <h3>Unsere Partner</h3>
               <ul>
-                <li></li>
+                <li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Förderer_1.png" alt="Social Impact Lab" style="width:188px;height:125px;"></li>
+<li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Logo_SIL-Kopie.png" alt="Ideenwettbewerb Klimaschutz" style="width:188px;height:125px;"></li>
               </ul>
             </div>
             <div className="callout">
@@ -59,8 +60,8 @@ class About extends Component {
               +49 (0) 69 87202321⎹ info@inemaa.eu<br />
               <a href="www.inemaa.eu">www.inemaa.eu</a><br />
               <ul>
-                <li>Facebook</li>
-                <li>Twitter</li>
+                <li><a href="https://www.facebook.com/MakeSustainableEvents/?ref=br_rs">facebook</a></li>
+                <li><a href="https://twitter.com/EventSustain">Twitter</a></li>
               </ul>
             </div>
             <div className="callout">
