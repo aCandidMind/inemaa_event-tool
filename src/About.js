@@ -50,8 +50,8 @@ class About extends Component {
             <div className="callout">
               <h3>Unsere Partner</h3>
               <ul>
-                <li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Förderer_1.png" alt="Social Impact Lab" style="width:188px;height:125px;"></li>
-<li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Logo_SIL-Kopie.png" alt="Ideenwettbewerb Klimaschutz" style="width:188px;height:125px;"></li>
+                <li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Förderer_1.png" alt="Social Impact Lab" style="width:188px;height:125px;" /></li>
+<li><img src="http://inemaa.eu/wp-content/uploads/2017/04/Logo_SIL-Kopie.png" alt="Ideenwettbewerb Klimaschutz" style="width:188px;height:125px;" /></li>
               </ul>
             </div>
             <div className="callout">
