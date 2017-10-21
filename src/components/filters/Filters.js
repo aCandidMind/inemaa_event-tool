@@ -14,7 +14,7 @@ function getSelectionFilter(title, choices, idPrefix) {
   return (
     <li className="filters-tab">
       <a href="#">{title}</a>
-      <ul className="categories-menu menu vertical nested">
+      <ul className="categories-menu menu vertical nested is-active">
         {choices.map(item => {
           const id = (idPrefix + item).replace(/[^a-z0-9\-_:\.]|^[^a-z]+/gi, "");
           return (
@@ -38,16 +38,6 @@ class Filters extends Component {
         'Green Globe',
         'GCB Green Member',
         'FSC-Papier',
-      ],
-      foodImpact: [
-        'Gering',
-        'Mittel',
-        'Hoch'
-      ],
-      rating: [
-        'Gering',
-        'Mittel',
-        'Hoch'
       ],
     };
   }
@@ -103,7 +93,7 @@ class Filters extends Component {
         <li className="filters-tab">
           <a href="#">Ort</a>
           <ul className="categories-menu menu vertical nested is-active">
-            <li><input type="text" defaultValue="Frankfurt"/></li>
+            <li><input type="text" defaultValue="Frankfurt" title="Derzeit nur Frankfurt" disabled="disabled" /></li>
           </ul>
         </li>
         <li className="filters-tab">
@@ -119,25 +109,6 @@ class Filters extends Component {
           </ul>
         </li>
         {getSelectionFilter("Zertifikate", this.values.certificates, idPrefix + 'cert-')}
-        {getSelectionFilter("Food Impact", this.values.foodImpact, idPrefix + 'food-')}
-        {getSelectionFilter("Bewertung", this.values.rating, idPrefix + 'rating-')}
-        <div className="date-filter">
-          <h1 className="filters-header">DATUM</h1>
-          <ul className="vertical menu accordion-menu" data-accordion-menu>
-            <li className="filters-tab">
-              <a href="#">Beginn</a>
-              <ul className="categories-menu menu vertical nested">
-                <li><input type="date"/></li>
-              </ul>
-            </li>
-            <li className="filters-tab">
-              <a href="#">Ende</a>
-              <ul className="categories-menu menu vertical nested">
-                <li><input type="date"/></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
       </ul>
     );
   }

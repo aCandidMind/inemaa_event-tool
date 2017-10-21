@@ -14,15 +14,15 @@ class Home extends Component {
             <div className="cell grid-x">
               <label>
                 Wo?
-                <input type="text" defaultValue="Frankfurt" />
-              </label>
-              <label>
-                Wieviele?
-                <input type="text" defaultValue="10" />
+                <input type="text" defaultValue="Frankfurt" title="Derzeit nur Frankfurt" disabled="disabled"  />
               </label>
               <label>
                 Was?
                 <input type="text" defaultValue="Kongress" />
+              </label>
+              <label>
+                Wieviele?
+                <input type="text" defaultValue="10" />
               </label>
             </div>
             <button className="cell button success hollow" type="submit">
