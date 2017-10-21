@@ -74,6 +74,9 @@ class RecordDetail extends Component {
       websiteText = websiteURL.length > 30 ? 'Deeplink zu ' + linkForParsing.hostname : linkForParsing.hostname;
     }
 
+    let map = metadata.map && metadata.map.match(/src="(.+?)"/);
+    map = map && map[1];
+
     return (
       <section className="category record-detail grid-x">
         <header className="cell align-top">
@@ -113,8 +116,14 @@ class RecordDetail extends Component {
                 </ul>
               </section>
             </div>
-            <div className="cell small-4">
-              <img src="http://placehold.it/352x311" />
+            <div className="record-address cell small-4">
+              <div>
+                {metadata.address}
+              </div>
+              <div>
+                {metadata.zip} {metadata.city}
+              </div>
+              {map && <iframe src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"  />}
             </div>
           </div>
           <footer className="cell grid-x align-middle align-justify">
