@@ -9,6 +9,11 @@ export function getItemsFromSemicolonField(field, maxItems) {
   return items;
 }
 
+export function displayAsDistance(value) {
+  const output = value || 0;
+  return output + 'km';
+}
+
 export function capitalizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1);
 }

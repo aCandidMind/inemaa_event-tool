@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { getItemsFromSemicolonField } from '../../utils';
+import { getItemsFromSemicolonField, displayAsDistance } from '../../utils';
 
 class Record extends Component {
 
@@ -33,8 +33,8 @@ class Record extends Component {
           <div className="cell grid-x align-bottom">
             <div className="cell shrink">
               <ul className="distances">
-                <li><span className="fa fa-dot-circle-o" /> {distanceCenter}</li>
-                <li><span className="fa fa-train" /> {distanceStation}</li>
+                <li><span className="fa fa-dot-circle-o" /> {displayAsDistance(distanceCenter)}</li>
+                <li><span className="fa fa-train" /> {displayAsDistance(distanceStation)}</li>
               </ul>
             </div>
             <div className="cell auto result-buttons grid-x align-right">

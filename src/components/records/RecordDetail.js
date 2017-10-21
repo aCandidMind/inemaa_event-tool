@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import { getItemsFromSemicolonField, capitalizeFirstLetter } from '../../utils';
+import { getItemsFromSemicolonField, displayAsDistance, capitalizeFirstLetter } from '../../utils';
 
 class RecordDetail extends Component {
 
@@ -125,8 +125,8 @@ class RecordDetail extends Component {
           </div>
           <footer className="cell grid-x align-middle align-justify">
             <ul className="cell shrink distances">
-              <li><span className="fa fa-dot-circle-o" /> {metadata.distanceCenter || '?'}</li>
-              <li><span className="fa fa-train" /> {metadata.distanceStation || '?'}</li>
+              <li><span className="fa fa-dot-circle-o" /> {displayAsDistance(metadata.distanceCenter)}</li>
+              <li><span className="fa fa-train" /> {displayAsDistance(metadata.distanceStation)}</li>
             </ul>
             <button className="cell shrink clear button large"
                     onClick={() => this.props.handleSaveClick(kind, id)}>

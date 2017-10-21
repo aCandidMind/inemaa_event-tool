@@ -26,8 +26,8 @@ class Records extends Component {
       const cardProps = {
         selected: record.id === newProps.selectedId,
         metadata: {
-          distanceCenter: 0.8,
-          distanceStation: 0.1,
+          distanceCenter: 0.0,
+          distanceStation: 0.0,
         }
       };
       cardProps.metadata = Object.assign({}, cardProps.metadata, {...record});
