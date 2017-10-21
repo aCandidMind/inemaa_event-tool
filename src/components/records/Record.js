@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { getItemsFromSemicolonField } from '../../utils';
 
 class Record extends Component {
 
@@ -18,14 +19,14 @@ class Record extends Component {
     } = this.props.card.metadata;
     const id = this.props.id;
 
+    const tags = getItemsFromSemicolonField(this.props.card.metadata.tags, 6);
+
     return (
       <div className={className} onClick={() => this.handleSelected(id)}>
         <h3>{this.props.name}</h3>
         <div className="rating">{rating && rating + " Sterne"}</div>
         <ul className="tags menu">
-          <li>#Strommix</li>
-          <li>#JWD</li>
-          <li>#Fleisch</li>
+          {tags.map(tag => <li>#{tag}</li>)}
         </ul>
         <div className="data-and-buttons cell auto grid-x">
           {this.getExtraMetaData()}

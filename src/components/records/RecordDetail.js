@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-
-function capitalizeFirstLetter(string) {
-    return string[0].toUpperCase() + string.slice(1);
-}
+import { getItemsFromSemicolonField, capitalizeFirstLetter } from '../../utils';
 
 class RecordDetail extends Component {
 
@@ -46,7 +43,7 @@ class RecordDetail extends Component {
       kind,
     } = this.props.cardDetail;
     const metadata = this.state.data;
-    const occasions = metadata.occasions.split(';').map(o => o.trim()).filter(o => o !== '');
+    const occasions = getItemsFromSemicolonField(metadata.occasions);
     const keyFacts = [];
     const translations = window.translations[kind];
     const nonBooleanFields = ['capacity', 'rooms', 'area', 'main_kitchen'];
@@ -91,8 +88,8 @@ class RecordDetail extends Component {
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>
             <div>
-              {metadata.contact_person_name && <div>{metadata.contact_person_name.split(';').map((name,i) => [name, <br key={i} />])}</div>}
-              {metadata.contact_person_phone && <div>Tel. {metadata.contact_person_phone.split(';').map((name,i) => [name, <br key={i} />])}</div>}
+              {metadata.contact_person_name && <div>{getItemsFromSemicolonField(metadata.contact_person_name).map((name,i) => [name, <br key={i} />])}</div>}
+              {metadata.contact_person_phone && <div>Tel. {getItemsFromSemicolonField(metadata.contact_person_phone).map((name,i) => [name, <br key={i} />])}</div>}
             </div>
             <div>
               {metadata.contact_person_email && <div>{metadata.contact_person_email}</div>}
