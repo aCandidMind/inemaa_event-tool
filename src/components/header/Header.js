@@ -39,8 +39,7 @@ class Header extends Component {
             </div>
             <div className={navClassname}>
               <ul className="menu vertical medium-horizontal hide-for-small">
-                <li><Link to="#">Login</Link></li>
-                <li><Link to="#">MySustainEvent</Link></li>
+                <li><Link to="#">Anbieter werden</Link></li>
                 <li><Link to="/ueber_uns">Über uns</Link></li>
                 <li><Link to="#">Hilfe</Link></li>
               </ul>
