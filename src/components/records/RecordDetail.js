@@ -84,7 +84,7 @@ class RecordDetail extends Component {
           </button>
         </header>
         <article className="grid-x">
-          <img className="cell small-8 record-image" src="http://placehold.it/600x288" />
+          <img className="cell small-8 record-image" alt="Bild des Angebots" src="http://placehold.it/600x288" />
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>
             <div>
@@ -120,7 +120,7 @@ class RecordDetail extends Component {
               <div>
                 {metadata.zip} {metadata.city}
               </div>
-              {map && <iframe src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"  />}
+              {map && <iframe src={map} title="Karte die Adresse anzeigt" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"  />}
             </div>
           </div>
           <footer className="cell grid-x align-middle align-justify">

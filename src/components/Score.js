@@ -4,7 +4,7 @@ function sum(obj) {
   let sum = 0;
   for (let el in obj) {
     if (obj.hasOwnProperty(el)) {
-      sum += parseInt(obj[el]);
+      sum += parseInt(obj[el], 10);
     }
   }
   return sum;

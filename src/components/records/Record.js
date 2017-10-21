@@ -26,7 +26,7 @@ class Record extends Component {
         <h3>{this.props.name}</h3>
         <div className="rating">{rating && rating + " Sterne"}</div>
         <ul className="tags menu">
-          {tags.map(tag => <li>#{tag}</li>)}
+          {tags.map((tag,i) => <li key={i}>#{tag}</li>)}
         </ul>
         <div className="data-and-buttons cell auto grid-x">
           {this.getExtraMetaData()}
