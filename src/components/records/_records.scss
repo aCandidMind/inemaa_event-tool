@@ -142,7 +142,16 @@ ul.distances {
     }
 
     .record-image {
-      max-height: 288px;
+      @include xy-gutters(
+        $gutters: 50,
+        $gutter-type: padding,
+        $gutter-position: right
+      );
+
+      img {
+        max-width: 798px;
+        max-height: 400px;
+      }
     }
 
     .record-contact {
