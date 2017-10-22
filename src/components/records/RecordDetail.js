@@ -53,8 +53,15 @@ class RecordDetail extends Component {
     const translations = window.translations[kind];
     const nonBooleanFields = ['capacity', 'rooms', 'area', 'main_kitchen'];
     nonBooleanFields.forEach(field => {
-      if (metadata[field] !== '' && metadata[field]) {
-        keyFacts.push(translations[field] + metadata[field]);
+      if (metadata[field]) {
+        if (field === 'main_kitchen') {
+          const items = getItemsFromSemicolonField(metadata[field]);
+          items.forEach(item => {
+            keyFacts.push(item);
+          });
+        } else {
+          keyFacts.push(translations[field] + metadata[field]);
+        }
       }
     });
     Object.keys(metadata).forEach(key => {
