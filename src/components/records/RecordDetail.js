@@ -44,7 +44,7 @@ class RecordDetail extends Component {
       kind,
     } = this.props.cardDetail;
     const metadata = this.state.data;
-    const pictures = (metadata.pictures || []).split(';').map(p => p.trim());
+    const pictures = (metadata.pictures || '').split(';').map(p => p.trim());
     if (pictures.length === 0) {
       pictures.push("http://placehold.it/400x288?text=Platzhalterbild");
     }
