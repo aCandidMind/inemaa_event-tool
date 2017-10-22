@@ -155,9 +155,13 @@ ul.distances {
 
     .record-contact {
       font-family: "Roboto-ff medium";
-      font-size: 21px;
+      font-size: 18px;
       line-height: 1.4;
       padding: 2.5rem 2.5rem 0;
+
+      a {
+        font-size: 18px;
+      }
 
       & > div {
         margin-bottom: 20px;
