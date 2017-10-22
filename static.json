@@ -1,6 +1,5 @@
 {
   "root": "build/",
-  "https_only": true,
   "routes": {
     "/*.html": "index.html",
     "/ueber_uns": "index.html",
