@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { debounce } from 'throttle-debounce';
 
 function getFilterHeader() {
   return (
@@ -42,14 +43,18 @@ class Filters extends Component {
       ],
     };
     this.onChange = this.onChange.bind(this);
+    this.callChangeHandler = debounce(500, this.callChangeHandler);
   }
 
-  onChange(e) {
-    const form = $(e.target).parents('form');
+  onChange(event) {
+    const form = $(event.target).parents('form');
+    this.callChangeHandler(form);
+  }
+
+  callChangeHandler(form) {
     const filters = form.serialize();
     this.props.changeHandler(filters);
   }
-
 
   componentDidMount() {
     //More (Expand) or Less (Collapse)
