@@ -8,26 +8,33 @@ import Records from './components/records/Records';
 
 class App extends Component {
 
-  state = {
-    data: {
-      location: [],
-      catering: [],
-    },
-    selectedId: {
-      location: null,
-      catering: null,
-    },
-    scores: {
-      // 100 because doing nothing is the most sustainable
-      location: 100,
-      catering: 100,
-    },
-    saved: {
-      location: [],
-      catering: [],
-      total_count: 0,
-    }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {
+        location: [],
+        catering: [],
+      },
+      selectedId: {
+        location: null,
+        catering: null,
+      },
+      scores: {
+        // 100 because doing nothing is the most sustainable
+        location: 100,
+        catering: 100,
+      },
+      saved: {
+        location: [],
+        catering: [],
+        total_count: 0,
+      }
+    };
+    this.loadData = this.loadData.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+    this.handleSaveClick = this.handleSaveClick.bind(this);
+    this.handleWishListClick = this.handleWishListClick.bind(this);
+  }
 
   handleSelect(kind, id) {
     // update the selectedId for the state
@@ -58,18 +65,22 @@ class App extends Component {
     alert('caterings: ' + this.state.saved.catering.join(','));
   }
 
-  componentDidMount() {
-    // Load the env object.
-    const env = runtimeEnv();
-    window.apiHost = env.REACT_APP_API_HOST;
-
-    $.getJSON(window.apiHost + '/api/v1/all').done((data) => {
+  loadData(filters = {}) {
+    $.getJSON(window.apiHost + '/api/v1/all', filters).done((data) => {
       const dataState = {
         location: data.locations,
         catering: data.caterings,
       };
       this.setState({data: dataState})
     });
+  }
+
+  componentDidMount() {
+    // Load the env object.
+    const env = runtimeEnv();
+    window.apiHost = env.REACT_APP_API_HOST;
+
+    this.loadData();
 
     window.translations = {
       location: {
@@ -109,22 +120,22 @@ class App extends Component {
       <div className="off-canvas-wrapper">
         <div className="off-canvas position-left reveal-for-medium reveal-for-large" id="filters" data-off-canvas>
           <Score scores={this.state.scores} />
-          <Filters />
+          <Filters changeHandler={this.loadData} />
         </div>
 
         <div id="main" className="off-canvas-content" data-off-canvas-content>
-          <Header handleWishListClick={this.handleWishListClick.bind(this)}
+          <Header handleWishListClick={this.handleWishListClick}
                   wishlistCount={this.state.saved.total_count} />
           <Records title="Location"
                    records={this.state.data.location}
                    selectedId={this.state.selectedId.location}
-                   handleSelect={this.handleSelect.bind(this)}
-                   handleSaveClick={this.handleSaveClick.bind(this)} />
+                   handleSelect={this.handleSelect}
+                   handleSaveClick={this.handleSaveClick} />
           <Records title="Catering"
                    records={this.state.data.catering}
                    selectedId={this.state.selectedId.catering}
-                   handleSelect={this.handleSelect.bind(this)}
-                   handleSaveClick={this.handleSaveClick.bind(this)} />
+                   handleSelect={this.handleSelect}
+                   handleSaveClick={this.handleSaveClick} />
         </div>
       </div>
     );

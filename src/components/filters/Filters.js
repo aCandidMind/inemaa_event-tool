@@ -10,16 +10,17 @@ function getFilterHeader() {
   );
 }
 
-function getSelectionFilter(title, choices, idPrefix) {
+function getSelectionFilter(title, choices, className, idPrefix) {
+  const classNames = className + " category-clear-selection";
   return (
     <li className="filters-tab">
       <a href="#">{title}</a>
       <ul className="categories-menu menu vertical nested is-active">
         {choices.map(item => {
-          const id = (idPrefix + item).replace(/[^a-z0-9\-_:\.]|^[^a-z]+/gi, "");
+          const id = (idPrefix + className + item).replace(/[^a-z0-9\-_:.]|^[^a-z]+/gi, "");
           return (
             <li key={id}>
-              <input className="category-clear-selection" id={id} type="checkbox"/><label htmlFor={id}>{item}</label>
+              <input value={item} name="sust_labels[]" className={classNames} id={id} type="checkbox"/><label htmlFor={id}>{item}</label>
             </li>
           );
         })}
@@ -40,6 +41,13 @@ class Filters extends Component {
         'FSC-Papier',
       ],
     };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(e) {
+    const form = $(e.target).parents('form');
+    const filters = form.serialize();
+    this.props.changeHandler(filters);
   }
 
 
@@ -66,7 +74,7 @@ class Filters extends Component {
   render() {
     return (
       <div className="filters grid-x align-center">
-        <form className="mobile-form small-10 show-for-small-only">
+        <form className="mobile-form small-10 show-for-small-only" onChange={this.onChange}>
           <ul className="mobile-filters vertical menu accordion-menu" data-accordion-menu>
             <li>
               {getFilterHeader()}
@@ -75,7 +83,7 @@ class Filters extends Component {
           </ul>
         </form>
 
-        <form className="desktop-form small-10 hide-for-small-only">
+        <form className="desktop-form small-10 hide-for-small-only" onChange={this.onChange}>
           {getFilterHeader()}
           {this.getFilterList({})}
         </form>
@@ -99,16 +107,16 @@ class Filters extends Component {
         <li className="filters-tab">
           <a href="#">Anlass</a>
           <ul className="categories-menu menu vertical nested is-active">
-            <li><input type="text" defaultValue="Kongress"/></li>
+            <li><input name="occasion" type="text" defaultValue="Kongress"/></li>
           </ul>
         </li>
         <li className="filters-tab">
           <a href="#">Personen</a>
           <ul className="categories-menu menu vertical nested is-active">
-            <li><input type="number" defaultValue="10"/></li>
+            <li><input name="persons" type="number" defaultValue="10"/></li>
           </ul>
         </li>
-        {getSelectionFilter("Zertifikate", this.values.certificates, idPrefix + 'cert-')}
+        {getSelectionFilter("Zertifikate", this.values.certificates, 'cert', idPrefix)}
       </ul>
     );
   }
