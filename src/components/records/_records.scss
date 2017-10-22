@@ -142,6 +142,7 @@ ul.distances {
     }
 
     .record-image {
+      max-width: 798px;
       @include xy-gutters(
         $gutters: 50,
         $gutter-type: padding,
@@ -149,7 +150,7 @@ ul.distances {
       );
 
       img {
-        max-width: 798px;
+        width: 798px;
         max-height: 400px;
       }
     }

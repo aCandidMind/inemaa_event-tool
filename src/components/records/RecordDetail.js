@@ -43,7 +43,10 @@ class RecordDetail extends Component {
       kind,
     } = this.props.cardDetail;
     const metadata = this.state.data;
-    const picture = metadata.pictures && metadata.pictures.split(';')[0].trim();
+    const pictures = (metadata.pictures || []) && metadata.pictures.split(';').map(p => p.trim());
+    if (pictures.length == 0) {
+      pictures.push("http://placehold.it/400x288?text=Platzhalterbild");
+    }
     const occasions = getItemsFromSemicolonField(metadata.occasions);
     const keyFacts = [];
     const translations = window.translations[kind];
@@ -86,7 +89,7 @@ class RecordDetail extends Component {
         </header>
         <article className="grid-x">
           <div className="cell small-8 record-image">
-            <img alt="Bild des Angebots" src={picture || "http://placehold.it/798x288?text=Platzhalterbild"} />
+            {pictures.map((pic, i) => <img alt="Bild des Angebots" src={pic} />)}
           </div>
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>
