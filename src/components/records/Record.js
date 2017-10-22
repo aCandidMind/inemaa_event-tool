@@ -19,7 +19,7 @@ class Record extends Component {
     } = this.props.card.metadata;
     const id = this.props.id;
 
-    const tags = getItemsFromSemicolonField(this.props.card.metadata.tags, 6);
+    const tags = getItemsFromSemicolonField(this.props.card.metadata.tags, 3);
 
     return (
       <div className={className} onClick={() => this.handleSelected(id)}>
@@ -64,17 +64,26 @@ class Record extends Component {
   }
 
   getExtraMetaData() {
-    const {
-      capacity,
-      rooms,
-    } = this.props.card.metadata;
     let result = null;
     if (this.props.kind === 'location') {
+      const {
+        capacity,
+        rooms,
+      } = this.props.card.metadata;
       const translations = window.translations.location;
       result = (
         <div className="cell extra-metadata">
           {capacity && <div>{translations.capacity} {capacity} Personen</div>}
           {rooms && <div>{translations.rooms} {rooms}</div>}
+        </div>
+      );
+    } else if (this.props.kind === 'catering') {
+      const {
+        short_description,
+      } = this.props.card.metadata;
+      result = (
+        <div className="cell extra-metadata">
+          {short_description && <div>{short_description}</div>}
         </div>
       );
     }
