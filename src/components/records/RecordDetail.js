@@ -72,7 +72,7 @@ class RecordDetail extends Component {
         websiteURL = 'http://' + websiteURL;
       }
       linkForParsing.href = websiteURL;
-      websiteText = websiteURL.length > 30 ? 'Deeplink zu ' + linkForParsing.hostname : linkForParsing.hostname;
+      websiteText = 'Direktlink ' + linkForParsing.hostname;
     }
 
     let map = metadata.map && metadata.map.match(/src="(.+?)"/);
