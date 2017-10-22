@@ -51,10 +51,10 @@ class RecordDetail extends Component {
     const occasions = getItemsFromSemicolonField(metadata.occasions);
     const keyFacts = [];
     const translations = window.translations[kind];
-    const nonBooleanFields = ['capacity', 'rooms', 'area', 'main_kitchen'];
+    const nonBooleanFields = ['capacity', 'rooms', 'area', 'main_kitchen', 'service_range'];
     nonBooleanFields.forEach(field => {
       if (metadata[field]) {
-        if (field === 'main_kitchen') {
+        if (field === 'main_kitchen' || field === 'service_range') {
           const items = getItemsFromSemicolonField(metadata[field]);
           items.forEach(item => {
             keyFacts.push(item);
