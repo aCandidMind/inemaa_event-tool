@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Carousel from 'nuka-carousel';
 import $ from 'jquery';
 import { getItemsFromSemicolonField, displayAsDistance, capitalizeFirstLetter } from '../../utils';
 
@@ -43,8 +44,8 @@ class RecordDetail extends Component {
       kind,
     } = this.props.cardDetail;
     const metadata = this.state.data;
-    const pictures = (metadata.pictures || []) && metadata.pictures.split(';').map(p => p.trim());
-    if (pictures.length == 0) {
+    const pictures = (metadata.pictures || []).split(';').map(p => p.trim());
+    if (pictures.length === 0) {
       pictures.push("http://placehold.it/400x288?text=Platzhalterbild");
     }
     const occasions = getItemsFromSemicolonField(metadata.occasions);
@@ -89,7 +90,11 @@ class RecordDetail extends Component {
         </header>
         <article className="grid-x">
           <div className="cell small-8 record-image">
-            {pictures.map((pic, i) => <img alt="Bild des Angebots" src={pic} />)}
+            <Carousel
+              initialSlideHeight={288}
+            >
+              {pictures.map((pic, i) => <img key={i} alt="Bild des Angebots" src={pic} />)}
+            </Carousel>
           </div>
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>

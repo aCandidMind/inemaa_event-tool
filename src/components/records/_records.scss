@@ -149,9 +149,13 @@ ul.distances {
         $gutter-position: right
       );
 
-      img {
-        width: 798px;
-        max-height: 400px;
+      .slider, .slider-frame {
+        height: 400px !important;
+        margin: 0;
+
+        img {
+          object-fit: cover;
+        }
       }
     }
 
