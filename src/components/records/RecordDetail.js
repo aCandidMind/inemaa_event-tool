@@ -44,9 +44,18 @@ class RecordDetail extends Component {
       kind,
     } = this.props.cardDetail;
     const metadata = this.state.data;
-    const pictures = (metadata.pictures || '').split(';').map(p => p.trim());
-    if (pictures.length === 0) {
-      pictures.push("http://placehold.it/400x288?text=Platzhalterbild");
+    let pictures = getItemsFromSemicolonField(metadata.pictures);
+    if (pictures.length < 2) {
+      if (pictures.length === 1) {
+        pictures = <img alt="Bild des Angebots" src={pictures[0]} />;
+      } else {
+        pictures = <img alt="Bild des Angebots" src={"http://placehold.it/798x288?text=Platzhalterbild"} />;
+      }
+    } else {
+      pictures =
+        <Carousel>
+          {pictures.map((pic, i) => <img key={i} alt="Bild des Angebots" src={pic} />)}
+        </Carousel>;
     }
     const occasions = getItemsFromSemicolonField(metadata.occasions);
     const keyFacts = [];
@@ -97,11 +106,7 @@ class RecordDetail extends Component {
         </header>
         <article className="grid-x">
           <div className="cell small-8 record-image">
-            <Carousel
-              initialSlideHeight={288}
-            >
-              {pictures.map((pic, i) => <img key={i} alt="Bild des Angebots" src={pic} />)}
-            </Carousel>
+            {pictures}
           </div>
           <div className="cell small-4 record-contact">
             <h4>KONTAKT</h4>

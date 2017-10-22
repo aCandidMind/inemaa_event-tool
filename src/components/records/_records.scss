@@ -143,14 +143,8 @@ ul.distances {
 
     .record-image {
       max-width: 798px;
-      @include xy-gutters(
-        $gutters: 50,
-        $gutter-type: padding,
-        $gutter-position: right
-      );
-
       .slider, .slider-frame {
-        height: 400px !important;
+        height: 100% !important;
         margin: 0;
 
         img {
