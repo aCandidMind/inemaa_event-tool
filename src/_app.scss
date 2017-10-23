@@ -16,6 +16,70 @@
 @font-face { font-family: 'Roboto-ff bold';
              src: url('./fonts/Roboto-Bold_0.ttf') format('truetype'); }
 
+html, body, #root, #router-root, #home {
+  height: 100%;
+  background-color: #F2F2F2;
+}
+
+#home {
+  font-family: "Roboto-ff", "Roboto", sans-serif;
+  color: $black;
+
+  h1 {
+    font-family: "Roboto-ff bold", "Roboto", sans-serif;
+    color: $black;
+    margin-bottom: 4rem;
+
+    em {
+      color: get-color(success);
+      font-style: normal;
+    }
+  }
+
+  form > div {
+    width: 80rem;
+    margin: 0.75rem;
+
+    label {
+      padding-left: 2rem;
+      margin-bottom: 0.5rem;
+      font-size: 21px;
+    }
+
+    input {
+      padding: 1rem 2rem;
+      height: auto;
+      border: none;
+
+      &:disabled {
+        background-color: $white;
+      }
+    }
+
+    button {
+      margin-top: 4rem;
+      font-family: "Roboto-ff bold", "Roboto", sans-serif;
+      font-size: 18px;
+      padding: 2rem;
+      border: 5px solid black;
+    }
+  }
+
+  .entities {
+    margin-top: 4rem;
+
+    .logo {
+      transform: scale(2, 2);
+      transform-origin: 0px 0px;
+      margin-bottom: 6rem;
+    }
+
+    img {
+      max-width: 385px;
+    }
+  }
+}
+
 #main {
   max-width: 1680px;
   font-family: "Roboto-ff medium", "Roboto", sans-serif;
