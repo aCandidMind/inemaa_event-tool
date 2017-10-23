@@ -82,14 +82,14 @@ class RecordDetail extends Component {
     });
 
     let websiteURL = metadata.website;
-    let websiteText = null;
+    let websiteText = '';
     if (websiteURL) {
       const linkForParsing = document.createElement('a');
       if (!websiteURL.match(/https?:\/\//)) {
         websiteURL = 'http://' + websiteURL;
       }
       linkForParsing.href = websiteURL;
-      websiteText = 'Direktlink ' + linkForParsing.hostname;
+      websiteText = linkForParsing.hostname;
     }
 
     let map = metadata.map && metadata.map.match(/src="(.+?)"/);
@@ -116,7 +116,7 @@ class RecordDetail extends Component {
             </div>
             <div>
               {metadata.contact_person_email && <div>{metadata.contact_person_email}</div>}
-              {websiteURL && <a href={websiteURL}>{websiteText}</a>}
+              {websiteURL && <a href={websiteURL} title={"Direktlink zu externem Angebot von " + websiteText} target="_blank" rel="noopener noreferrer">{websiteText}</a>}
             </div>
           </div>
           <div className="grid-x record-body">
