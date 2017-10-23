@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 import WishListButton from './WishListButton.js';
+import logoSmall from '../../images/logo_small.png';
+import logoMedium from '../../images/logo_medium.png';
+import logoLarge from '../../images/logo_large.png';
 
 class Header extends Component {
   render() {
     const Logo = function () {
       return (
         <Link to="/">
-          <img alt="inemaa Logo" data-interchange={"[logo_small.png, small], [logo_medium.png, medium], [logo_large.png, large]"} />
+          <MediaQuery query="(max-width: 640px)">
+            <img alt="inemaa Logo" src={logoSmall} />
+          </MediaQuery>
+          <MediaQuery query="(max-width: 1024px)">
+            <img alt="inemaa Logo" src={logoMedium} />
+          </MediaQuery>
+          <MediaQuery query="(min-width: 1025px)">
+            <img alt="inemaa Logo" src={logoLarge} />
+          </MediaQuery>
         </Link>
       );
     };
