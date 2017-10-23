@@ -18,6 +18,7 @@
     font-family: "Roboto-ff medium", "Roboto", sans-serif;
     font-size: 21px;
     color: #1A1A1A;
+    margin-bottom: 0;
   }
 
   &.selected {
@@ -48,9 +49,9 @@
 
   .extra-metadata {
     font-family: "Roboto-ff bold", "Roboto-ff", "Roboto", sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
-    margin-top: 2.2rem;
+    margin-top: 1rem;
   }
 
   .result-buttons {
@@ -90,7 +91,7 @@
 }
 
 ul.distances {
-  font-size: 1rem;
+  font-size: rem-calc(14);
   margin: 0;
 
   li {
