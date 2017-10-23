@@ -3,6 +3,7 @@ import MediaQuery from 'react-responsive';
 import Record from './Record';
 import RecordCarousel from './RecordCarousel';
 import RecordDetail from './RecordDetail';
+import { withoutItem } from '../../utils';
 
 function getKind(props) {
   return props.title.toLowerCase();
@@ -13,18 +14,21 @@ class Records extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardDetail: null,
       records: [],
+      cardDetail: null,
+      selectedId: null,
+      savedRecords: [],
     };
     this.handleDetailClick = this.handleDetailClick.bind(this);
     this.handleCardSelected = this.handleCardSelected.bind(this);
+    this.handleSaveClick = this.handleSaveClick.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
+    // on data updates
     const kind = getKind(newProps);
     const records = newProps.records.map(record => {
       const cardProps = {
-        selected: record.id === newProps.selectedId,
         metadata: {
           distanceCenter: 0.0,
           distanceStation: 0.0,
@@ -48,7 +52,10 @@ class Records extends Component {
         key={`record-${record.id}`}
         handleDetailClick={this.handleDetailClick}
         handleCardSelected={this.handleCardSelected}
-        handleSaveClick={this.props.handleSaveClick}
+        handleSaveClick={this.handleSaveClick}
+        opened={this.state.cardDetail && record.id === this.state.cardDetail.id}
+        selected={record.id === this.state.selectedId}
+        saved={this.state.savedRecords.indexOf(record.id) !== -1}
         {...record}
       />
     );
@@ -70,7 +77,7 @@ class Records extends Component {
             <RecordDetail
               cardDetail={this.state.cardDetail}
               handleCloseClick={this.handleCloseClick.bind(this)}
-              handleSaveClick={this.props.handleSaveClick} />
+              handleSaveClick={this.handleSaveClick} />
         }
       </div>
     )
@@ -90,16 +97,20 @@ class Records extends Component {
     }
   }
 
-  handleSaveClick() {
-    if (this.state.cardDetail) {
-      const {
-        id,
-        kind
-      } = this.state.cardDetail;
-      this.props.handleSaveClick(kind, id);
+  handleSaveClick(id) {
+    let savedRecords = this.state.savedRecords;
+    const index = savedRecords.indexOf(id);
+    let increment = null;
+    if (index > -1) {
+      savedRecords = withoutItem(savedRecords, index);
+      increment = -1;
     } else {
-      throw new Error('no currently selected card in state');
+      savedRecords.push(id);
+      increment = 1;
     }
+
+    this.setState({savedRecords: savedRecords});
+    this.props.handleSaveClick(increment);
   }
 
   handleCloseClick() {
@@ -107,6 +118,7 @@ class Records extends Component {
   }
 
   handleCardSelected(selectedId) {
+    this.setState({selectedId: selectedId});
     this.props.handleSelect(getKind(this.props), selectedId);
   }
 }

@@ -21,7 +21,6 @@ class Logo extends Component {
       );
     };
     const logoProps = {alt: "inemaa Logo", style: this.props.style};
-    console.log("logoProps", logoProps);
 
     // return explicit size
     if (this.props.size) {

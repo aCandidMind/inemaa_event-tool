@@ -60,7 +60,7 @@
       text-transform: uppercase;
       color: inherit;
 
-      &:hover {
+      &:hover, &.active {
         color: get-color(secondary);
       }
     }
@@ -97,11 +97,6 @@ ul.distances {
     float: left;
     list-style: none;
     margin-right: 12px;
-  }
-
-  /* .fa is for font-awesome icons */
-  .fa {
-    margin-right: 4px;
   }
 }
 

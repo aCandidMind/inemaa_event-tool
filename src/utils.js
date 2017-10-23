@@ -9,6 +9,10 @@ export function getItemsFromSemicolonField(field, maxItems) {
   return items;
 }
 
+export function withoutItem(list, index) {
+  return list.filter((item, i) => i !== index);
+}
+
 export function displayAsDistance(value) {
   const output = value || 0;
   return output + 'km';

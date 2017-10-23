@@ -25,8 +25,6 @@ class App extends Component {
         catering: 100,
       },
       saved: {
-        location: [],
-        catering: [],
         total_count: 0,
       }
     };
@@ -51,18 +49,15 @@ class App extends Component {
     this.setState({scores: scores, selectedId: selectedId});
   }
 
-  handleSaveClick(kind, id) {
+  handleSaveClick(increment) {
     const saved = this.state.saved;
-    if (saved[kind].indexOf(id) === -1) {
-      saved[kind].push(id);
-      saved.total_count += 1;
-      this.setState({saved: saved});
-    }
+    saved.total_count = saved.total_count + increment;
+    this.setState({saved: saved});
   }
 
   handleWishListClick() {
-    alert('locations: ' + this.state.saved.location.join(','));
-    alert('caterings: ' + this.state.saved.catering.join(','));
+    alert('locations: ' + this.refs.location.state.savedRecords.join(','));
+    alert('caterings: ' + this.refs.catering.state.savedRecords.join(','));
   }
 
   loadData(filters = {}) {
@@ -126,14 +121,12 @@ class App extends Component {
         <div id="main" className="off-canvas-content" data-off-canvas-content>
           <Header handleWishListClick={this.handleWishListClick}
                   wishlistCount={this.state.saved.total_count} />
-          <Records title="Location"
+          <Records title="Location" ref="location"
                    records={this.state.data.location}
-                   selectedId={this.state.selectedId.location}
                    handleSelect={this.handleSelect}
                    handleSaveClick={this.handleSaveClick} />
-          <Records title="Catering"
+          <Records title="Catering" ref="catering"
                    records={this.state.data.catering}
-                   selectedId={this.state.selectedId.catering}
                    handleSelect={this.handleSelect}
                    handleSaveClick={this.handleSaveClick} />
         </div>

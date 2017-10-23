@@ -10,19 +10,25 @@ class Record extends Component {
   }
 
   render() {
-    const className = "cell card-cell grid-y" + (this.props.card.selected ? ' selected' : '');
-
+    const {
+      id,
+      selected,
+      opened,
+      saved,
+    } = this.props;
     const {
       distanceCenter,
       distanceStation,
       rating,
     } = this.props.card.metadata;
-    const id = this.props.id;
+    const containerClassName = "cell card-cell grid-y" + (selected ? ' selected' : '');
+    const saveBtnClassName = "clear secondary button button-small cell auto" + (saved ? ' active' : '');
+    const detailBtnClassName = "clear secondary button button-small cell auto" + (opened ? ' active' : '');
 
     const tags = getItemsFromSemicolonField(this.props.card.metadata.tags, 3);
 
     return (
-      <div className={className} onClick={() => this.handleSelected(id)}>
+      <div className={containerClassName} onClick={() => this.handleSelected(id)}>
         <h3>{this.props.name}</h3>
         <div className="rating">{rating && rating + " Sterne"}</div>
         <ul className="tags menu">
@@ -38,12 +44,12 @@ class Record extends Component {
               </ul>
             </div>
             <div className="cell auto result-buttons grid-x align-right">
-              <button className="clear secondary button button-small cell auto"
-                      onClick={() => this.props.handleSaveClick(this.props.kind, this.props.id)}>
+              <button className={saveBtnClassName}
+                      onClick={() => this.props.handleSaveClick(id)}>
                 <span className="fa fa-paperclip" />
-                Merken
+                {saved ?  'Gemerkt' : 'Merken'}
               </button>
-              <button className="clear secondary button button-small cell auto"
+              <button className={detailBtnClassName}
                       onClick={() => this.handleDetailClicked(id)}>
                 <span className="fa fa-info" />
                 Detail
