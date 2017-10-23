@@ -129,12 +129,16 @@ ul.distances {
 
     h3, h4, a {
       font-family: "Roboto-ff medium", "Roboto-ff", sans-serif;
-      font-size: 21px;
+      font-size: rem-calc(21);
       color: $black;
     }
 
     h4 {
       font-size: 16px;
+    }
+
+    a {
+      font-size: rem-calc(16);
     }
 
     .record-image {
@@ -151,13 +155,9 @@ ul.distances {
 
     .record-contact {
       font-family: "Roboto-ff medium";
-      font-size: 18px;
+      font-size: rem-calc(16);
       line-height: 1.4;
       padding: 2.5rem 2.5rem 0;
-
-      a {
-        font-size: 18px;
-      }
 
       & > div {
         margin-bottom: 20px;
@@ -167,7 +167,7 @@ ul.distances {
     .record-body {
       color: #808080;
       background-color: #E6E6E6;
-      font-size: 21px;
+      font-size: rem-calc(18);
 
       .cell {
         @include xy-gutters(
@@ -183,7 +183,7 @@ ul.distances {
 
       ul {
         font-family: "Roboto-ff bold", "Roboto-ff";
-        font-size: 16px;
+        font-size: rem-calc(14);
         text-transform: uppercase;
       }
 
