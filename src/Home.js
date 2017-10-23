@@ -35,7 +35,7 @@ class Home extends Component {
           <div className="entities grid-y align-center">
             <div className="cell small-7">
               <div>Ein Suchportal von</div>
-              <Logo size="large" style={{padding: '0.5rem 0.7rem 0'}} />
+              <Logo size="large" style={{padding: '0.5rem 0 0'}} />
             </div>
             <div className="cell small-7">
               <div>Gefördet von</div>
